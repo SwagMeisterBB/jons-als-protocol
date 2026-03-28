@@ -328,9 +328,10 @@
                 <p class="text-lg mb-8" style="color: rgba(255,255,255,0.7);">
                     Free PDF guide - the 5 supplements Jon considers most important for ALS, with brands and doses. No spam, ever.
                 </p>
-                <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#" method="POST">
+                <form id="leadForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="return handleLeadForm(event)">
                     <input
                         type="email"
+                        id="leadEmail"
                         placeholder="Your email address"
                         required
                         class="flex-1 px-5 py-3.5 rounded-lg text-lg border-0"
@@ -339,7 +340,8 @@
                     >
                     <button type="submit" class="btn-red !rounded-lg whitespace-nowrap">Send the Guide</button>
                 </form>
-                <p class="text-xs mt-4" style="color: rgba(255,255,255,0.5);">We respect your privacy. Unsubscribe anytime.</p>
+                <p id="leadSuccess" class="hidden text-sm mt-4 font-bold" style="color: #FFFFFF;">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
+                <p id="leadNote" class="text-xs mt-4" style="color: rgba(255,255,255,0.5);">We respect your privacy. Unsubscribe anytime.</p>
             </div>
         </section>
 
@@ -513,6 +515,18 @@
         function adjustFont(dir) {
             currentSize = Math.max(0, Math.min(fontSizes.length - 1, currentSize + dir));
             document.body.style.fontSize = fontSizes[currentSize] + 'px';
+        }
+
+        // Lead magnet form — show success message (no backend yet)
+        function handleLeadForm(e) {
+            e.preventDefault();
+            var email = document.getElementById('leadEmail').value;
+            if (email) {
+                document.getElementById('leadForm').style.display = 'none';
+                document.getElementById('leadSuccess').classList.remove('hidden');
+                document.getElementById('leadNote').style.display = 'none';
+            }
+            return false;
         }
     </script>
 </body>
