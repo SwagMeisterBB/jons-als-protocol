@@ -153,168 +153,88 @@
     <main id="main">
 
         <!-- ═══════════════════════════════════════════════
-             1. HERO — Jon's face + headline + dual CTA
+             1. HERO — Editorial layout, first-person voice
              ═══════════════════════════════════════════════ -->
-        <section class="py-20 sm:py-32 fade-in" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full mx-auto mb-8 overflow-hidden" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2);">
-                    <img src="images/jon-edy.jpg" alt="Jon Edy smiling, 6+ year ALS survivor" class="w-full h-full object-cover object-top" width="320" height="320">
-                </div>
-
-                <h1 class="font-display text-navy-900 mb-6" style="font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.15; font-weight: 800;">
-                    6+ Years with ALS.<br>
-                    <span class="text-als-red-500">Still Walking.</span>
-                </h1>
-
-                <p class="text-xl sm:text-2xl max-w-2xl mx-auto mb-10" style="color: #4A4A4A; font-weight: 300; line-height: 1.6;">
-                    Jon Edy shares his exact supplement protocol, mindset framework, and daily routine - so other ALS patients can see what's worked for him.
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                    <a href="protocol.html" class="btn-red">See Jon's Full Protocol</a>
-                    <a href="about.html" class="btn-navy">Read Jon's Story</a>
-                </div>
-
-                <!-- Video teaser — uncomment when Jon's video is ready
-                <a href="#" class="inline-flex items-center gap-2 text-navy-500 font-semibold hover:text-als-red-500 transition-colors" aria-label="Watch Jon's story on YouTube">
-                    <span class="w-12 h-12 rounded-full bg-als-red-500 flex items-center justify-center flex-shrink-0">
-                        <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </span>
-                    Watch Jon tell his story
-                </a>
-                -->
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════
-             2. TRUST BAR — Key stats
-             ═══════════════════════════════════════════════ -->
-        <section class="bg-navy-500 py-6">
+        <section class="py-16 sm:py-24 fade-in" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="grid grid-cols-3 gap-4 text-center text-white">
-                    <div>
-                        <span class="font-display font-bold text-2xl sm:text-3xl block">6+</span>
-                        <span class="text-sm sm:text-base opacity-70">Years with ALS</span>
+                <div class="flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
+                    <!-- Photo -->
+                    <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-full flex-shrink-0 overflow-hidden order-first sm:order-last" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2);">
+                        <img src="images/jon-edy.jpg" alt="Jon Edy smiling, 6+ year ALS survivor" class="w-full h-full object-cover object-top" width="288" height="288">
                     </div>
-                    <div>
-                        <span class="font-display font-bold text-2xl sm:text-3xl block">~20</span>
-                        <span class="text-sm sm:text-base opacity-70">Supplements Documented</span>
-                    </div>
-                    <div>
-                        <span class="font-display font-bold text-2xl sm:text-3xl block" style="font-size: clamp(1.25rem, 3vw, 1.875rem);">Still Walking</span>
-                        <span class="text-sm sm:text-base opacity-70">Against the Odds</span>
+                    <!-- Text -->
+                    <div class="text-center sm:text-left">
+                        <h1 class="font-display text-navy-900 mb-6" style="font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.15; font-weight: 800;">
+                            6+ Years with ALS.<br>
+                            <span class="text-als-red-500">Still Walking.</span>
+                        </h1>
+
+                        <p class="text-lg sm:text-xl mb-8" style="color: #4A4A4A; line-height: 1.7;">
+                            When I was diagnosed, I was terrified. I know what you're going through. But I've been living with this disease for over 6 years, and I'm still walking. Here's my exact supplement protocol, daily routine, and the mindset that keeps me going.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 sm:justify-start justify-center items-center">
+                            <a href="protocol.html" class="btn-red">See My Full Protocol</a>
+                            <a href="about.html" class="btn-navy">Read My Story</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════
-             3. JON'S STORY TEASER
+             2. JON'S STORY — First person, empathetic
              ═══════════════════════════════════════════════ -->
-        <section class="py-20 sm:py-24">
+        <section class="py-16 sm:py-24">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
                 <div class="bg-white rounded-xl p-8 sm:p-12" style="border: 1px solid #E8E4E0;">
                     <p class="font-display text-2xl sm:text-3xl font-bold text-navy-500 mb-6" style="line-height: 1.4;">
                         &ldquo;When they told me I had ALS, they said I had 2 to 5 years. That was over 6 years ago.&rdquo;
                     </p>
                     <p class="mb-4" style="color: #4A4A4A;">
-                        Jon Edy is not a doctor. He's a husband, a father, and a fighter who refused to accept a death sentence. After his diagnosis, he dove into research, built his own supplement protocol, and committed to a mindset that kept him moving forward.
+                        I'm not a doctor. I'm a husband, a father, and a fighter. After my diagnosis, I dove into research, talked to specialists, and built my own supplement protocol one ingredient at a time. I committed to a mindset that kept me moving forward when everything said I shouldn't be.
                     </p>
-                    <p class="mb-6" style="color: #4A4A4A;">
-                        Today, he's still walking. He's still talking. And he wants every ALS patient to have access to the same information he used to beat the odds.
+                    <p class="mb-4" style="color: #4A4A4A;">
+                        Today, I'm still walking. I'm still talking. And I've lost friends to this disease along the way. That's why I'm sharing everything I take, exactly how I take it, so you don't have to piece it together alone.
                     </p>
-                    <a href="about.html" class="text-als-red-500 font-bold hover:text-als-red-700 transition-colors text-lg inline-flex items-center" style="min-height: 48px;">
-                        Read Jon's full story →
-                    </a>
+                    <p class="mb-6" style="color: #4A4A4A; font-style: italic;">
+                        Whether you're a patient or a caregiver researching for someone you love &mdash; I built this for you.
+                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+                        <a href="about.html" class="text-als-red-500 font-bold hover:text-als-red-700 transition-colors text-lg inline-flex items-center" style="min-height: 48px;">
+                            Read my full story →
+                        </a>
+                        <span class="text-sm" style="color: #7A7A7A;">Shared in the Rocky Mountain ALS community</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════
-             4. WHAT'S INSIDE — 3 cards
+             3. WHAT'S INSIDE — First person, with supplement preview
              ═══════════════════════════════════════════════ -->
         <section class="py-14 sm:py-20 bg-surface">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-14">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-4">What's Inside the Protocol</h2>
-                    <p class="text-lg max-w-xl mx-auto" style="color: #4A4A4A;">Everything Jon takes, why he takes it, and exactly where to buy it.</p>
-                </div>
-                <div class="max-w-2xl mx-auto space-y-4">
-                    <div class="bg-white rounded-lg p-6 sm:p-7 flex items-start gap-5" style="border: 1px solid #E8E4E0;">
-                        <span class="font-display font-bold text-2xl text-als-red-500 flex-shrink-0 mt-0.5">1</span>
-                        <div>
-                            <h3 class="font-display text-xl font-bold text-navy-900 mb-1">Full Supplement Stack</h3>
-                            <p style="color: #4A4A4A; font-size: 1rem;">All ~20 supplements with exact brands, daily doses, timing, and why Jon takes each one.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7 flex items-start gap-5" style="border: 1px solid #E8E4E0;">
-                        <span class="font-display font-bold text-2xl text-als-red-500 flex-shrink-0 mt-0.5">2</span>
-                        <div>
-                            <h3 class="font-display text-xl font-bold text-navy-900 mb-1">Daily Routine</h3>
-                            <p style="color: #4A4A4A; font-size: 1rem;">Jon's complete daily schedule - supplement timing, exercise, meals, and evening wind-down.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7 flex items-start gap-5" style="border: 1px solid #E8E4E0;">
-                        <span class="font-display font-bold text-2xl text-als-red-500 flex-shrink-0 mt-0.5">3</span>
-                        <div>
-                            <h3 class="font-display text-xl font-bold text-navy-900 mb-1">Mindset Framework</h3>
-                            <p style="color: #4A4A4A; font-size: 1rem;">How Jon thinks about ALS, what keeps him going, and the mental approach he credits as much as any supplement.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What's in my protocol</h2>
+                <p class="text-lg mb-10" style="color: #4A4A4A;">Everything I take, why I take it, and exactly where to buy it.</p>
 
-        <!-- ═══════════════════════════════════════════════
-             5. SUPPLEMENT PREVIEW — 3 teasers
-             ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-4">A Look at Jon's Stack</h2>
-                    <p class="text-lg max-w-xl mx-auto" style="color: #4A4A4A;">A few of the supplements Jon takes every day. The full protocol includes all ~20 with complete details.</p>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- L-Serine -->
-                    <div class="bg-white rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8" style="border: 1px solid #E8E4E0;">
-                        <div class="flex-shrink-0">
-                            <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-als-red-50 text-als-red-500">Potent</span>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="font-display text-xl font-bold text-navy-900 mb-1">L-Serine</h3>
-                            <p style="color: #4A4A4A; font-size: 1rem;">Amino acid - a Phase 1 clinical trial showed ~85% slower functional decline in ALS patients taking 30g/day. FDA GRAS status.</p>
-                        </div>
-                        <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-bold whitespace-nowrap hover:text-als-red-700 transition-colors flex-shrink-0" style="min-height: 48px; display: inline-flex; align-items: center;">Read more &rarr;</a>
+                <div class="space-y-4 mb-10">
+                    <div class="bg-white rounded-lg p-6 sm:p-7" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-2">~20 supplements, fully documented</h3>
+                        <p style="color: #4A4A4A; font-size: 1rem;">Every supplement I take with the exact brand, daily dose, when I take it, and why. Including <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">L-Serine</a> (a Phase 1 trial showed ~85% slower decline), <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700">HMB</a> for muscle preservation, and more.</p>
                     </div>
-
-                    <!-- HMB -->
-                    <div class="bg-white rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8" style="border: 1px solid #E8E4E0;">
-                        <div class="flex-shrink-0">
-                            <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-als-red-50 text-als-red-500">Potent</span>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="font-display text-xl font-bold text-navy-900 mb-1">HMB</h3>
-                            <p style="color: #4A4A4A; font-size: 1rem;">Beta-Hydroxy Beta-Methylbutyrate - reduces muscle breakdown. Strong rationale for ALS muscle preservation.</p>
-                        </div>
-                        <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-bold whitespace-nowrap hover:text-als-red-700 transition-colors flex-shrink-0" style="min-height: 48px; display: inline-flex; align-items: center;">Read more &rarr;</a>
+                    <div class="bg-white rounded-lg p-6 sm:p-7" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My daily routine</h3>
+                        <p style="color: #4A4A4A; font-size: 1rem;">How I structure my whole day &mdash; supplement timing, exercise, meals, and evening wind-down. Not theory. <a href="blog/daily-routine.html" class="text-als-red-500 font-semibold hover:text-als-red-700">What I actually do</a>.</p>
                     </div>
-
-                    <!-- Vitamin D3 -->
-                    <div class="bg-white rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8" style="border: 1px solid #E8E4E0;">
-                        <div class="flex-shrink-0">
-                            <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Vitamin</span>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="font-display text-xl font-bold text-navy-900 mb-1">Vitamin D3</h3>
-                            <p style="color: #4A4A4A; font-size: 1rem;">Essential for immune function and bone health. ALS patients are often deficient due to reduced sun exposure.</p>
-                        </div>
-                        <a href="protocol.html" class="text-als-red-500 font-bold whitespace-nowrap hover:text-als-red-700 transition-colors flex-shrink-0" style="min-height: 48px; display: inline-flex; align-items: center;">Read more &rarr;</a>
+                    <div class="bg-white rounded-lg p-6 sm:p-7" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-2">Mindset framework</h3>
+                        <p style="color: #4A4A4A; font-size: 1rem;">How I think about this disease, what keeps me going on hard days, and the mental approach I credit as much as any supplement.</p>
                     </div>
                 </div>
 
-                <div class="text-center mt-10">
-                    <a href="protocol.html" class="btn-red">See All ~20 Supplements &rarr;</a>
+                <div class="text-center">
+                    <a href="protocol.html" class="btn-red">See my full protocol →</a>
                 </div>
             </div>
         </section>
@@ -346,97 +266,39 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════
-             7. YOUR OPTIONS (table format)
+             5. WHY I SHARE THIS — reframed, less salesy
              ═══════════════════════════════════════════════ -->
         <section class="py-14 sm:py-20">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 text-center mb-4">Your Options</h2>
-                <p class="text-lg text-center mb-12" style="color: #4A4A4A;">There are a few ways ALS patients find supplement information today.</p>
-                <!-- Desktop table -->
-                <div class="hidden sm:block bg-white rounded-xl overflow-hidden" style="border: 1px solid #E8E4E0;">
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr style="background: #F5F3F0;">
-                                <th class="py-4 px-6 font-display font-bold text-navy-900 text-sm"></th>
-                                <th class="py-4 px-5 font-display font-bold text-sm text-center" style="color: #7A7A7A;">DIY / Forums</th>
-                                <th class="py-4 px-5 font-display font-bold text-sm text-center relative">
-                                    <span class="text-als-red-500">Jon's Protocol</span>
-                                    <span class="block text-xs font-sans text-als-red-500 mt-0.5">Recommended</span>
-                                </th>
-                                <th class="py-4 px-5 font-display font-bold text-sm text-center" style="color: #7A7A7A;">Commercial Protocols</th>
-                            </tr>
-                        </thead>
-                        <tbody style="color: #4A4A4A;">
-                            <tr style="border-top: 1px solid #E8E4E0;">
-                                <td class="py-4 px-6 font-semibold">Price</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">Free</td>
-                                <td class="py-4 px-5 text-center font-bold text-als-red-500" style="background: #FEF2F2;">$39 one-time</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">$300-400/mo</td>
-                            </tr>
-                            <tr style="border-top: 1px solid #E8E4E0;">
-                                <td class="py-4 px-6 font-semibold">From a real patient</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">Anonymous</td>
-                                <td class="py-4 px-5 text-center font-bold" style="color: #1A7431; background: #FEF2F2;">Jon, on video</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">No</td>
-                            </tr>
-                            <tr style="border-top: 1px solid #E8E4E0;">
-                                <td class="py-4 px-6 font-semibold">Exact brands & doses</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">Varies</td>
-                                <td class="py-4 px-5 text-center font-bold" style="color: #1A7431; background: #FEF2F2;">Every supplement</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">Their products only</td>
-                            </tr>
-                            <tr style="border-top: 1px solid #E8E4E0;">
-                                <td class="py-4 px-6 font-semibold">Mindset framework</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">No</td>
-                                <td class="py-4 px-5 text-center font-bold" style="color: #1A7431; background: #FEF2F2;">Included</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">No</td>
-                            </tr>
-                            <tr style="border-top: 1px solid #E8E4E0;">
-                                <td class="py-4 px-6 font-semibold">Ongoing updates</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">No</td>
-                                <td class="py-4 px-5 text-center font-bold" style="color: #1A7431; background: #FEF2F2;">$9.99/mo optional</td>
-                                <td class="py-4 px-5 text-center" style="color: #7A7A7A;">Unknown</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Mobile: stacked cards instead of table -->
-                <div class="sm:hidden space-y-4">
-                    <div class="bg-white rounded-lg p-5" style="border: 2px solid #C41E3A;">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-display font-bold text-als-red-500 text-lg">Jon's Protocol</span>
-                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-als-red-50 text-als-red-500">Recommended</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">Why I organized this</h2>
+                <p class="text-lg mb-8" style="color: #4A4A4A;">When I was researching on my own, I spent months piecing together information from forums, studies, and other patients. I organized everything I learned so you don't have to.</p>
+
+                <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">1.</span>
+                            <div>
+                                <p class="font-semibold text-navy-900">The blog is free. Always will be.</p>
+                                <p class="text-sm" style="color: #4A4A4A;">General supplement research, my story, and what I've learned &mdash; all free on the <a href="blog/index.html" class="text-als-red-500 font-semibold hover:text-als-red-700">blog</a>.</p>
+                            </div>
                         </div>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex justify-between"><span class="font-semibold">Price</span><span class="font-bold text-als-red-500">$39 one-time</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold">From a real patient</span><span class="font-bold" style="color: #1A7431;">Jon, on video</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold">Exact brands & doses</span><span class="font-bold" style="color: #1A7431;">Every supplement</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold">Mindset framework</span><span class="font-bold" style="color: #1A7431;">Included</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold">Ongoing updates</span><span class="font-bold" style="color: #1A7431;">$9.99/mo optional</span></div>
+                        <div class="flex items-start gap-4" style="border-top: 1px solid #E8E4E0; padding-top: 20px;">
+                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">2.</span>
+                            <div>
+                                <p class="font-semibold text-navy-900">The full protocol is $39, one time.</p>
+                                <p class="text-sm" style="color: #4A4A4A;">All ~20 supplements with exact brands, doses, timing, my daily routine, and mindset framework. Organized so a caregiver can hand it to a doctor. The $39 keeps this site running and the guide updated.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-5" style="border: 1px solid #E8E4E0;">
-                        <span class="font-display font-bold text-lg mb-4 block" style="color: #7A7A7A;">DIY / Forums</span>
-                        <div class="space-y-3 text-sm" style="color: #7A7A7A;">
-                            <div class="flex justify-between"><span class="font-semibold" style="color: #4A4A4A;">Price</span><span>Free</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">From a real patient</span><span>Anonymous</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">Exact brands & doses</span><span>Varies</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">Mindset framework</span><span>No</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">Ongoing updates</span><span>No</span></div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-5" style="border: 1px solid #E8E4E0;">
-                        <span class="font-display font-bold text-lg mb-4 block" style="color: #7A7A7A;">Commercial Protocols</span>
-                        <div class="space-y-3 text-sm" style="color: #7A7A7A;">
-                            <div class="flex justify-between"><span class="font-semibold" style="color: #4A4A4A;">Price</span><span>$300-400/mo</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">From a real patient</span><span>No</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">Exact brands & doses</span><span>Their products only</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">Mindset framework</span><span>No</span></div>
-                            <div class="flex justify-between" style="border-top: 1px solid #E8E4E0; padding-top: 12px;"><span class="font-semibold" style="color: #4A4A4A;">Ongoing updates</span><span>Unknown</span></div>
+                        <div class="flex items-start gap-4" style="border-top: 1px solid #E8E4E0; padding-top: 20px;">
+                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">3.</span>
+                            <div>
+                                <p class="font-semibold text-navy-900">Stay connected for $9.99/month (optional).</p>
+                                <p class="text-sm" style="color: #4A4A4A;">Quarterly protocol updates when I change my regimen, monthly check-ins on how I'm doing, and new research I'm following. Cancel anytime.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-sm text-center mt-4" style="color: #7A7A7A;">The $39 covers the time to keep this guide updated and the site running. Jon's experience and research are always free on the blog.</p>
+                <p class="text-sm mt-4" style="color: #7A7A7A;">30-day money-back guarantee on everything. If it's not helpful, I'll refund you.</p>
             </div>
         </section>
 
