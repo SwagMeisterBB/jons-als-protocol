@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta property="og:image" content="https://jons-als-protocol.vercel.app/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Jon's Protocol - Jon's ALS Protocol</title>
+    <meta name="description" content="Jon's complete supplement protocol for ALS: all ~20 supplements with exact brands, doses, timing, and his mindset framework. $39 one-time.">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"Product","name":"Jon's ALS Protocol","description":"The complete supplement protocol from Jon Edy, a 6+ year ALS survivor. Includes all ~20 supplements with exact brands, doses, timing, daily routine, and mindset framework.","image":"https://jons-als-protocol.vercel.app/images/og-image.png","brand":{"@type":"Brand","name":"Jon's ALS Protocol"},"offers":[{"@type":"Offer","price":"39.00","priceCurrency":"USD","availability":"https://schema.org/InStock","description":"One-time purchase. Instant PDF download."},{"@type":"Offer","price":"9.99","priceCurrency":"USD","availability":"https://schema.org/InStock","description":"Monthly subscription with quarterly updates and check-ins from Jon."}],"author":{"@id":"https://jons-als-protocol.vercel.app/#jon-edy"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this medical advice?","acceptedAnswer":{"@type":"Answer","text":"No. Jon is an ALS patient sharing what he personally takes. He is not a doctor. Always consult your physician before starting any supplement."}},{"@type":"Question","name":"Why does this cost $39?","acceptedAnswer":{"@type":"Answer","text":"The $39 covers the time to keep this guide updated and the site running. Jon's story, blog posts, and general supplement information are always free on the blog."}},{"@type":"Question","name":"What if I want a refund?","acceptedAnswer":{"@type":"Answer","text":"Full refund within 30 days, no questions asked. If the protocol isn't helpful for you, we'll give your money back."}},{"@type":"Question","name":"What is the $9.99/month subscription?","acceptedAnswer":{"@type":"Answer","text":"The subscription is optional. It includes everything in the one-time purchase, plus quarterly protocol updates, monthly check-ins from Jon, and updates on new research. Cancel anytime."}},{"@type":"Question","name":"How much do the supplements cost per month?","acceptedAnswer":{"@type":"Answer","text":"Estimated total is $200-400/month depending on which supplements you choose. The protocol includes a cost breakdown. You don't need to take everything."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jons-als-protocol.vercel.app"},{"@type":"ListItem","position":2,"name":"Get the Protocol"}]}]}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
+                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
+                    'cream': '#FAF8F5', 'surface': '#F5F3F0', 'warm-border': '#E8E4E0',
+                },
+                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
+                borderRadius: { 'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px' },
+            }}
+        }
+    </script>
+    <style>
+        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
+        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
+        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
+        .skip-link:focus { top: 0; }
+        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
+        .btn-red { background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
+        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
+        .btn-red:active { transform: translateY(0); box-shadow: none; }
+        .btn-red-lg { background: #C41E3A; color: white; padding: 18px 48px; border-radius: 10px; font-weight: 700; font-size: 1.25rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 56px; }
+        .btn-red-lg:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(196,30,58,0.3); }
+        .btn-red-lg:active { transform: translateY(0); box-shadow: none; }
+        @media (max-width: 639px) { .btn-red, .btn-red-lg { width: 100%; text-align: center; } }
+    </style>
+</head>
+<body class="bg-cream">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3" aria-label="Jon's ALS Protocol Home">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
+                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
+                </div>
+                <div class="leading-tight">
+                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
+                    <span class="text-xs block" style="color: #7A7A7A;">Still Walking</span>
+                </div>
+            </a>
+            <nav class="flex items-center gap-5 sm:gap-6" aria-label="Main navigation">
+                <a href="about.html" class="hidden sm:inline font-semibold transition-colors hover:text-als-red-500" style="color: #4A4A4A;">About Jon</a>
+                <a href="blog/index.html" class="hidden sm:inline font-semibold transition-colors hover:text-als-red-500" style="color: #4A4A4A;">Blog</a>
+                <a href="protocol.html" class="btn-red !text-base !py-2 !px-5">Get the Protocol</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="py-16 sm:py-24" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                <span class="inline-flex items-center gap-2 bg-als-red-50 text-als-red-500 text-sm font-bold px-4 py-2 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-als-red-500 rounded-full"></span>
+                    Complete Protocol Guide
+                </span>
+                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-6">Jon's Full Supplement Protocol</h1>
+                <p class="text-xl mb-10" style="color: #4A4A4A;">Everything Jon takes, why he takes it, the exact brands and doses, his daily routine, and his mindset framework.</p>
+
+                <!-- Pricing cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto text-left">
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 2px solid #C41E3A;">
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-4">Most Popular</span>
+                        <div class="mb-3">
+                            <span class="font-display text-4xl font-bold text-navy-900">$39</span>
+                            <span class="text-sm ml-1" style="color: #7A7A7A;">one-time</span>
+                        </div>
+                        <p class="text-sm mb-5" style="color: #4A4A4A;">The full protocol PDF. Yours forever. Includes all ~20 supplements, mindset framework, and daily routine.</p>
+                        <a href="#" class="btn-red-lg !text-base !py-3 !px-6 w-full text-center block">Buy the Protocol</a>
+                        <p class="text-xs mt-3 text-center" style="color: #7A7A7A;">Instant download. 30-day money-back guarantee.</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4" style="background: #EFF4FA; color: #1E3A5F;">Stay Connected</span>
+                        <div class="mb-3">
+                            <span class="font-display text-4xl font-bold text-navy-900">$9.99</span>
+                            <span class="text-sm ml-1" style="color: #7A7A7A;">/month</span>
+                        </div>
+                        <p class="text-sm mb-5" style="color: #4A4A4A;">Everything in the one-time plan, plus quarterly protocol updates, monthly check-ins from Jon, and updates on his research and journey.</p>
+                        <a href="#" class="btn-red-lg !text-base !py-3 !px-6 w-full text-center block !bg-navy-500 hover:!bg-navy-700">Subscribe</a>
+                        <p class="text-xs mt-3 text-center" style="color: #7A7A7A;">Cancel anytime. Includes the full protocol immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included -->
+        <section class="py-16 sm:py-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <h2 class="font-display text-3xl font-bold text-navy-900 text-center mb-12">What's Included</h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Full Supplement Stack (~20 supplements)</h3>
+                        <p style="color: #4A4A4A;" class="mb-4">Organized into three categories:</p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full flex-shrink-0 mt-1" style="background: #EFF4FA; color: #1E3A5F;">Vitamins</span>
+                                <p class="text-sm" style="color: #4A4A4A;">Vitamin D3, B-Complex, Vitamin E, and more - the foundation of Jon's daily stack</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full flex-shrink-0 mt-1" style="background: #E8F5EC; color: #1A7431;">Muscle Support</span>
+                                <p class="text-sm" style="color: #4A4A4A;">Bodybuilding supplements adapted for ALS muscle preservation, including HMB and creatine</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full flex-shrink-0 mt-1 bg-als-red-50 text-als-red-500">Potent</span>
+                                <p class="text-sm" style="color: #4A4A4A;">The supplements Jon considers most important - L-Serine, and others backed by ALS-specific research</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">For Each Supplement</h3>
+                        <ul class="space-y-2" style="color: #4A4A4A;">
+                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Exact brand Jon uses</li>
+                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Daily dose</li>
+                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> When to take it (morning, afternoon, evening, with food)</li>
+                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Where to buy it (direct purchase links)</li>
+                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Why Jon takes it (in his own words)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Jon's Daily Routine</h3>
+                        <p style="color: #4A4A4A;">Jon's complete daily schedule - when he wakes up, his supplement timing throughout the day, his exercise routine, meals, and evening wind-down. A real look at how he structures each day.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Mindset Framework</h3>
+                        <p style="color: #4A4A4A;">How Jon thinks about ALS, what keeps him going on hard days, and the mental approach he credits as much as any supplement he takes.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Quick-Reference Cheat Sheet</h3>
+                        <p style="color: #4A4A4A;">A one-page summary table you can print out or keep on your phone. Every supplement, dose, and timing at a glance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Preview -->
+        <section class="py-16 sm:py-20 bg-surface">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <h2 class="font-display text-3xl font-bold text-navy-900 text-center mb-4">Preview</h2>
+                <p class="text-center mb-10" style="color: #4A4A4A;">Here's what a supplement entry looks like inside the protocol:</p>
+                <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 2px solid #E8E4E0;">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-als-red-50 text-als-red-500">Potent</span>
+                        <h3 class="font-display text-2xl font-bold text-navy-900">L-Serine</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <p class="text-sm font-bold" style="color: #7A7A7A;">BRAND</p>
+                            <p style="color: #1A1A1A;">Prescribed by neurologist (pharmaceutical grade)</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold" style="color: #7A7A7A;">DAILY DOSE</p>
+                            <p style="color: #1A1A1A;">30g per day (split into 2 doses)</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold" style="color: #7A7A7A;">TIMING</p>
+                            <p style="color: #1A1A1A;">15g morning, 15g evening - mixed into a drink</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold" style="color: #7A7A7A;">WHERE TO BUY</p>
+                            <p><a href="#" class="text-als-red-500 font-semibold hover:text-als-red-700">View on Amazon &rarr;</a></p>
+                        </div>
+                    </div>
+                    <div class="pt-4" style="border-top: 1px solid #E8E4E0;">
+                        <p class="text-sm font-bold mb-1" style="color: #7A7A7A;">WHY JON TAKES IT</p>
+                        <p style="color: #4A4A4A;">"L-Serine is the one I'd take if I could only take one thing. A Phase 1 clinical trial showed ALS patients taking 30g/day had roughly 85% slower functional decline. It has FDA GRAS status, meaning it's recognized as safe. My neurologist supports me taking this."</p>
+                    </div>
+                </div>
+                <p class="text-center text-sm mt-6" style="color: #7A7A7A;">The full protocol includes ~20 supplement entries like this, plus the daily routine and mindset sections.</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-16 sm:py-20">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6">
+                <h2 class="font-display text-3xl font-bold text-navy-900 text-center mb-12">Common Questions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">Is this medical advice?</h3>
+                        <p style="color: #4A4A4A;">No. Jon is an ALS patient sharing what he personally takes. He is not a doctor. Always consult your physician before starting any supplement.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
+                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">Why does this cost $39?</h3>
+                        <p style="color: #4A4A4A;">The $39 covers the time to keep this guide updated and the site running. Jon's story, blog posts, and general supplement information are always free on the blog. The protocol gives you the complete, organized details in one place.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
+                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">What's the $9.99/month subscription?</h3>
+                        <p style="color: #4A4A4A;">The subscription is optional. It includes everything in the one-time purchase, plus quarterly protocol updates when Jon changes his regimen, monthly check-ins from Jon on how he's doing, and updates on new research he's following. You can cancel anytime.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
+                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">What if I want a refund?</h3>
+                        <p style="color: #4A4A4A;">Full refund within 30 days, no questions asked. If the protocol isn't helpful for you, we'll give your money back.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
+                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">How do I get updates?</h3>
+                        <p style="color: #4A4A4A;">When Jon changes his regimen, we update the protocol and email you a new version. Updates are free for all buyers.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
+                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">How much do the supplements cost per month?</h3>
+                        <p style="color: #4A4A4A;">Estimated total is $200-400/month depending on which supplements you choose to take and where you buy them. The protocol includes a cost breakdown. You don't need to take everything - Jon explains which ones he considers most important.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-16 sm:py-20 bg-navy-500">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Get the full protocol</h2>
+                <p class="text-lg mb-8" style="color: rgba(255,255,255,0.7);">~20 supplements. Exact brands, doses, and timing. Jon's daily routine and mindset.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#" class="btn-red-lg !bg-white !text-navy-900 hover:!bg-gray-100">Buy for $39</a>
+                    <a href="#" class="btn-red-lg !bg-transparent !text-white !border-2 !border-white hover:!bg-white/10">Subscribe for $9.99/mo</a>
+                </div>
+                <p class="text-sm mt-4" style="color: rgba(255,255,255,0.5);">Instant access. 30-day money-back guarantee. Cancel subscription anytime.</p>
+            </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+                <p class="text-sm" style="color: #7A7A7A; line-height: 1.7;">
+                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500"><span class="text-white font-display font-bold text-sm">J</span></div>
+                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
+                    </div>
+                    <p class="text-sm" style="color: #7A7A7A;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors" style="color: #7A7A7A;">About Jon</a></li>
+                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors" style="color: #7A7A7A;">Blog</a></li>
+                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors" style="color: #7A7A7A;">Get the Protocol</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors" style="color: #7A7A7A;">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors" style="color: #7A7A7A;">Terms of Service</a></li>
+                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors" style="color: #7A7A7A;">Medical Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
+                <p class="text-xs" style="color: #7A7A7A;">&copy; 2026 Jon's ALS Protocol. All rights reserved.</p>
+                <p class="text-xs mt-1" style="color: #7A7A7A;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500">Full affiliate disclosure</a>.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

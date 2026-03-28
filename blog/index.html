@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta property="og:image" content="https://jons-als-protocol.vercel.app/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Jon's ALS Protocol</title>
+    <meta name="description" content="Free articles about ALS supplements, mindset, and daily living from Jon Edy, a 6+ year ALS survivor.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
+                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
+                    'cream': '#FAF8F5', 'surface': '#F5F3F0',
+                },
+                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
+                borderRadius: { 'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px' },
+            }}
+        }
+    </script>
+    <style>
+        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
+        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
+        .skip-link { position: absolute; top: -60px; transition: top 0.2s; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; }
+        .skip-link:focus { top: 0; }
+        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
+        .btn-red { background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
+        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
+        .btn-red:active { transform: translateY(0); box-shadow: none; }
+        @media (max-width: 639px) { .btn-red { width: 100%; text-align: center; } }
+        .blog-card { background: white; border: 1px solid #E8E4E0; border-radius: 16px; padding: 32px; transition: border-color 0.2s, box-shadow 0.2s; display: block; text-decoration: none; color: inherit; }
+        .blog-card:hover { border-color: #C41E3A; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    </style>
+</head>
+<body class="bg-cream">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-3" aria-label="Jon's ALS Protocol Home">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
+                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
+                </div>
+                <div class="leading-tight">
+                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
+                    <span class="text-xs block" style="color: #7A7A7A;">Still Walking</span>
+                </div>
+            </a>
+            <nav class="flex items-center gap-5 sm:gap-6" aria-label="Main navigation">
+                <a href="../about.html" class="hidden sm:inline font-semibold transition-colors hover:text-als-red-500" style="color: #4A4A4A;">About Jon</a>
+                <a href="index.html" class="hidden sm:inline font-semibold text-als-red-500">Blog</a>
+                <a href="../protocol.html" class="btn-red !text-base !py-2 !px-5">Get the Protocol</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="py-12 sm:py-16">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-4">Blog</h1>
+                <p class="text-lg mb-12" style="color: #4A4A4A;">Free articles about the supplements Jon takes, how he thinks about ALS, and what daily life looks like.</p>
+
+                <div class="space-y-6">
+                    <a href="l-serine-for-als.html" class="blog-card block">
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
+                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">L-Serine for ALS: What the Research Says and Why Jon Takes It</h2>
+                        <p style="color: #4A4A4A;">A Phase 1 clinical trial showed ALS patients taking L-Serine had roughly 85% slower functional decline. Here's what Jon has learned about this amino acid over 6+ years.</p>
+                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more &rarr;</span>
+                    </a>
+
+                    <a href="hmb-muscle-preservation.html" class="blog-card block">
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #E8F5EC; color: #1A7431;">Supplements</span>
+                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">HMB for Muscle Preservation: A Bodybuilding Supplement for ALS?</h2>
+                        <p style="color: #4A4A4A;">HMB is used by bodybuilders to reduce muscle breakdown. Jon takes it every day for ALS muscle preservation. Here's the rationale and what he uses.</p>
+                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more &rarr;</span>
+                    </a>
+
+                    <a href="daily-routine.html" class="blog-card block">
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Daily Life</span>
+                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">What Jon's Day Looks Like: Supplements, Exercise, and Routine</h2>
+                        <p style="color: #4A4A4A;">A look at how Jon structures his day - from his morning supplement routine to his exercise and evening wind-down.</p>
+                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Email CTA -->
+        <section class="py-16 bg-navy-500">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-4">Get Jon's Top 5 Supplements</h2>
+                <p class="text-lg mb-6" style="color: rgba(255,255,255,0.7);">Free PDF guide. No spam, ever.</p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#" method="POST">
+                    <input type="email" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-lg text-lg border-0" aria-label="Email address" style="min-height: 48px;">
+                    <button type="submit" class="btn-red !rounded-lg whitespace-nowrap">Send the Guide</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+                <p class="text-sm" style="color: #7A7A7A;">
+                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. Consult your physician before starting any supplement regimen.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white py-10" style="border-top: 1px solid #E8E4E0;">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <p class="text-xs" style="color: #7A7A7A;">&copy; 2026 Jon's ALS Protocol. All rights reserved.</p>
+            <p class="text-xs mt-1" style="color: #7A7A7A;">As an Amazon Associate, I earn from qualifying purchases.</p>
+        </div>
+    </footer>
+</body>
+</html>
