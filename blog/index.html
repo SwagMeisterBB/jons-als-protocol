@@ -54,11 +54,21 @@
                     <span class="text-xs block" style="color: #7A7A7A;">Still Walking</span>
                 </div>
             </a>
-            <nav class="flex items-center gap-5 sm:gap-6" aria-label="Main navigation">
-                <a href="../about.html" class="hidden sm:inline font-semibold transition-colors hover:text-als-red-500" style="color: #4A4A4A;">About Jon</a>
-                <a href="index.html" class="hidden sm:inline font-semibold text-als-red-500">Blog</a>
-                <a href="../protocol.html" class="btn-red !text-base !py-2 !px-5">Get the Protocol</a>
+            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
+                <a href="../about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
+                <a href="index.html" class="hidden sm:inline-flex items-center font-semibold text-als-red-500 px-2" style="min-height: 48px;">Blog</a>
+                <a href="../protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
+                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
             </nav>
+        </div>
+        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
+            <div class="flex flex-col gap-3">
+                <a href="../about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
+                <a href="index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #C41E3A; min-height: 48px;">Blog</a>
+                <a href="../protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
+            </div>
         </div>
     </header>
 
