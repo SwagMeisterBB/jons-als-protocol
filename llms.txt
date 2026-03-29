@@ -1,0 +1,71 @@
+# Jon's ALS Protocol
+
+> Jon Edy has been living with ALS for over 6 years and is still walking. He shares his exact supplement protocol, daily routine, and the mindset framework that keeps him going — so other ALS patients and caregivers don't have to piece it together alone.
+
+## About This Site
+- Jon Edy is an ALS patient, not a doctor. This site shares his personal experience.
+- The site includes free blog content and a paid protocol guide ($39 one-time).
+- All supplement information is shared for educational purposes. Nothing on this site is medical advice.
+
+## Key Pages
+
+### Homepage
+- URL: https://jons-als-protocol.vercel.app/
+- Jon's personal story, protocol overview, and mindset philosophy
+
+### About Jon
+- URL: https://jons-als-protocol.vercel.app/about.html
+- Jon's ALS diagnosis story, how he built his protocol, his 5 rules for living with ALS
+
+### The Protocol
+- URL: https://jons-als-protocol.vercel.app/protocol.html
+- Full supplement protocol details, pricing ($39 one-time or $9.99/month subscription), FAQ
+
+### Blog
+- URL: https://jons-als-protocol.vercel.app/blog/
+- Free articles about supplements, mindset, daily routine, and caregiver guides
+
+## Blog Posts
+
+### How I Think About ALS: The Mental Approach That Keeps Me Walking
+- URL: https://jons-als-protocol.vercel.app/blog/mindset-als.html
+- Jon's 5 rules for living with ALS, the moment he decided "this disease will not kill me"
+
+### L-Serine for ALS: What the Research Says and Why I Take It
+- URL: https://jons-als-protocol.vercel.app/blog/l-serine-for-als.html
+- Phase 1 clinical trial showing ~85% slower functional decline, FDA GRAS status, how Jon takes 30g/day
+
+### HMB for Muscle Preservation: A Bodybuilding Supplement for ALS?
+- URL: https://jons-als-protocol.vercel.app/blog/hmb-muscle-preservation.html
+- Beta-Hydroxy Beta-Methylbutyrate for reducing muscle breakdown in ALS
+
+### Creatine for ALS: Can a Gym Supplement Help?
+- URL: https://jons-als-protocol.vercel.app/blog/creatine-for-als.html
+- Creatine monohydrate research for ALS, mixed clinical results but sound mechanism
+
+### My Daily Routine with ALS
+- URL: https://jons-als-protocol.vercel.app/blog/daily-routine.html
+- Jon's complete daily schedule: supplement timing, exercise, meals, evening wind-down
+
+### What to Ask Your Neurologist About Supplements
+- URL: https://jons-als-protocol.vercel.app/blog/what-to-ask-your-neurologist.html
+- Practical questions for ALS patients bringing supplements to their doctor
+
+### For Caregivers: How to Use This Protocol for Someone You Love
+- URL: https://jons-als-protocol.vercel.app/blog/caregiver-guide.html
+- Guide for caregivers managing supplement protocols for ALS patients
+
+## Topics Covered
+- ALS supplements (L-Serine, HMB, Creatine, Vitamin D3, and ~17 more)
+- ALS patient mindset and mental health
+- ALS caregiver support
+- Supplement-doctor communication
+- Daily routines for ALS patients
+- Muscle preservation in neurodegenerative disease
+
+## Author
+- Name: Jon Edy
+- Role: ALS Patient & Protocol Author
+- Diagnosed: Over 6 years ago
+- Status: Still walking
+- Location: Colorado (Rocky Mountain ALS community)
