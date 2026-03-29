@@ -55,6 +55,26 @@
 - URL: https://jons-als-protocol.vercel.app/blog/caregiver-guide.html
 - Guide for caregivers managing supplement protocols for ALS patients
 
+### Vitamin D3 for ALS
+- URL: https://jons-als-protocol.vercel.app/blog/vitamin-d3-als.html
+- Foundation supplement, 5000 IU daily, deficiency linked to faster ALS progression
+
+### Omega-3 Fish Oil for ALS
+- URL: https://jons-als-protocol.vercel.app/blog/omega-3-fish-oil-als.html
+- High-dose EPA+DHA for neuroinflammation, 3-4g daily
+
+### CoQ10 for ALS
+- URL: https://jons-als-protocol.vercel.app/blog/coq10-als.html
+- Mitochondrial support, ubiquinol 200-400mg daily, Phase II trial data
+
+### NAC and Glutathione for ALS
+- URL: https://jons-als-protocol.vercel.app/blog/glutathione-als.html
+- Antioxidant strategy, NAC 600mg twice daily, SOD1 connection
+
+### How I Built This Protocol
+- URL: https://jons-als-protocol.vercel.app/blog/how-i-research.html
+- Research methodology, PubMed-based evaluation, 5-point supplement framework
+
 ## Topics Covered
 - ALS supplements (L-Serine, HMB, Creatine, Vitamin D3, and ~17 more)
 - ALS patient mindset and mental health
