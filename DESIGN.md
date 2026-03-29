@@ -40,7 +40,7 @@
 - **Surface Alt:** #F5F3F0 — section breaks, alternating backgrounds.
 - **Text Primary:** #1A1A1A — warm near-black, not pure #000.
 - **Text Secondary:** #4A4A4A — body text, descriptions.
-- **Text Muted:** #7A7A7A — captions, disclaimers, metadata.
+- **Text Muted:** #727272 — captions, disclaimers, metadata. (Updated from #7A7A7A to pass WCAG AA 4.5:1 on cream background.)
 - **Border:** #E8E4E0 — warm gray border, not cold gray.
 - **Semantic:**
   - Success: #1A7431 (bg: #E8F5EC)
