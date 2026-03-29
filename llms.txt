@@ -75,6 +75,18 @@
 - URL: https://jons-als-protocol.vercel.app/blog/how-i-research.html
 - Research methodology, PubMed-based evaluation, 5-point supplement framework
 
+### My Complete Supplement Stack
+- URL: https://jons-als-protocol.vercel.app/supplements.html
+- Free public reference table of all ~20 supplements with categories and general doses
+
+### My ALS Journey Timeline
+- URL: https://jons-als-protocol.vercel.app/timeline.html
+- Visual timeline of Jon's 6+ year ALS journey from diagnosis to present
+
+### Contact
+- URL: https://jons-als-protocol.vercel.app/contact.html
+- How to reach Jon Edy directly
+
 ## Topics Covered
 - ALS supplements (L-Serine, HMB, Creatine, Vitamin D3, and ~17 more)
 - ALS patient mindset and mental health
