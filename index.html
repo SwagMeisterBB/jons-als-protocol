@@ -18,441 +18,1034 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://jons-als-protocol.vercel.app/#website","name":"Jon's ALS Protocol","url":"https://jons-als-protocol.vercel.app","description":"Jon Edy, a 6+ year ALS survivor, shares his exact supplement protocol, mindset framework, and daily routine.","publisher":{"@id":"https://jons-als-protocol.vercel.app/#organization"}},{"@type":"Organization","@id":"https://jons-als-protocol.vercel.app/#organization","name":"Jon's ALS Protocol","url":"https://jons-als-protocol.vercel.app","logo":{"@type":"ImageObject","url":"https://jons-als-protocol.vercel.app/favicon.svg"},"description":"A patient-led ALS supplement protocol and content platform sharing one survivor's 6+ year journey.","knowsAbout":["ALS supplements","Amyotrophic Lateral Sclerosis","L-Serine for ALS","HMB muscle preservation","ALS patient protocols","ALS caregiver resources"]},{"@type":"Person","@id":"https://jons-als-protocol.vercel.app/#jon-edy","name":"Jon Edy","url":"https://jons-als-protocol.vercel.app/about.html","image":"https://jons-als-protocol.vercel.app/images/jon-edy.jpg","description":"ALS patient and protocol author. Diagnosed over 6 years ago and still walking.","jobTitle":"ALS Protocol Author","worksFor":{"@id":"https://jons-als-protocol.vercel.app/#organization"},"knowsAbout":["ALS supplements","L-Serine","HMB","Living with ALS","ALS mindset and resilience"]},{"@type":"WebPage","url":"https://jons-als-protocol.vercel.app","name":"Jon's ALS Protocol - 6+ Years with ALS. Still Walking.","isPartOf":{"@id":"https://jons-als-protocol.vercel.app/#website"},"about":{"@id":"https://jons-als-protocol.vercel.app/#jon-edy"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".font-display.text-2xl"]}}]}
+    {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://jons-als-protocol.vercel.app/#website","name":"Jon's ALS Protocol","url":"https://jons-als-protocol.vercel.app","description":"Jon Edy, a 6+ year ALS survivor, shares his exact supplement protocol, mindset framework, and daily routine.","publisher":{"@id":"https://jons-als-protocol.vercel.app/#organization"}},{"@type":"Organization","@id":"https://jons-als-protocol.vercel.app/#organization","name":"Jon's ALS Protocol","url":"https://jons-als-protocol.vercel.app","logo":{"@type":"ImageObject","url":"https://jons-als-protocol.vercel.app/favicon.svg"},"description":"A patient-led ALS supplement protocol and content platform sharing one survivor's 6+ year journey.","knowsAbout":["ALS supplements","Amyotrophic Lateral Sclerosis","L-Serine for ALS","HMB muscle preservation","ALS patient protocols","ALS caregiver resources"]},{"@type":"Person","@id":"https://jons-als-protocol.vercel.app/#jon-edy","name":"Jon Edy","url":"https://jons-als-protocol.vercel.app/about.html","image":"https://jons-als-protocol.vercel.app/images/jon-edy.jpg","description":"ALS patient and protocol author. Diagnosed over 6 years ago and still walking.","jobTitle":"ALS Protocol Author","worksFor":{"@id":"https://jons-als-protocol.vercel.app/#organization"},"knowsAbout":["ALS supplements","L-Serine","HMB","Living with ALS","ALS mindset and resilience"]},{"@type":"WebPage","url":"https://jons-als-protocol.vercel.app","name":"Jon's ALS Protocol - 6+ Years with ALS. Still Walking.","isPartOf":{"@id":"https://jons-als-protocol.vercel.app/#website"},"about":{"@id":"https://jons-als-protocol.vercel.app/#jon-edy"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".quote-display"]}}]}
     </script>
 
     <!-- Fonts: Fraunces (display) + Source Sans 3 (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                        'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                        'cream': '#FAF8F5',
-                        'surface': '#F5F3F0',
-                        'warm-border': '#E8E4E0',
-                    },
-                    fontFamily: {
-                        'display': ['Fraunces', 'Georgia', 'serif'],
-                        'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px',
-                    },
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,0;9..144,600,0;9..144,700,0;9..144,800,0;9..144,900,0&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
+        /* ═══════════════════════════════════════════
+           CSS CUSTOM PROPERTIES
+           ═══════════════════════════════════════════ */
+        :root {
+            --color-bg: #FEFDFB;
+            --color-white: #FFFFFF;
+            --color-navy-900: #0F2040;
+            --color-navy-800: #12253E;
+            --color-navy-700: #162C49;
+            --color-navy-500: #1E3A5F;
+            --color-red-500: #C41E3A;
+            --color-red-600: #A91B32;
+            --color-red-700: #8E172A;
+            --color-red-glow: rgba(196, 30, 58, 0.15);
+            --color-text: #1A1A1A;
+            --color-text-secondary: #4A4A4A;
+            --color-text-muted: #727272;
+            --color-border: #E8E4E0;
+            --color-surface: #F5F3F0;
+            --color-cream: #FAF8F5;
 
-        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Source Sans 3', system-ui, sans-serif;
+
+            --space-section: clamp(80px, 10vw, 160px);
+            --space-section-sm: clamp(60px, 8vw, 120px);
+            --max-width-content: 600px;
+            --max-width-page: 1080px;
+
+            --radius-pill: 100px;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+
+            --transition-reveal: 0.4s ease-out;
+            --transition-fast: 0.2s ease;
+        }
+
+        /* ═══════════════════════════════════════════
+           RESET + BASE
+           ═══════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
+        a { color: inherit; }
+        img { display: block; max-width: 100%; height: auto; }
+        button { font-family: var(--font-body); }
+
+        /* ═══════════════════════════════════════════
+           LAYOUT UTILITIES
+           ═══════════════════════════════════════════ */
+        .container {
+            max-width: var(--max-width-page);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .narrow { max-width: var(--max-width-content); margin-left: auto; margin-right: auto; }
+
+        /* ═══════════════════════════════════════════
+           ACCESSIBILITY
+           ═══════════════════════════════════════════ */
+        .skip-link {
+            position: absolute; top: -60px; left: 0;
+            background: var(--color-red-500); color: white;
+            padding: 8px 16px; z-index: 100; transition: top 0.2s;
+            text-decoration: none; font-weight: 600;
+        }
         .skip-link:focus { top: 0; }
 
-        /* Scroll progress bar - sits on bottom edge of sticky header */
-        .progress-bar { position: fixed; top: 56px; left: 0; height: 3px; background: #C41E3A; z-index: 50; width: 0%; transition: width 0.1s linear; }
+        *:focus-visible {
+            outline: 2px solid var(--color-red-500);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
 
-        /* Back to top button */
-        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; background: #1E3A5F; color: white; border: none; border-radius: 50%; cursor: pointer; z-index: 30; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        /* ═══════════════════════════════════════════
+           SCROLL PROGRESS BAR
+           ═══════════════════════════════════════════ */
+        .progress-bar {
+            position: fixed; top: 60px; left: 0; height: 2px;
+            background: var(--color-red-500); z-index: 50;
+            width: 0%; transition: width 0.1s linear;
+        }
+
+        /* ═══════════════════════════════════════════
+           BACK TO TOP
+           ═══════════════════════════════════════════ */
+        .back-to-top {
+            position: fixed; bottom: 24px; right: 24px;
+            width: 48px; height: 48px;
+            background: var(--color-navy-500); color: white;
+            border: none; border-radius: 50%; cursor: pointer; z-index: 30;
+            opacity: 0; transform: translateY(12px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, background 0.2s;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
         .back-to-top.visible { opacity: 1; transform: translateY(0); }
-        .back-to-top:hover { background: #162C49; }
+        .back-to-top:hover { background: var(--color-navy-700); }
 
-        /* Font size controls */
-        .font-control { width: 48px; height: 48px; border: 1px solid #E8E4E0; background: white; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A5F; transition: background 0.15s; }
-        .font-control:hover { background: #F5F3F0; }
-        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
+        /* ═══════════════════════════════════════════
+           HEADER
+           ═══════════════════════════════════════════ */
+        .site-header {
+            position: sticky; top: 0; z-index: 40;
+            background: rgba(254, 253, 251, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-inner {
+            max-width: var(--max-width-page);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-link {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; transition: opacity 0.2s;
+        }
+        .logo-link:hover { opacity: 0.7; }
+
+        .logo-mark {
+            width: 36px; height: 36px; border-radius: var(--radius-sm);
+            background: var(--color-navy-500);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .logo-mark span {
+            color: white; font-family: var(--font-display);
+            font-weight: 700; font-size: 1.1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-display); font-weight: 700;
+            color: var(--color-navy-500); font-size: 1rem;
+            line-height: 1.2;
+        }
+        .logo-sub {
+            display: block; font-family: var(--font-body);
+            font-size: 0.7rem; font-weight: 400; color: var(--color-text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .nav-link {
+            display: none; text-decoration: none;
+            font-weight: 600; font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            padding: 8px 12px;
+            transition: color var(--transition-fast);
+            min-height: 48px; line-height: 48px;
+        }
+        .nav-link:hover { color: var(--color-red-500); }
+
+        .nav-cta {
+            display: none;
+            text-decoration: none;
+            background: var(--color-red-500); color: white;
+            padding: 10px 24px; border-radius: var(--radius-pill);
+            font-weight: 700; font-size: 0.9rem;
+            transition: background var(--transition-fast), transform var(--transition-fast);
+            min-height: 44px;
+        }
+        .nav-cta:hover { background: var(--color-red-600); transform: scale(1.01); }
+
+        /* Font controls */
+        .font-controls {
+            display: none; align-items: center; gap: 4px;
+        }
+        .font-control {
+            width: 40px; height: 40px;
+            border: 1px solid var(--color-border); background: transparent;
+            border-radius: var(--radius-sm); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: var(--color-navy-500);
+            transition: background var(--transition-fast);
+            font-size: 0.8rem;
+        }
+        .font-control:hover { background: var(--color-surface); }
+
+        /* Mobile menu button */
+        .menu-btn {
+            display: flex; width: 48px; height: 48px;
+            align-items: center; justify-content: center;
+            background: none; border: none; cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+        .menu-btn:hover { background: var(--color-surface); }
+        .menu-btn svg { width: 24px; height: 24px; color: var(--color-text); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none; padding: 16px 24px;
+            background: var(--color-white);
+            border-top: 1px solid var(--color-border);
+        }
+        .mobile-menu.open { display: flex; flex-direction: column; gap: 8px; }
+        .mobile-menu a {
+            text-decoration: none; font-weight: 600;
+            padding: 12px 16px; border-radius: var(--radius-sm);
+            color: var(--color-text-secondary);
+            transition: background var(--transition-fast);
+            min-height: 48px; display: flex; align-items: center;
+        }
+        .mobile-menu a:hover { background: var(--color-surface); }
+        .mobile-menu .mobile-cta {
+            background: var(--color-red-500); color: white;
+            text-align: center; justify-content: center;
+            border-radius: var(--radius-pill);
+            margin-top: 4px;
+        }
+        .mobile-menu .mobile-cta:hover { background: var(--color-red-600); }
+
+        @media (min-width: 640px) {
+            .nav-link, .nav-cta, .font-controls { display: flex; }
+            .menu-btn { display: none; }
+        }
+
+        /* ═══════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════ */
+        .btn-red {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--color-red-500); color: white;
+            padding: 16px 36px; border-radius: var(--radius-pill);
+            font-family: var(--font-body); font-weight: 700; font-size: 1.05rem;
+            text-decoration: none; border: none; cursor: pointer;
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+            min-height: 48px;
+        }
+        .btn-red:hover {
+            background: var(--color-red-600);
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.2);
+        }
+        .btn-red:active { transform: scale(0.99); box-shadow: none; }
+
+        .btn-outline {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: transparent; color: var(--color-navy-500);
+            border: 2px solid var(--color-navy-500);
+            padding: 14px 32px; border-radius: var(--radius-pill);
+            font-family: var(--font-body); font-weight: 700; font-size: 1.05rem;
+            text-decoration: none; cursor: pointer;
+            transition: background var(--transition-fast), color var(--transition-fast);
+            min-height: 48px;
+        }
+        .btn-outline:hover { background: var(--color-navy-500); color: white; }
+        .btn-outline:active { background: var(--color-navy-700); color: white; }
+
+        /* ═══════════════════════════════════════════
+           SCROLL REVEAL
+           ═══════════════════════════════════════════ */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity var(--transition-reveal), transform var(--transition-reveal);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .back-to-top { transition: opacity 0.15s; }
+            .progress-bar { transition: none; }
+            .fade-in { animation: none; }
+        }
 
         .fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (prefers-reduced-motion: reduce) {
-            .fade-in { animation: none; }
-            .back-to-top { transition: opacity 0.15s; }
-            .progress-bar { transition: none; }
+
+        /* ═══════════════════════════════════════════
+           HAIRLINE DIVIDER
+           ═══════════════════════════════════════════ */
+        .divider {
+            width: 80px; height: 1px;
+            background: var(--color-border);
+            margin: 0 auto;
         }
 
-        /* Mobile: full-width buttons */
-        @media (max-width: 639px) {
-            .btn-red, .btn-navy { width: 100%; text-align: center; }
+        /* ═══════════════════════════════════════════
+           SECTION: HERO
+           ═══════════════════════════════════════════ */
+        .hero {
+            padding: var(--space-section) 24px;
+            text-align: center;
         }
 
-        /* Responsive video embed */
-        .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; }
-        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-        /* Email input focus on dark bg */
-        input[type="email"]:focus { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 8px; }
-
-        .btn-red {
-            background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px;
-            font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
+        .hero-photo {
+            width: 280px; height: 280px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: 0 auto 48px;
+            box-shadow: 0 8px 40px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(0,0,0,0.06);
         }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-
-        .btn-navy {
-            background: transparent; color: #1E3A5F; border: 2px solid #1E3A5F; padding: 12px 28px; border-radius: 10px;
-            font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, color 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
+        .hero-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: top;
         }
-        .btn-navy:hover { background: #1E3A5F; color: white; }
-        .btn-navy:active { background: #162C49; color: white; }
 
-        .card {
-            background: white; border: 1px solid #E8E4E0; border-radius: 16px; padding: 32px;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            color: var(--color-navy-900);
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
         }
-        .card:hover { border-color: #C41E3A; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .hero h1 .red { color: var(--color-red-500); }
 
-        /* Subtle background texture */
-        body { background-image: radial-gradient(#E8E4E0 0.5px, transparent 0.5px); background-size: 24px 24px; }
+        .hero-text {
+            max-width: 560px; margin: 0 auto 40px;
+            color: var(--color-text-secondary);
+            font-size: 1.15rem; line-height: 1.8;
+        }
 
-        /* Scroll reveal animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+        .hero-buttons {
+            display: flex; gap: 16px;
+            justify-content: center; flex-wrap: wrap;
+        }
 
-        /* Card hover lift */
-        .protocol-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .protocol-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30,58,95,0.12); }
+        @media (max-width: 480px) {
+            .hero-photo { width: 220px; height: 220px; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn-red,
+            .hero-buttons .btn-outline { width: 100%; text-align: center; }
+        }
 
-        /* Gradient accent line on story blockquote */
-        .story-card { border-left: 4px solid transparent; border-image: linear-gradient(180deg, #C41E3A, #1E3A5F) 1; }
+        @media (min-width: 640px) {
+            .hero-photo { width: 320px; height: 320px; }
+        }
 
-        /* Navy section texture */
-        .navy-textured { background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%); background-size: 40px 40px; }
+        /* ═══════════════════════════════════════════
+           SECTION: STORY
+           ═══════════════════════════════════════════ */
+        .story {
+            padding: var(--space-section) 24px;
+        }
 
-        /* Icon styling for protocol cards */
-        .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .story-quote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--color-navy-500);
+            line-height: 1.5;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 56px;
+        }
+
+        .story-body {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+        }
+        .story-body p {
+            color: var(--color-text-secondary);
+            margin-bottom: 20px;
+        }
+        .story-body p:last-of-type { font-style: italic; }
+
+        .story-links {
+            margin-top: 32px;
+            display: flex; flex-wrap: wrap;
+            align-items: center; gap: 16px 32px;
+        }
+        .story-links a {
+            color: var(--color-red-500); font-weight: 700;
+            text-decoration: none; font-size: 1.05rem;
+            transition: color var(--transition-fast);
+            min-height: 48px; display: inline-flex; align-items: center;
+        }
+        .story-links a:hover { color: var(--color-red-700); }
+        .story-links span {
+            font-size: 0.85rem; color: var(--color-text-muted);
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION: VIDEO
+           ═══════════════════════════════════════════ */
+        .video-section {
+            padding: 0 24px var(--space-section-sm);
+        }
+
+        .video-placeholder {
+            max-width: 640px; margin: 0 auto;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .video-play-icon {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--color-red-500);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 2px 12px rgba(196, 30, 58, 0.2);
+        }
+        .video-play-icon svg { width: 22px; height: 22px; color: white; margin-left: 2px; }
+
+        .video-placeholder h3 {
+            font-size: 1.25rem; font-weight: 700;
+            color: var(--color-navy-900); margin-bottom: 8px;
+        }
+        .video-placeholder p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem; max-width: 24rem; margin: 0 auto;
+        }
+
+        /* Responsive video embed for when ready */
+        .video-embed {
+            position: relative; padding-bottom: 56.25%; height: 0;
+            overflow: hidden; border-radius: var(--radius-md);
+        }
+        .video-embed iframe {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION: MINDSET (navy)
+           ═══════════════════════════════════════════ */
+        .mindset {
+            background: var(--color-navy-500);
+            padding: var(--space-section) 24px;
+            text-align: center;
+        }
+
+        .mindset-quote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.5;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .mindset-quote .shout {
+            color: var(--color-red-500);
+            text-shadow: 0 0 40px rgba(196, 30, 58, 0.35);
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION: PROTOCOL
+           ═══════════════════════════════════════════ */
+        .protocol {
+            padding: var(--space-section) 24px;
+        }
+
+        .protocol-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .protocol-header h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--color-navy-900);
+            margin-bottom: 12px;
+        }
+        .protocol-header p {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .protocol-items {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+        }
+
+        .protocol-item {
+            margin-bottom: 56px;
+        }
+        .protocol-item:last-child { margin-bottom: 0; }
+
+        .protocol-number {
+            font-family: var(--font-display);
+            font-size: 3rem; font-weight: 800;
+            color: var(--color-border);
+            line-height: 1; margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .protocol-item h3 {
+            font-size: 1.35rem; font-weight: 700;
+            color: var(--color-navy-900);
+            margin-bottom: 10px;
+        }
+
+        .protocol-item p {
+            color: var(--color-text-secondary);
+            font-size: 1rem; line-height: 1.8;
+        }
+        .protocol-item a {
+            color: var(--color-red-500); font-weight: 600;
+            text-decoration: none; transition: color var(--transition-fast);
+        }
+        .protocol-item a:hover { color: var(--color-red-700); }
+
+        .protocol-cta {
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION: EMAIL CAPTURE
+           ═══════════════════════════════════════════ */
+        .email-capture {
+            padding: var(--space-section-sm) 24px;
+        }
+
+        .email-box {
+            max-width: 540px; margin: 0 auto;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .email-box h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 800;
+            color: var(--color-navy-900);
+            margin-bottom: 10px;
+        }
+
+        .email-box > p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+
+        .email-form {
+            display: flex; gap: 10px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-pill);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: var(--color-white);
+            min-height: 48px;
+            transition: border-color var(--transition-fast);
+        }
+        .email-input:focus {
+            outline: 2px solid var(--color-red-500);
+            outline-offset: 2px;
+            border-color: var(--color-red-500);
+        }
+        .email-input::placeholder { color: var(--color-text-muted); }
+
+        .email-form .btn-red {
+            padding: 14px 28px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .email-success {
+            display: none;
+            font-size: 0.95rem; font-weight: 700;
+            color: var(--color-navy-500);
+            margin-top: 16px;
+        }
+
+        .email-note {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-top: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .email-box { padding: 32px 24px; }
+            .email-form { flex-direction: column; }
+            .email-form .btn-red { width: 100%; }
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION: WHY I ORGANIZED
+           ═══════════════════════════════════════════ */
+        .why-section {
+            padding: var(--space-section) 24px;
+        }
+
+        .why-header {
+            max-width: var(--max-width-content);
+            margin: 0 auto 56px;
+        }
+        .why-header h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--color-navy-900);
+            margin-bottom: 16px;
+        }
+        .why-header p {
+            color: var(--color-text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .why-items {
+            max-width: 660px; margin: 0 auto;
+        }
+
+        .why-item {
+            display: flex; gap: 28px;
+            margin-bottom: 48px;
+            align-items: flex-start;
+        }
+        .why-item:last-child { margin-bottom: 0; }
+
+        .why-number {
+            font-family: var(--font-display);
+            font-size: 4rem; font-weight: 800;
+            color: var(--color-border);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 60px;
+            letter-spacing: -0.04em;
+        }
+
+        .why-content h3 {
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--color-navy-900);
+            margin-bottom: 6px;
+        }
+        .why-content p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem; line-height: 1.7;
+        }
+        .why-content a {
+            color: var(--color-red-500); font-weight: 600;
+            text-decoration: none; transition: color var(--transition-fast);
+        }
+        .why-content a:hover { color: var(--color-red-700); }
+
+        .why-item--highlight {
+            background: #FEF2F2;
+            border: 1px solid rgba(196, 30, 58, 0.1);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-left: -24px; margin-right: -24px;
+        }
+
+        .why-footnote {
+            max-width: var(--max-width-content);
+            margin: 32px auto 0;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        @media (max-width: 480px) {
+            .why-item { gap: 16px; }
+            .why-number { font-size: 2.5rem; width: 40px; }
+            .why-item--highlight { margin-left: -12px; margin-right: -12px; padding: 16px; }
+        }
+
+        /* ═══════════════════════════════════════════
+           DISCLAIMER
+           ═══════════════════════════════════════════ */
+        .disclaimer {
+            padding: 24px;
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+        }
+        .disclaimer p {
+            max-width: 640px; margin: 0 auto;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+        .disclaimer strong { color: var(--color-text-secondary); }
+
+        /* ═══════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════ */
+        .site-footer {
+            border-top: 1px solid var(--color-border);
+            padding: 32px 24px;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width-page);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-logo {
+            display: flex; align-items: center; gap: 8px;
+            text-decoration: none;
+        }
+        .footer-logo-mark {
+            width: 28px; height: 28px;
+            border-radius: 6px;
+            background: var(--color-navy-500);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .footer-logo-mark span {
+            color: white; font-family: var(--font-display);
+            font-weight: 700; font-size: 0.8rem;
+        }
+        .footer-logo-text {
+            font-family: var(--font-display);
+            font-weight: 700; color: var(--color-navy-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex; gap: 8px 20px; flex-wrap: wrap; justify-content: center;
+        }
+        .footer-links a {
+            font-size: 0.85rem; color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            padding: 4px 0; min-height: 44px;
+            display: inline-flex; align-items: center;
+        }
+        .footer-links a:hover { color: var(--color-red-500); }
+
+        .footer-copy {
+            text-align: center;
+        }
+        .footer-copy p {
+            font-size: 0.75rem; color: var(--color-text-muted);
+        }
+        .footer-copy a {
+            text-decoration: underline;
+            transition: color var(--transition-fast);
+            min-height: 44px; display: inline-flex; align-items: center;
+        }
+        .footer-copy a:hover { color: var(--color-red-500); }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE EMAIL INPUT
+           ═══════════════════════════════════════════ */
+        input[type="email"]:focus {
+            outline: 2px solid var(--color-red-500);
+            outline-offset: 2px;
+            border-radius: var(--radius-pill);
+        }
     </style>
 </head>
-<body class="bg-cream">
+<body>
 
     <div class="progress-bar" id="progressBar"></div>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- HEADER -->
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
+    <!-- ═══════════════════════════════════════════
+         HEADER
+         ═══════════════════════════════════════════ -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-link" aria-label="Jon's ALS Protocol Home">
+                <div class="logo-mark"><span>J</span></div>
+                <div>
+                    <span class="logo-text">Jon's ALS Protocol</span>
+                    <span class="logo-sub">Still Walking</span>
                 </div>
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <!-- Font size controls -->
-                <div class="hidden sm:flex items-center gap-1" aria-label="Text size controls">
-                    <button onclick="adjustFont(-1)" class="font-control text-xs" aria-label="Decrease text size">A-</button>
-                    <button onclick="adjustFont(1)" class="font-control text-sm" aria-label="Increase text size">A+</button>
+            <nav class="nav-links" aria-label="Main navigation">
+                <div class="font-controls" aria-label="Text size controls">
+                    <button onclick="adjustFont(-1)" class="font-control" aria-label="Decrease text size">A-</button>
+                    <button onclick="adjustFont(1)" class="font-control" aria-label="Increase text size">A+</button>
                 </div>
-                <a href="about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px; line-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px; line-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <!-- Mobile menu button -->
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <a href="about.html" class="nav-link">About Jon</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
+                <a href="protocol.html" class="nav-cta">Get the Protocol</a>
+                <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" class="menu-btn" aria-label="Menu">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <!-- Mobile menu dropdown -->
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
-            <div class="flex flex-col gap-3">
-                <a href="about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="about.html">About Jon</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
 
-        <!-- ═══════════════════════════════════════════════
-             1. HERO, Editorial layout, first-person voice
-             ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 fade-in" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
-                    <!-- Photo -->
-                    <div class="w-40 h-40 sm:w-72 sm:h-72 rounded-full flex-shrink-0 overflow-hidden order-first sm:order-last" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2), 0 0 0 4px #FAF8F5, 0 0 0 6px #C41E3A30;">
-                        <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" class="w-full h-full object-cover object-top" width="288" height="288" loading="eager" fetchpriority="high">
-                    </div>
-                    <!-- Text -->
-                    <div class="text-center sm:text-left">
-                        <h1 class="font-display text-navy-900 mb-6" style="font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.15; font-weight: 800;">
-                            6+ Years with ALS.<br>
-                            <span class="text-als-red-500">Still Walking.</span>
-                        </h1>
-
-                        <p class="text-lg sm:text-xl mb-8" style="color: #4A4A4A; line-height: 1.7;">
-                            When I was diagnosed in 2021, they gave me 2 to 5 years. I decided that wasn't going to be my story. So I started researching, built my own supplement protocol, and got back in the gym. Now I take 23 supplements and leg press 200 pounds, and I want to share everything I've learned with you.
-                        </p>
-
-                        <div class="flex flex-col sm:flex-row gap-4 sm:justify-start justify-center items-center">
-                            <a href="protocol.html" class="btn-red">See My Full Protocol</a>
-                            <a href="about.html" class="btn-navy">Read My Story</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- ═══════════════════════════════════════════
+             1. HERO — Centered, spacious, confident
+             ═══════════════════════════════════════════ -->
+        <section class="hero fade-in">
+            <div class="hero-photo">
+                <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" width="320" height="320" loading="eager" fetchpriority="high">
+            </div>
+            <h1>
+                6+ Years with ALS.<br>
+                <span class="red">Still Walking.</span>
+            </h1>
+            <p class="hero-text">
+                When I was diagnosed in 2021, they gave me 2 to 5 years. I decided that wasn't going to be my story. So I started researching, built my own supplement protocol, and got back in the gym. Now I take 23 supplements and leg press 200 pounds, and I want to share everything I've learned with you.
+            </p>
+            <div class="hero-buttons">
+                <a href="protocol.html" class="btn-red">See My Full Protocol</a>
+                <a href="about.html" class="btn-outline">Read My Story</a>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             2. JON'S STORY, First person, empathetic
-             ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 reveal">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <div class="bg-white rounded-xl p-8 sm:p-12 story-card" style="border: 1px solid #E8E4E0;">
-                    <p class="font-display text-2xl sm:text-3xl font-bold text-navy-500 mb-6" style="line-height: 1.4;">
-                        &ldquo;When they told me I had ALS, they said I had 2 to 5 years. That was over 6 years ago.&rdquo;
-                    </p>
-                    <p class="mb-4" style="color: #4A4A4A;">
-                        I'm not a doctor. I'm a husband, a father, and a bodybuilder who got told he was going to die. After my diagnosis, I spent months buried in research, reading clinical studies, talking to other patients, and slowly building a supplement protocol that I felt good about. It practically became an obsession.
-                    </p>
-                    <p class="mb-4" style="color: #4A4A4A;">
-                        Today I'm still walking and still talking, and I've lost friends to this disease along the way. That's the reason I'm sharing all of this. I don't want anyone to have to piece together what took me thousands of hours to figure out on my own.
-                    </p>
-                    <p class="mb-6" style="color: #4A4A4A; font-style: italic;">
-                        Whether you're a patient or a caregiver staying up late researching for someone you love, I built this site for you.
-                    </p>
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-                        <a href="about.html" class="text-als-red-500 font-bold hover:text-als-red-700 transition-colors text-lg inline-flex items-center" style="min-height: 48px;">
-                            Read my full story →
-                        </a>
-                        <span class="text-sm" style="color: #727272;">Shared in the Rocky Mountain ALS community</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════
-             2.5 VIDEO, Jon's Story (placeholder until recorded)
-             ═══════════════════════════════════════════════ -->
-        <section class="py-12 sm:py-16 reveal" id="video">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <div class="rounded-xl overflow-hidden" style="border: 2px solid #E8E4E0; background: #F5F3F0;">
-                    <!-- REPLACE THIS DIV with YouTube iframe when video is ready:
-                         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-                             <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-                                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                                 frameborder="0" allowfullscreen loading="lazy"
-                                 title="Jon Edy - I'm Not Dying Today"></iframe>
-                         </div>
-                    -->
-                    <div class="flex flex-col items-center justify-center py-10 sm:py-24 px-6 text-center">
-                        <div class="w-20 h-20 rounded-full bg-als-red-500 flex items-center justify-center mb-6" style="box-shadow: 0 4px 16px rgba(196,30,58,0.3);">
-                            <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <p class="font-display text-2xl sm:text-3xl font-bold text-navy-900 mb-3">Jon's Story: Coming Soon</p>
-                        <p style="color: #4A4A4A; max-width: 28rem;">Jon is recording a video telling his story in his own words. Sign up below to be notified when it goes live.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════
-             3. MINDSET, The emotional peak
-             ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 bg-navy-500 navy-textured">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <p class="font-display text-2xl sm:text-3xl font-bold text-white mb-6" style="line-height: 1.4;">
-                    &ldquo;When people ask me, how does it feel to be dying, I simply stand as tall as possible and reply: <span class="text-als-red-500" style="color: #FF6B7A;">I'M NOT DYING TODAY!</span>&rdquo;
+        <!-- ═══════════════════════════════════════════
+             2. STORY — Floating quote + narrow body text
+             ═══════════════════════════════════════════ -->
+        <section class="story reveal">
+            <p class="story-quote">
+                &ldquo;When they told me I had ALS, they said I had 2 to 5 years. That was over 6 years ago.&rdquo;
+            </p>
+            <div class="story-body">
+                <p>
+                    I'm not a doctor. I'm a husband, a father, and a bodybuilder who got told he was going to die. After my diagnosis, I spent months buried in research, reading clinical studies, talking to other patients, and slowly building a supplement protocol that I felt good about. It practically became an obsession.
                 </p>
-                <p class="text-lg mb-6" style="color: rgba(255,255,255,0.8);">
-                    We have two choices: give up and give in. Or stand and fight. I have chosen to stand and fight. That choice is the foundation of everything on this site.
+                <p>
+                    Today I'm still walking and still talking, and I've lost friends to this disease along the way. That's the reason I'm sharing all of this. I don't want anyone to have to piece together what took me thousands of hours to figure out on my own.
                 </p>
-                <p class="text-base" style="color: rgba(255,255,255,0.6);">
-                    Supplements are part of my protocol. But the mindset is what makes the protocol work.
+                <p>
+                    Whether you're a patient or a caregiver staying up late researching for someone you love, I built this site for you.
                 </p>
-                <a href="blog/mindset-als.html" class="inline-flex items-center mt-6 font-bold transition-colors hover:text-white" style="color: rgba(255,255,255,0.8); min-height: 48px;">
-                    Read how I think about ALS →
-                </a>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════
-             4. WHAT'S INSIDE, First person, with supplement preview
-             ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20 bg-surface reveal">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What's in my protocol</h2>
-                <p class="text-lg mb-10" style="color: #4A4A4A;">Everything I take, why I take it, and exactly where to buy it.</p>
-
-                <div class="space-y-4 mb-10">
-                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
-                        <div class="flex items-start gap-4">
-                            <div class="card-icon" style="background: #EFF4FA;">
-                                <svg class="w-6 h-6" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">23 supplements, fully documented</h3>
-                                <p style="color: #4A4A4A;">I take 23 supplements every day and I've documented all of them with the exact brand, how much I take, when I take it, and why. Things like <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">L-Serine</a>, <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700">HMB</a>, and a lot more that I've researched over the years.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
-                        <div class="flex items-start gap-4">
-                            <div class="card-icon" style="background: #EFF4FA;">
-                                <svg class="w-6 h-6" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My daily routine</h3>
-                                <p style="color: #4A4A4A;">I lay out my whole day in here, from when I take my supplements to my workout schedule, meals, and how I wind down at night. This is <a href="blog/daily-routine.html" class="text-als-red-500 font-semibold hover:text-als-red-700">what I actually do</a>, not what some book says to do.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
-                        <div class="flex items-start gap-4">
-                            <div class="card-icon" style="background: #FEF2F2;">
-                                <svg class="w-6 h-6" style="color: #C41E3A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My 5 rules for living with ALS</h3>
-                                <p style="color: #4A4A4A;">Honestly, I think the mental side of this is just as important as any supplement I take. I have 5 rules I live by, and they keep me going even on the really hard days. <a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read them here</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <a href="protocol.html" class="btn-red">See my full protocol →</a>
+                <div class="story-links">
+                    <a href="about.html">Read my full story &rarr;</a>
+                    <span>Shared in the Rocky Mountain ALS community</span>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             6. EMAIL CAPTURE, Lead magnet
-             ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-20 bg-navy-500">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Get Jon's Top 5 Supplements</h2>
-                <p class="text-lg mb-8" style="color: rgba(255,255,255,0.7);">
-                    Free PDF guide - the 5 supplements Jon considers most important for ALS, with brands and doses. No spam, ever.
-                </p>
-                <form id="leadForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="return handleLeadForm(event)">
+        <div class="divider"></div>
+
+        <!-- ═══════════════════════════════════════════
+             2.5 VIDEO — Minimal placeholder
+             ═══════════════════════════════════════════ -->
+        <section class="video-section reveal" id="video">
+            <div class="video-placeholder">
+                <!-- REPLACE THIS DIV with YouTube iframe when video is ready:
+                     <div class="video-embed">
+                         <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                             frameborder="0" allowfullscreen loading="lazy"
+                             title="Jon Edy - I'm Not Dying Today"></iframe>
+                     </div>
+                -->
+                <div class="video-play-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <h3>Jon's Story: Coming Soon</h3>
+                <p>Jon is recording a video telling his story in his own words. Sign up below to be notified when it goes live.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             3. MINDSET — The one navy section
+             ═══════════════════════════════════════════ -->
+        <section class="mindset">
+            <p class="mindset-quote">
+                &ldquo;When people ask me, how does it feel to be dying, I simply stand as tall as possible and reply: <span class="shout">I'M NOT DYING TODAY!</span>&rdquo;
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             4. PROTOCOL — Numbered, no cards
+             ═══════════════════════════════════════════ -->
+        <section class="protocol reveal">
+            <div class="protocol-header">
+                <h2>What's in my protocol</h2>
+                <p>Everything I take, why I take it, and exactly where to buy it.</p>
+            </div>
+            <div class="protocol-items">
+                <div class="protocol-item">
+                    <div class="protocol-number">01</div>
+                    <h3>23 supplements, fully documented</h3>
+                    <p>I take 23 supplements every day and I've documented all of them with the exact brand, how much I take, when I take it, and why. Things like <a href="blog/l-serine-for-als.html">L-Serine</a>, <a href="blog/hmb-muscle-preservation.html">HMB</a>, and a lot more that I've researched over the years.</p>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-number">02</div>
+                    <h3>My daily routine</h3>
+                    <p>I lay out my whole day in here, from when I take my supplements to my workout schedule, meals, and how I wind down at night. This is <a href="blog/daily-routine.html">what I actually do</a>, not what some book says to do.</p>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-number">03</div>
+                    <h3>My 5 rules for living with ALS</h3>
+                    <p>Honestly, I think the mental side of this is just as important as any supplement I take. I have 5 rules I live by, and they keep me going even on the really hard days. <a href="blog/mindset-als.html">Read them here</a>.</p>
+                </div>
+            </div>
+            <div class="protocol-cta">
+                <a href="protocol.html" class="btn-red">See my full protocol &rarr;</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             5. EMAIL CAPTURE — Clean, white, bordered
+             ═══════════════════════════════════════════ -->
+        <section class="email-capture reveal">
+            <div class="email-box">
+                <h2>Get Jon's Top 5 Supplements</h2>
+                <p>Free PDF guide &mdash; the 5 supplements Jon considers most important for ALS, with brands and doses. No spam, ever.</p>
+                <form id="leadForm" class="email-form" onsubmit="return handleLeadForm(event)">
                     <input
                         type="email"
                         id="leadEmail"
                         placeholder="Your email address"
                         required
-                        class="flex-1 px-5 py-3.5 rounded-lg text-lg border-0"
+                        class="email-input"
                         aria-label="Email address"
-                        style="min-height: 48px; font-family: 'Source Sans 3', sans-serif;"
                     >
-                    <button type="submit" class="btn-red !rounded-lg whitespace-nowrap">Send the Guide</button>
+                    <button type="submit" class="btn-red">Send the Guide</button>
                 </form>
-                <p id="leadSuccess" class="hidden text-sm mt-4 font-bold" style="color: #FFFFFF;">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
-                <p id="leadNote" class="text-xs mt-4" style="color: rgba(255,255,255,0.5);">We respect your privacy. Unsubscribe anytime.</p>
+                <p id="leadSuccess" class="email-success">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
+                <p id="leadNote" class="email-note">We respect your privacy. Unsubscribe anytime.</p>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             5. WHY I SHARE THIS, reframed, less salesy
-             ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20 reveal">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">Why I organized this</h2>
-                <p class="text-lg mb-8" style="color: #4A4A4A;">When I was first researching on my own, I spent months trying to piece together information from forums and studies and other patients. It was exhausting and confusing, and I figured if I was going through all of that, other people were too. So I organized everything I've learned into one place.</p>
-
-                <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                    <div class="space-y-5">
-                        <div class="flex items-start gap-4">
-                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">1.</span>
-                            <div>
-                                <p class="font-semibold text-navy-900">The blog is free. Always will be.</p>
-                                <p class="text-sm" style="color: #4A4A4A;">All the general supplement research, my story, and what I've learned over the years is free on the <a href="blog/index.html" class="text-als-red-500 font-semibold hover:text-als-red-700">blog</a>. That will always be free.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 rounded-lg p-4 -mx-4" style="border-top: 1px solid #E8E4E0; padding-top: 20px; background: #FEF2F2; border: 1px solid #C41E3A20;">
-                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">2.</span>
-                            <div>
-                                <p class="font-semibold text-navy-900">The full protocol is $39, one time.</p>
-                                <p class="text-sm mb-3" style="color: #4A4A4A;">This is the complete guide with all 23 supplements, exact brands, doses and timing, my full daily routine, and my mindset framework. It's organized so a caregiver can print it out and hand it to a doctor. The $39 helps keep this site running and the guide up to date.</p>
-                                <a href="protocol.html" class="text-als-red-500 font-bold text-sm hover:text-als-red-700 transition-colors inline-flex items-center" style="min-height: 44px;">See what's included →</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4" style="border-top: 1px solid #E8E4E0; padding-top: 20px;">
-                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">3.</span>
-                            <div>
-                                <p class="font-semibold text-navy-900">Stay connected for $9.99/month (optional).</p>
-                                <p class="text-sm" style="color: #4A4A4A;">Quarterly protocol updates when I change my regimen, monthly check-ins on how I'm doing, and new research I'm following. Cancel anytime.</p>
-                            </div>
-                        </div>
+        <!-- ═══════════════════════════════════════════
+             6. WHY I ORGANIZED — Large numbers + content
+             ═══════════════════════════════════════════ -->
+        <section class="why-section reveal">
+            <div class="why-header">
+                <h2>Why I organized this</h2>
+                <p>When I was first researching on my own, I spent months trying to piece together information from forums and studies and other patients. It was exhausting and confusing, and I figured if I was going through all of that, other people were too. So I organized everything I've learned into one place.</p>
+            </div>
+            <div class="why-items">
+                <div class="why-item">
+                    <div class="why-number">1</div>
+                    <div class="why-content">
+                        <h3>The blog is free. Always will be.</h3>
+                        <p>All the general supplement research, my story, and what I've learned over the years is free on the <a href="blog/index.html">blog</a>. That will always be free.</p>
                     </div>
                 </div>
-                <p class="text-sm mt-4" style="color: #727272;">30-day money-back guarantee on everything. If it's not helpful, I'll refund you.</p>
+                <div class="why-item why-item--highlight">
+                    <div class="why-number">2</div>
+                    <div class="why-content">
+                        <h3>The full protocol is $39, one time.</h3>
+                        <p>This is the complete guide with all 23 supplements, exact brands, doses and timing, my full daily routine, and my mindset framework. It's organized so a caregiver can print it out and hand it to a doctor. The $39 helps keep this site running and the guide up to date.</p>
+                        <a href="protocol.html" style="display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px;">See what's included &rarr;</a>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">3</div>
+                    <div class="why-content">
+                        <h3>Stay connected for $9.99/month (optional).</h3>
+                        <p>Quarterly protocol updates when I change my regimen, monthly check-ins on how I'm doing, and new research I'm following. Cancel anytime.</p>
+                    </div>
+                </div>
             </div>
+            <p class="why-footnote">30-day money-back guarantee on everything. If it's not helpful, I'll refund you.</p>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             8. MEDICAL DISCLAIMER
-             ═══════════════════════════════════════════════ -->
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: #727272; line-height: 1.7;">
-                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
-                </p>
-            </div>
+        <!-- ═══════════════════════════════════════════
+             7. MEDICAL DISCLAIMER
+             ═══════════════════════════════════════════ -->
+        <section class="disclaimer">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
+            </p>
         </section>
     </main>
 
-    <!-- ═══════════════════════════════════════════════
-         9. FOOTER
-         ═══════════════════════════════════════════════ -->
-    <footer class="py-12" style="border-top: 1px solid #E8E4E0; background: linear-gradient(180deg, #F5F3F0 0%, #FFFFFF 30%);">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500">
-                            <span class="text-white font-display font-bold text-sm">J</span>
-                        </div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
-                    </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
-                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
-                        <li><a href="supplements.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">My Supplements</a></li>
-                        <li><a href="timeline.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">My Journey</a></li>
-                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="contact.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Contact</a></li>
-                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
-                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
-                    </ul>
-                </div>
+    <!-- ═══════════════════════════════════════════
+         FOOTER — Minimal, single row
+         ═══════════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <a href="index.html" class="footer-logo" aria-label="Home">
+                    <div class="footer-logo-mark"><span>J</span></div>
+                    <span class="footer-logo-text">Jon's ALS Protocol</span>
+                </a>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div class="footer-links">
+                <a href="about.html">About Jon</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="supplements.html">My Supplements</a>
+                <a href="timeline.html">My Journey</a>
+                <a href="protocol.html">Get the Protocol</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+                <p>As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html">Full affiliate disclosure</a>.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to top button -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
     </button>
 
     <script>
@@ -480,7 +1073,7 @@
         });
 
         // Font size controls
-        var fontSizes = [18, 22, 26];
+        var fontSizes = [20, 24, 28];
         var currentSize = 0;
         function adjustFont(dir) {
             currentSize = Math.max(0, Math.min(fontSizes.length - 1, currentSize + dir));
@@ -493,7 +1086,7 @@
             var email = document.getElementById('leadEmail').value;
             if (email) {
                 document.getElementById('leadForm').style.display = 'none';
-                document.getElementById('leadSuccess').classList.remove('hidden');
+                document.getElementById('leadSuccess').style.display = 'block';
                 document.getElementById('leadNote').style.display = 'none';
             }
             return false;
