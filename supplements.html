@@ -8,18 +8,18 @@
     <meta property="og:image:height" content="630">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Complete Supplement Stack — Jon's ALS Protocol</title>
-    <meta name="description" content="All ~20 supplements Jon Edy takes daily as part of his ALS protocol. See what he takes, why, and general dose ranges. Full protocol with exact brands available for $39.">
+    <meta name="description" content="All 23 supplements Jon Edy takes daily as part of his ALS protocol. See what he takes, why, and general dose ranges. Full protocol with exact brands available for $39.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://jons-als-protocol.vercel.app/supplements.html">
 
     <meta property="og:title" content="My Complete Supplement Stack — Jon's ALS Protocol">
-    <meta property="og:description" content="All ~20 supplements Jon Edy takes daily as part of his ALS protocol. See what he takes and why.">
+    <meta property="og:description" content="All 23 supplements Jon Edy takes daily as part of his ALS protocol. See what he takes and why.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jons-als-protocol.vercel.app/supplements.html">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jons-als-protocol.vercel.app/supplements.html","name":"My Complete Supplement Stack","description":"All ~20 supplements Jon Edy takes daily as part of his ALS protocol.","url":"https://jons-als-protocol.vercel.app/supplements.html","isPartOf":{"@id":"https://jons-als-protocol.vercel.app/#website"},"about":{"@id":"https://jons-als-protocol.vercel.app/#jon-edy"},"datePublished":"2026-03-29","dateModified":"2026-03-29","breadcrumb":{"@id":"https://jons-als-protocol.vercel.app/supplements.html#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://jons-als-protocol.vercel.app/supplements.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jons-als-protocol.vercel.app/"},{"@type":"ListItem","position":2,"name":"My Supplements","item":"https://jons-als-protocol.vercel.app/supplements.html"}]}]}
+    {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jons-als-protocol.vercel.app/supplements.html","name":"My Complete Supplement Stack","description":"All 23 supplements Jon Edy takes daily as part of his ALS protocol.","url":"https://jons-als-protocol.vercel.app/supplements.html","isPartOf":{"@id":"https://jons-als-protocol.vercel.app/#website"},"about":{"@id":"https://jons-als-protocol.vercel.app/#jon-edy"},"datePublished":"2026-03-29","dateModified":"2026-03-29","breadcrumb":{"@id":"https://jons-als-protocol.vercel.app/supplements.html#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://jons-als-protocol.vercel.app/supplements.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jons-als-protocol.vercel.app/"},{"@type":"ListItem","position":2,"name":"My Supplements","item":"https://jons-als-protocol.vercel.app/supplements.html"}]}]}
     </script>
 
     <!-- Fonts: Fraunces (display) + Source Sans 3 (body) -->
@@ -98,11 +98,16 @@
         .btn-navy:active { background: #162C49; color: white; }
 
         /* Category badge colors */
-        .cat-foundation { background: #DBEAFE; color: #1E40AF; }
-        .cat-potent { background: #FEE2E2; color: #991B1B; }
-        .cat-antioxidant { background: #FEF3C7; color: #92400E; }
-        .cat-vitamins { background: #D1FAE5; color: #065F46; }
-        .cat-other { background: #E0E7FF; color: #3730A3; }
+        .cat-vitamin { background: #D1FAE5; color: #065F46; }
+        .cat-bodybuilding { background: #FEE2E2; color: #991B1B; }
+        .cat-protein { background: #FEF3C7; color: #92400E; }
+        .cat-top3 { background: #FEF3C7; color: #92400E; border: 1.5px solid #F59E0B; }
+
+        /* Dr. Bedlack badge */
+        .badge-bedlack { background: #1E3A5F; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+
+        /* TOP 3 star badge */
+        .badge-top3 { background: #F59E0B; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap; }
 
         /* Table styling */
         .supp-table { width: 100%; border-collapse: separate; border-spacing: 0; }
@@ -131,8 +136,8 @@
             .supp-table tbody td::before { font-weight: 700; color: #727272; min-width: 100px; flex-shrink: 0; font-size: 0.85rem; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(1)::before { content: "Supplement"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(2)::before { content: "Category"; }
-            .supp-table tbody tr:not(.cat-header) td:nth-child(3)::before { content: "Dose Range"; }
-            .supp-table tbody tr:not(.cat-header) td:nth-child(4)::before { content: "Why I Take It"; }
+            .supp-table tbody tr:not(.cat-header) td:nth-child(3)::before { content: "Dose"; }
+            .supp-table tbody tr:not(.cat-header) td:nth-child(4)::before { content: "Notes"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(5)::before { content: "Learn More"; }
         }
     </style>
@@ -194,8 +199,14 @@
                     My Complete Supplement Stack
                 </h1>
                 <p class="text-lg" style="color: #4A4A4A; line-height: 1.7;">
-                    These are all ~20 supplements I take daily as part of my ALS protocol. This page shows what I take and why. The <a href="protocol.html" class="text-als-red-500 font-semibold hover:text-als-red-700">full protocol ($39)</a> includes exact brands, doses, timing, and my daily routine.
+                    These are my real supplements as of March 2026. All 23 of them. I take every single one of these daily. The <a href="protocol.html" class="text-als-red-500 font-semibold hover:text-als-red-700">full protocol ($39)</a> includes the exact brands, where to buy them, timing, and my complete daily routine.
                 </p>
+
+                <!-- Top 3 callout -->
+                <div class="mt-6 bg-white rounded-lg p-5" style="border: 2px solid #F59E0B;">
+                    <p class="font-semibold text-navy-900 mb-1" style="font-size: 1.05rem;">My Top 3</p>
+                    <p style="color: #4A4A4A;">If I could only take three supplements, it would be <strong>L-Serine</strong>, <strong>Basis (NAD+)</strong>, and <strong>HMB</strong>. All three were guided by Dr. Bedlack at Duke University, one of the top ALS researchers in the country.</p>
+                </div>
             </div>
         </section>
 
@@ -209,160 +220,213 @@
                             <tr>
                                 <th>Supplement</th>
                                 <th>Category</th>
-                                <th>General Dose</th>
-                                <th>Why I Take It</th>
+                                <th>Dose</th>
+                                <th>Notes</th>
                                 <th>Learn More</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- ===== FOUNDATION ===== -->
+                            <!-- ===== VITAMINS & SUPPLEMENTS (16) ===== -->
                             <tr class="cat-header">
-                                <td colspan="5">Foundation</td>
+                                <td colspan="5">Vitamins &amp; Supplements (16)</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Vitamin D3</td>
-                                <td><span class="cat-foundation text-xs font-semibold px-2.5 py-1 rounded-full">Foundation</span></td>
-                                <td>2,000 - 5,000 IU/day</td>
-                                <td>Supports immune function and bone health, which matters when mobility is declining.</td>
-                                <td><a href="blog/vitamin-d3-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">Omega-3 Fish Oil</td>
-                                <td><span class="cat-foundation text-xs font-semibold px-2.5 py-1 rounded-full">Foundation</span></td>
-                                <td>2 - 4 g/day</td>
-                                <td>Anti-inflammatory support for the brain and nervous system.</td>
-                                <td><a href="blog/omega-3-fish-oil-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">Magnesium</td>
-                                <td><span class="cat-foundation text-xs font-semibold px-2.5 py-1 rounded-full">Foundation</span></td>
-                                <td>300 - 500 mg/day</td>
-                                <td>Helps with muscle cramps and sleep quality, both of which are constant battles.</td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
-                            </tr>
-
-                            <!-- ===== POTENT ===== -->
-                            <tr class="cat-header">
-                                <td colspan="5">Potent</td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">L-Serine</td>
-                                <td><span class="cat-potent text-xs font-semibold px-2.5 py-1 rounded-full">Potent</span></td>
-                                <td>15 - 30 g/day</td>
-                                <td>A Phase 1 trial showed ~85% slower functional decline in ALS patients taking L-Serine.</td>
+                                <td class="font-semibold">
+                                    L-Serine
+                                    <span class="badge-top3 ml-1">TOP 3</span>
+                                    <span class="badge-bedlack ml-1">Dr. Bedlack guided</span>
+                                </td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>30,600 mg/day</td>
+                                <td>The centerpiece of my protocol. I take it in my protein drink and throughout the day.</td>
                                 <td><a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">HMB</td>
-                                <td><span class="cat-potent text-xs font-semibold px-2.5 py-1 rounded-full">Potent</span></td>
-                                <td>3 g/day</td>
-                                <td>Helps preserve lean muscle mass, which ALS tries to take from you every day.</td>
+                                <td class="font-semibold">
+                                    Basis (NAD+)
+                                    <span class="badge-top3 ml-1">TOP 3</span>
+                                    <span class="badge-bedlack ml-1">Dr. Bedlack guided</span>
+                                </td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>8 tablets/day</td>
+                                <td>NAD+ support for cellular energy and repair. High dose, guided by Dr. Bedlack.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">
+                                    HMB
+                                    <span class="badge-top3 ml-1">TOP 3</span>
+                                    <span class="badge-bedlack ml-1">Dr. Bedlack guided</span>
+                                </td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>6,000 mg/day</td>
+                                <td>30 minutes before exercise. Preserves lean muscle mass. Dr. Bedlack showed strong interest in this one.</td>
                                 <td><a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Creatine</td>
-                                <td><span class="cat-potent text-xs font-semibold px-2.5 py-1 rounded-full">Potent</span></td>
-                                <td>5 - 10 g/day</td>
-                                <td>Supports cellular energy production in muscles and may help slow muscle loss.</td>
-                                <td><a href="blog/creatine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
-                            </tr>
-
-                            <!-- ===== ANTIOXIDANT ===== -->
-                            <tr class="cat-header">
-                                <td colspan="5">Antioxidant</td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">NAC (N-Acetyl Cysteine)</td>
-                                <td><span class="cat-antioxidant text-xs font-semibold px-2.5 py-1 rounded-full">Antioxidant</span></td>
-                                <td>600 - 1,200 mg/day</td>
-                                <td>Boosts glutathione, the body's master antioxidant, which helps fight oxidative stress.</td>
-                                <td><a href="blog/glutathione-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
-                            </tr>
-                            <tr>
                                 <td class="font-semibold">CoQ10</td>
-                                <td><span class="cat-antioxidant text-xs font-semibold px-2.5 py-1 rounded-full">Antioxidant</span></td>
-                                <td>200 - 400 mg/day</td>
-                                <td>Supports mitochondrial energy production and protects cells from oxidative damage.</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>400 mg/day</td>
+                                <td>Mitochondrial energy production and cellular protection.</td>
                                 <td><a href="blog/coq10-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
                             </tr>
                             <tr>
+                                <td class="font-semibold">Magnesium Glycinate</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>500 mg/day</td>
+                                <td>Muscle cramps and sleep. Glycinate form absorbs better.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Turmeric</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>4,500 mg/day</td>
+                                <td>Anti-inflammatory support. High dose.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Vitamin D3</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>2,000 IU/day</td>
+                                <td>Immune function and bone health.</td>
+                                <td><a href="blog/vitamin-d3-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                            </tr>
+                            <tr>
                                 <td class="font-semibold">Vitamin E</td>
-                                <td><span class="cat-antioxidant text-xs font-semibold px-2.5 py-1 rounded-full">Antioxidant</span></td>
-                                <td>400 - 800 IU/day</td>
-                                <td>Fat-soluble antioxidant that helps protect nerve cell membranes from damage.</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>400 IU, 3-4x/week</td>
+                                <td>Evening dose. Fat-soluble antioxidant for nerve cell protection.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Alpha Lipoic Acid</td>
-                                <td><span class="cat-antioxidant text-xs font-semibold px-2.5 py-1 rounded-full">Antioxidant</span></td>
-                                <td>300 - 600 mg/day</td>
-                                <td>Works in both water and fat, which means it can protect cells other antioxidants can't reach.</td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td class="font-semibold">Fish Oil (Omega-3)</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>520 mg/day, 3-4x/week</td>
+                                <td>Evening dose. Anti-inflammatory support for the brain and nervous system.</td>
+                                <td><a href="blog/omega-3-fish-oil-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Glutathione</td>
-                                <td><span class="cat-antioxidant text-xs font-semibold px-2.5 py-1 rounded-full">Antioxidant</span></td>
-                                <td>500 - 1,000 mg/day</td>
-                                <td>The body's master antioxidant. I take it alongside NAC for maximum support.</td>
-                                <td><a href="blog/glutathione-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
-                            </tr>
-
-                            <!-- ===== VITAMINS ===== -->
-                            <tr class="cat-header">
-                                <td colspan="5">Vitamins</td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">B-Complex</td>
-                                <td><span class="cat-vitamins text-xs font-semibold px-2.5 py-1 rounded-full">Vitamins</span></td>
-                                <td>1 capsule/day</td>
-                                <td>Supports nerve function and energy metabolism. B12 is especially important for neurological health.</td>
+                                <td class="font-semibold">Super B Complex</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>3-4x/week</td>
+                                <td>Evening dose. Nerve function and energy metabolism.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
                             </tr>
                             <tr>
                                 <td class="font-semibold">Vitamin C</td>
-                                <td><span class="cat-vitamins text-xs font-semibold px-2.5 py-1 rounded-full">Vitamins</span></td>
-                                <td>1,000 - 2,000 mg/day</td>
-                                <td>Immune support and another antioxidant layer. I take it in divided doses throughout the day.</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>1,000 mg/day, 3-4x/week</td>
+                                <td>Evening dose. Immune support and antioxidant layer.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Zinc</td>
-                                <td><span class="cat-vitamins text-xs font-semibold px-2.5 py-1 rounded-full">Vitamins</span></td>
-                                <td>15 - 30 mg/day</td>
-                                <td>Supports immune function and plays a role in motor neuron health.</td>
+                                <td class="font-semibold">Lion's Mane</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>4,000 mg/day</td>
+                                <td>Nerve growth factor support. I also add the powder form to my protein drink.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Mullein</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>1,200 mg/day</td>
+                                <td>Lung health. Breathing matters when you have ALS.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Protandim</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>1 tablet/day</td>
+                                <td>Nrf2 activator. Supports the body's own antioxidant production.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Milk Thistle</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>1 dropper as needed</td>
+                                <td>Liver health. I take a lot of supplements, so I protect my liver.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Quinine</td>
+                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td>1 dropper as needed</td>
+                                <td>Muscle stiffness and joint support.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
                             </tr>
 
-                            <!-- ===== OTHER ===== -->
+                            <!-- ===== BODY BUILDING (4) ===== -->
                             <tr class="cat-header">
-                                <td colspan="5">Other</td>
+                                <td colspan="5">Body Building (4)</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Turmeric / Curcumin</td>
-                                <td><span class="cat-other text-xs font-semibold px-2.5 py-1 rounded-full">Other</span></td>
-                                <td>500 - 1,500 mg/day</td>
-                                <td>Powerful anti-inflammatory. I take it with black pepper extract for better absorption.</td>
+                                <td class="font-semibold">Creatine</td>
+                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td>3 tablets/day</td>
+                                <td>Cellular energy for muscles. Helps me push harder in the gym.</td>
+                                <td><a href="blog/creatine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Turkesterone</td>
+                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td>3 tablets/day</td>
+                                <td>Natural muscle support.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Probiotics</td>
-                                <td><span class="cat-other text-xs font-semibold px-2.5 py-1 rounded-full">Other</span></td>
-                                <td>20 - 50 billion CFU/day</td>
-                                <td>Gut health affects everything. Research is connecting the gut-brain axis to neurological conditions.</td>
+                                <td class="font-semibold">Plant Aminos</td>
+                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td>6/day</td>
+                                <td>Amino acid support for muscle recovery.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Melatonin</td>
-                                <td><span class="cat-other text-xs font-semibold px-2.5 py-1 rounded-full">Other</span></td>
-                                <td>3 - 10 mg/night</td>
-                                <td>Sleep is when the body repairs itself. I prioritize it, and melatonin helps me get there.</td>
+                                <td class="font-semibold">BPC-157</td>
+                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td>1/day</td>
+                                <td>Peptide. Tissue repair and recovery support.</td>
                                 <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+
+                            <!-- ===== DAILY PROTEIN DRINK (3) ===== -->
+                            <tr class="cat-header">
+                                <td colspan="5">Daily Protein Drink (3)</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Protein Powder</td>
+                                <td><span class="cat-protein text-xs font-semibold px-2.5 py-1 rounded-full">Protein Drink</span></td>
+                                <td>2 scoops (24g protein)</td>
+                                <td>Plant-based protein. The foundation of my daily shake.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Lion's Mane Powder</td>
+                                <td><span class="cat-protein text-xs font-semibold px-2.5 py-1 rounded-full">Protein Drink</span></td>
+                                <td>1 scoop (2,000 mg)</td>
+                                <td>Added to my daily shake on top of the capsule form.</td>
+                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">L-Serine</td>
+                                <td><span class="cat-protein text-xs font-semibold px-2.5 py-1 rounded-full">Protein Drink</span></td>
+                                <td>4 scoops (13,600 mg)</td>
+                                <td>The biggest portion of my daily L-Serine goes right in the shake.</td>
+                                <td><a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p class="text-sm mt-4" style="color: #727272;">This is what I take. The full protocol with exact brands and doses is available for $39.</p>
+                <!-- Cost estimate -->
+                <div class="mt-6 bg-white rounded-lg p-5 flex items-center justify-between flex-wrap gap-4" style="border: 1px solid #E8E4E0;">
+                    <div>
+                        <p class="font-semibold text-navy-900" style="font-size: 1.05rem;">Approximate monthly cost</p>
+                        <p class="text-sm" style="color: #727272;">All 23 supplements, full doses.</p>
+                    </div>
+                    <p class="font-display font-bold text-navy-900" style="font-size: 1.5rem;">~$650/month</p>
+                </div>
+
+                <p class="text-sm mt-4" style="color: #727272;">This is what I take. The full protocol with exact brands, where to buy, and my complete daily timing is available for $39.</p>
 
             </div>
         </section>
@@ -372,7 +436,7 @@
             <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
                 <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Want exact brands, doses, and timing?</h2>
                 <p class="text-lg mb-8" style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                    This page shows you what I take and why. The full protocol includes every brand name, exact dosage, when I take each supplement, my complete daily routine, and the mindset framework I follow. It's organized so you (or your caregiver) can hand it to a doctor.
+                    This page shows you what I take. The full protocol includes every brand name, exact dosage, when I take each one, my complete daily routine, and the mindset framework I follow. It's organized so you (or your caregiver) can hand it to a doctor.
                 </p>
                 <a href="protocol.html" class="btn-red">Get the Full Protocol for $39 &rarr;</a>
                 <p class="text-sm mt-6" style="color: rgba(255,255,255,0.5);">One-time purchase. 30-day money-back guarantee.</p>
