@@ -52,31 +52,45 @@
     </script>
 
     <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
+        body {
+            font-family: 'Source Sans 3', system-ui, sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #1A1A1A;
+            background: #FAF8F5;
+        }
         h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
 
         .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
         .skip-link:focus { top: 0; }
 
-        /* Scroll progress bar - sits on bottom edge of sticky header */
+        /* Scroll progress bar */
         .progress-bar { position: fixed; top: 56px; left: 0; height: 3px; background: #C41E3A; z-index: 50; width: 0%; transition: width 0.1s linear; }
 
         /* Back to top button */
-        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; background: #1E3A5F; color: white; border: none; border-radius: 50%; cursor: pointer; z-index: 30; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .back-to-top {
+            position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
+            background: #1E3A5F; color: white; border: none; border-radius: 50%; cursor: pointer; z-index: 30;
+            opacity: 0; transform: translateY(12px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, background 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.1);
+        }
         .back-to-top.visible { opacity: 1; transform: translateY(0); }
-        .back-to-top:hover { background: #162C49; }
+        .back-to-top:hover { background: #162C49; box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 2px 6px rgba(0,0,0,0.12); }
 
         /* Font size controls */
-        .font-control { width: 48px; height: 48px; border: 1px solid #E8E4E0; background: white; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A5F; transition: background 0.15s; }
-        .font-control:hover { background: #F5F3F0; }
+        .font-control { width: 48px; height: 48px; border: 1px solid #E8E4E0; background: white; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A5F; transition: background 0.15s, box-shadow 0.15s; }
+        .font-control:hover { background: #F5F3F0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
         *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
 
-        .fade-in { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
         @media (prefers-reduced-motion: reduce) {
             .fade-in { animation: none; }
             .back-to-top { transition: opacity 0.15s; }
             .progress-bar { transition: none; }
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
         }
 
         /* Mobile: full-width buttons */
@@ -91,48 +105,203 @@
         /* Email input focus on dark bg */
         input[type="email"]:focus { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 8px; }
 
+        /* Buttons with premium hover */
         .btn-red {
             background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px;
             font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block; text-decoration: none; min-height: 48px;
+            box-shadow: 0 2px 8px rgba(196,30,58,0.2);
         }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
+        .btn-red:hover { background: #A91B32; transform: scale(1.02); box-shadow: 0 8px 24px rgba(196,30,58,0.3), 0 2px 8px rgba(196,30,58,0.15); }
+        .btn-red:active { transform: scale(1); box-shadow: 0 2px 8px rgba(196,30,58,0.2); }
 
         .btn-navy {
             background: transparent; color: #1E3A5F; border: 2px solid #1E3A5F; padding: 12px 28px; border-radius: 10px;
             font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, color 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block; text-decoration: none; min-height: 48px;
         }
-        .btn-navy:hover { background: #1E3A5F; color: white; }
-        .btn-navy:active { background: #162C49; color: white; }
+        .btn-navy:hover { background: #1E3A5F; color: white; transform: scale(1.02); box-shadow: 0 8px 24px rgba(30,58,95,0.2); }
+        .btn-navy:active { background: #162C49; color: white; transform: scale(1); }
 
-        .card {
-            background: white; border: 1px solid #E8E4E0; border-radius: 16px; padding: 32px;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        /* Refined link styling */
+        a.editorial-link {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: color-mix(in oklch, #C41E3A 40%, transparent);
+            transition: text-decoration-color 0.2s ease;
         }
-        .card:hover { border-color: #C41E3A; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        a.editorial-link:hover {
+            text-decoration-color: #C41E3A;
+        }
 
-        /* Subtle background texture */
-        body { background-image: radial-gradient(#E8E4E0 0.5px, transparent 0.5px); background-size: 24px 24px; }
-
-        /* Scroll reveal animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        /* Scroll reveal with stagger */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+        .reveal[data-delay="1"] { transition-delay: 100ms; }
+        .reveal[data-delay="2"] { transition-delay: 200ms; }
+        .reveal[data-delay="3"] { transition-delay: 300ms; }
+        .reveal[data-delay="4"] { transition-delay: 400ms; }
 
-        /* Card hover lift */
-        .protocol-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .protocol-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30,58,95,0.12); }
+        /* ── HERO ── */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #FAF8F5 0%, #F0EDE8 40%, color-mix(in oklch, #1E3A5F 8%, #FAF8F5) 100%);
+            z-index: 0;
+        }
+        .hero-photo-col {
+            position: relative;
+        }
+        .hero-photo-col::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #C41E3A 0%, #1E3A5F 100%);
+            z-index: 0;
+            opacity: 0.15;
+            filter: blur(20px);
+        }
+        .hero-photo {
+            position: relative;
+            z-index: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 24px 48px rgba(30,58,95,0.2),
+                0 8px 16px rgba(30,58,95,0.1),
+                0 2px 4px rgba(0,0,0,0.05);
+        }
+        .hero-h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
 
-        /* Gradient accent line on story blockquote */
-        .story-card { border-left: 4px solid transparent; border-image: linear-gradient(180deg, #C41E3A, #1E3A5F) 1; }
+        /* ── STORY BLOCKQUOTE ── */
+        .story-section {
+            background: linear-gradient(180deg, color-mix(in oklch, #C41E3A 4%, #FAF8F5) 0%, color-mix(in oklch, #1E3A5F 3%, #FAF8F5) 100%);
+        }
+        .story-quote-mark {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(6rem, 12vw, 10rem);
+            line-height: 0.8;
+            color: color-mix(in oklch, #C41E3A 15%, transparent);
+            position: absolute;
+            top: -0.15em;
+            left: -0.05em;
+            user-select: none;
+            pointer-events: none;
+        }
+        .story-quote-text {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            line-height: 1.4;
+            color: #1E3A5F;
+            font-weight: 600;
+        }
 
-        /* Navy section texture */
-        .navy-textured { background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%); background-size: 40px 40px; }
+        /* ── MINDSET ── */
+        .mindset-section {
+            background: radial-gradient(ellipse at 50% 40%, #243f66 0%, #1E3A5F 40%, #162C49 80%, #0F2040 100%);
+            position: relative;
+        }
+        .mindset-quote {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+        .mindset-highlight {
+            color: #FF6B7A;
+            display: inline-block;
+            text-shadow: 0 0 40px rgba(255,107,122,0.3);
+        }
 
-        /* Icon styling for protocol cards */
-        .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        /* ── PROTOCOL ── */
+        .protocol-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            padding: 2rem 0;
+            border-bottom: 1px solid #E8E4E0;
+            transition: transform 0.2s ease;
+        }
+        .protocol-row:last-child { border-bottom: none; }
+        .protocol-row:hover { transform: translateX(4px); }
+        .protocol-icon-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+        }
+        @media (min-width: 640px) {
+            .protocol-row { grid-template-columns: 96px 1fr; gap: 2rem; padding: 2.5rem 0; }
+            .protocol-icon-large { width: 96px; height: 96px; }
+        }
+
+        /* ── EMAIL CAPTURE ── */
+        .email-section {
+            background: radial-gradient(ellipse at 50% 50%, #243f66 0%, #1E3A5F 50%, #162C49 100%);
+        }
+
+        /* ── WHY I ORGANIZED ── */
+        .reason-number {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            color: color-mix(in oklch, #C41E3A 20%, transparent);
+            flex-shrink: 0;
+            width: 80px;
+            text-align: center;
+        }
+        .reason-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 2rem 0;
+        }
+        .reason-row + .reason-row {
+            border-top: 1px solid #E8E4E0;
+        }
+        .reason-highlight {
+            background: linear-gradient(135deg, #FEF2F2 0%, color-mix(in oklch, #C41E3A 5%, white) 100%);
+            border: 1px solid color-mix(in oklch, #C41E3A 15%, transparent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: -0.5rem;
+        }
+
+        /* ── FOOTER ── */
+        .footer-section {
+            background: linear-gradient(180deg, color-mix(in oklch, #1E3A5F 6%, #FAF8F5) 0%, color-mix(in oklch, #1E3A5F 12%, #F5F3F0) 50%, color-mix(in oklch, #1E3A5F 8%, #F0EDE8) 100%);
+        }
+        .footer-section a {
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
     </style>
 </head>
 <body class="bg-cream">
@@ -182,25 +351,27 @@
         <!-- ═══════════════════════════════════════════════
              1. HERO, Editorial layout, first-person voice
              ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 fade-in" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
-                    <!-- Photo -->
-                    <div class="w-40 h-40 sm:w-72 sm:h-72 rounded-full flex-shrink-0 overflow-hidden order-first sm:order-last" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2), 0 0 0 4px #FAF8F5, 0 0 0 6px #C41E3A30;">
-                        <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" class="w-full h-full object-cover object-top" width="288" height="288" loading="eager" fetchpriority="high">
+        <section class="hero-section fade-in">
+            <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-8 py-24 sm:py-32">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <!-- Photo: large editorial panel -->
+                    <div class="hero-photo-col w-full lg:w-5/12 flex-shrink-0 order-first lg:order-last">
+                        <div class="hero-photo aspect-[4/5] sm:aspect-[3/4]">
+                            <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" class="w-full h-full object-cover object-top" width="600" height="750" loading="eager" fetchpriority="high">
+                        </div>
                     </div>
                     <!-- Text -->
-                    <div class="text-center sm:text-left">
-                        <h1 class="font-display text-navy-900 mb-6" style="font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.15; font-weight: 800;">
+                    <div class="w-full lg:w-7/12 text-center lg:text-left">
+                        <h1 class="font-display text-navy-900 hero-h1 mb-8">
                             6+ Years with ALS.<br>
                             <span class="text-als-red-500">Still Walking.</span>
                         </h1>
 
-                        <p class="text-lg sm:text-xl mb-8" style="color: #4A4A4A; line-height: 1.7;">
+                        <p class="text-xl sm:text-2xl mb-10" style="color: #4A4A4A; line-height: 1.65; max-width: 36rem;">
                             When I was diagnosed in 2021, they gave me 2 to 5 years. I decided that wasn't going to be my story. So I started researching, built my own supplement protocol, and got back in the gym. Now I take 23 supplements and leg press 200 pounds, and I want to share everything I've learned with you.
                         </p>
 
-                        <div class="flex flex-col sm:flex-row gap-4 sm:justify-start justify-center items-center">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:justify-start justify-center items-center lg:items-start">
                             <a href="protocol.html" class="btn-red">See My Full Protocol</a>
                             <a href="about.html" class="btn-navy">Read My Story</a>
                         </div>
@@ -210,26 +381,32 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════
-             2. JON'S STORY, First person, empathetic
+             2. JON'S STORY, Magazine pull-quote
              ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 reveal">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <div class="bg-white rounded-xl p-8 sm:p-12 story-card" style="border: 1px solid #E8E4E0;">
-                    <p class="font-display text-2xl sm:text-3xl font-bold text-navy-500 mb-6" style="line-height: 1.4;">
-                        &ldquo;When they told me I had ALS, they said I had 2 to 5 years. That was over 6 years ago.&rdquo;
+        <section class="story-section py-20 sm:py-32 reveal" data-delay="1">
+            <div class="max-w-4xl mx-auto px-4 sm:px-8">
+                <!-- Pull quote -->
+                <div class="relative mb-14 sm:mb-16">
+                    <span class="story-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <p class="story-quote-text relative z-10 pl-2 sm:pl-4">
+                        When they told me I had ALS, they said I had 2 to 5 years. That was over 6 years ago.
                     </p>
-                    <p class="mb-4" style="color: #4A4A4A;">
+                </div>
+
+                <!-- Story body -->
+                <div class="max-w-3xl" style="color: #4A4A4A;">
+                    <p class="text-lg sm:text-xl mb-6" style="line-height: 1.8;">
                         I'm not a doctor. I'm a husband, a father, and a bodybuilder who got told he was going to die. After my diagnosis, I spent months buried in research, reading clinical studies, talking to other patients, and slowly building a supplement protocol that I felt good about. It practically became an obsession.
                     </p>
-                    <p class="mb-4" style="color: #4A4A4A;">
+                    <p class="text-lg sm:text-xl mb-6" style="line-height: 1.8;">
                         Today I'm still walking and still talking, and I've lost friends to this disease along the way. That's the reason I'm sharing all of this. I don't want anyone to have to piece together what took me thousands of hours to figure out on my own.
                     </p>
-                    <p class="mb-6" style="color: #4A4A4A; font-style: italic;">
+                    <p class="text-lg sm:text-xl mb-10" style="line-height: 1.8; font-style: italic; color: #1E3A5F;">
                         Whether you're a patient or a caregiver staying up late researching for someone you love, I built this site for you.
                     </p>
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-                        <a href="about.html" class="text-als-red-500 font-bold hover:text-als-red-700 transition-colors text-lg inline-flex items-center" style="min-height: 48px;">
-                            Read my full story →
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-10">
+                        <a href="about.html" class="text-als-red-500 font-bold hover:text-als-red-700 transition-colors text-lg inline-flex items-center editorial-link" style="min-height: 48px; text-decoration-color: color-mix(in oklch, #C41E3A 40%, transparent);">
+                            Read my full story &rarr;
                         </a>
                         <span class="text-sm" style="color: #727272;">Shared in the Rocky Mountain ALS community</span>
                     </div>
@@ -240,9 +417,9 @@
         <!-- ═══════════════════════════════════════════════
              2.5 VIDEO, Jon's Story (placeholder until recorded)
              ═══════════════════════════════════════════════ -->
-        <section class="py-12 sm:py-16 reveal" id="video">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <div class="rounded-xl overflow-hidden" style="border: 2px solid #E8E4E0; background: #F5F3F0;">
+        <section class="py-16 sm:py-24 reveal" data-delay="2" id="video">
+            <div class="max-w-4xl mx-auto px-4 sm:px-8">
+                <div class="rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #F5F3F0 0%, #EBE8E4 100%); box-shadow: 0 8px 32px rgba(30,58,95,0.08), 0 2px 8px rgba(0,0,0,0.04);">
                     <!-- REPLACE THIS DIV with YouTube iframe when video is ready:
                          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
                              <iframe src="https://www.youtube.com/embed/VIDEO_ID"
@@ -251,12 +428,12 @@
                                  title="Jon Edy - I'm Not Dying Today"></iframe>
                          </div>
                     -->
-                    <div class="flex flex-col items-center justify-center py-10 sm:py-24 px-6 text-center">
-                        <div class="w-20 h-20 rounded-full bg-als-red-500 flex items-center justify-center mb-6" style="box-shadow: 0 4px 16px rgba(196,30,58,0.3);">
-                            <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="flex flex-col items-center justify-center py-16 sm:py-28 px-6 text-center">
+                        <div class="w-24 h-24 rounded-full bg-als-red-500 flex items-center justify-center mb-8" style="box-shadow: 0 8px 32px rgba(196,30,58,0.25), 0 0 0 8px rgba(196,30,58,0.08);">
+                            <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
-                        <p class="font-display text-2xl sm:text-3xl font-bold text-navy-900 mb-3">Jon's Story: Coming Soon</p>
-                        <p style="color: #4A4A4A; max-width: 28rem;">Jon is recording a video telling his story in his own words. Sign up below to be notified when it goes live.</p>
+                        <p class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-4" style="line-height: 1.1;">Jon's Story: Coming Soon</p>
+                        <p class="text-lg" style="color: #4A4A4A; max-width: 28rem;">Jon is recording a video telling his story in his own words. Sign up below to be notified when it goes live.</p>
                     </div>
                 </div>
             </div>
@@ -265,69 +442,68 @@
         <!-- ═══════════════════════════════════════════════
              3. MINDSET, The emotional peak
              ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 bg-navy-500 navy-textured">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <p class="font-display text-2xl sm:text-3xl font-bold text-white mb-6" style="line-height: 1.4;">
-                    &ldquo;When people ask me, how does it feel to be dying, I simply stand as tall as possible and reply: <span class="text-als-red-500" style="color: #FF6B7A;">I'M NOT DYING TODAY!</span>&rdquo;
+        <section class="mindset-section py-24 sm:py-36 reveal" data-delay="1">
+            <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center">
+                <p class="font-display mindset-quote text-white mb-8">
+                    &ldquo;When people ask me, how does it feel to be dying, I simply stand as tall as possible and reply: <span class="mindset-highlight">I'M NOT DYING TODAY!</span>&rdquo;
                 </p>
-                <p class="text-lg mb-6" style="color: rgba(255,255,255,0.8);">
+                <p class="text-xl sm:text-2xl mb-8" style="color: rgba(255,255,255,0.8); max-width: 40rem; margin-left: auto; margin-right: auto; line-height: 1.6;">
                     We have two choices: give up and give in. Or stand and fight. I have chosen to stand and fight. That choice is the foundation of everything on this site.
                 </p>
-                <p class="text-base" style="color: rgba(255,255,255,0.6);">
+                <p class="text-lg" style="color: rgba(255,255,255,0.55); max-width: 36rem; margin-left: auto; margin-right: auto;">
                     Supplements are part of my protocol. But the mindset is what makes the protocol work.
                 </p>
-                <a href="blog/mindset-als.html" class="inline-flex items-center mt-6 font-bold transition-colors hover:text-white" style="color: rgba(255,255,255,0.8); min-height: 48px;">
-                    Read how I think about ALS →
+                <a href="blog/mindset-als.html" class="inline-flex items-center mt-8 font-bold transition-colors hover:text-white text-lg" style="color: rgba(255,255,255,0.8); min-height: 48px; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; text-decoration-color: rgba(255,255,255,0.3);">
+                    Read how I think about ALS &rarr;
                 </a>
             </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════
-             4. WHAT'S INSIDE, First person, with supplement preview
+             4. WHAT'S INSIDE, Editorial stacked layout
              ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20 bg-surface reveal">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What's in my protocol</h2>
-                <p class="text-lg mb-10" style="color: #4A4A4A;">Everything I take, why I take it, and exactly where to buy it.</p>
+        <section class="py-20 sm:py-28 reveal" data-delay="2" style="background: linear-gradient(180deg, #F5F3F0 0%, #FAF8F5 100%);">
+            <div class="max-w-3xl mx-auto px-4 sm:px-8">
+                <h2 class="font-display font-bold text-navy-900 mb-3" style="font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1;">What's in my protocol</h2>
+                <p class="text-xl mb-12" style="color: #4A4A4A;">Everything I take, why I take it, and exactly where to buy it.</p>
 
-                <div class="space-y-4 mb-10">
-                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
-                        <div class="flex items-start gap-4">
-                            <div class="card-icon" style="background: #EFF4FA;">
-                                <svg class="w-6 h-6" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">23 supplements, fully documented</h3>
-                                <p style="color: #4A4A4A;">I take 23 supplements every day and I've documented all of them with the exact brand, how much I take, when I take it, and why. Things like <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">L-Serine</a>, <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700">HMB</a>, and a lot more that I've researched over the years.</p>
-                            </div>
+                <div class="mb-14">
+                    <!-- Row 1: Supplements -->
+                    <div class="protocol-row">
+                        <div class="protocol-icon-large" style="background: linear-gradient(135deg, #EFF4FA 0%, #E0EAF5 100%);">
+                            <svg class="w-9 h-9 sm:w-10 sm:h-10" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold text-navy-900 mb-3" style="line-height: 1.1;">23 supplements, fully documented</h3>
+                            <p class="text-lg" style="color: #4A4A4A; line-height: 1.7;">I take 23 supplements every day and I've documented all of them with the exact brand, how much I take, when I take it, and why. Things like <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 editorial-link">L-Serine</a>, <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700 editorial-link">HMB</a>, and a lot more that I've researched over the years.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
-                        <div class="flex items-start gap-4">
-                            <div class="card-icon" style="background: #EFF4FA;">
-                                <svg class="w-6 h-6" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My daily routine</h3>
-                                <p style="color: #4A4A4A;">I lay out my whole day in here, from when I take my supplements to my workout schedule, meals, and how I wind down at night. This is <a href="blog/daily-routine.html" class="text-als-red-500 font-semibold hover:text-als-red-700">what I actually do</a>, not what some book says to do.</p>
-                            </div>
+
+                    <!-- Row 2: Daily Routine -->
+                    <div class="protocol-row">
+                        <div class="protocol-icon-large" style="background: linear-gradient(135deg, #EFF4FA 0%, #E0EAF5 100%);">
+                            <svg class="w-9 h-9 sm:w-10 sm:h-10" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold text-navy-900 mb-3" style="line-height: 1.1;">My daily routine</h3>
+                            <p class="text-lg" style="color: #4A4A4A; line-height: 1.7;">I lay out my whole day in here, from when I take my supplements to my workout schedule, meals, and how I wind down at night. This is <a href="blog/daily-routine.html" class="text-als-red-500 font-semibold hover:text-als-red-700 editorial-link">what I actually do</a>, not what some book says to do.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
-                        <div class="flex items-start gap-4">
-                            <div class="card-icon" style="background: #FEF2F2;">
-                                <svg class="w-6 h-6" style="color: #C41E3A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My 5 rules for living with ALS</h3>
-                                <p style="color: #4A4A4A;">Honestly, I think the mental side of this is just as important as any supplement I take. I have 5 rules I live by, and they keep me going even on the really hard days. <a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read them here</a>.</p>
-                            </div>
+
+                    <!-- Row 3: Mindset -->
+                    <div class="protocol-row">
+                        <div class="protocol-icon-large" style="background: linear-gradient(135deg, #FEF2F2 0%, #FDE8E8 100%);">
+                            <svg class="w-9 h-9 sm:w-10 sm:h-10" style="color: #C41E3A;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold text-navy-900 mb-3" style="line-height: 1.1;">My 5 rules for living with ALS</h3>
+                            <p class="text-lg" style="color: #4A4A4A; line-height: 1.7;">Honestly, I think the mental side of this is just as important as any supplement I take. I have 5 rules I live by, and they keep me going even on the really hard days. <a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 editorial-link">Read them here</a>.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <a href="protocol.html" class="btn-red">See my full protocol →</a>
+                    <a href="protocol.html" class="btn-red">See my full protocol &rarr;</a>
                 </div>
             </div>
         </section>
@@ -335,72 +511,76 @@
         <!-- ═══════════════════════════════════════════════
              6. EMAIL CAPTURE, Lead magnet
              ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-20 bg-navy-500">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Get Jon's Top 5 Supplements</h2>
-                <p class="text-lg mb-8" style="color: rgba(255,255,255,0.7);">
+        <section class="email-section py-24 sm:py-32 reveal" data-delay="1">
+            <div class="max-w-2xl mx-auto px-4 sm:px-8 text-center">
+                <h2 class="font-display font-bold text-white mb-5" style="font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1;">Get Jon's Top 5 Supplements</h2>
+                <p class="text-xl mb-10" style="color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 28rem; margin-left: auto; margin-right: auto;">
                     Free PDF guide - the 5 supplements Jon considers most important for ALS, with brands and doses. No spam, ever.
                 </p>
-                <form id="leadForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="return handleLeadForm(event)">
+                <form id="leadForm" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="return handleLeadForm(event)">
                     <input
                         type="email"
                         id="leadEmail"
                         placeholder="Your email address"
                         required
-                        class="flex-1 px-5 py-3.5 rounded-lg text-lg border-0"
+                        class="flex-1 px-5 py-4 rounded-lg text-lg border-0"
                         aria-label="Email address"
-                        style="min-height: 48px; font-family: 'Source Sans 3', sans-serif;"
+                        style="min-height: 52px; font-family: 'Source Sans 3', sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
                     >
-                    <button type="submit" class="btn-red !rounded-lg whitespace-nowrap">Send the Guide</button>
+                    <button type="submit" class="btn-red !rounded-lg whitespace-nowrap !py-4">Send the Guide</button>
                 </form>
                 <p id="leadSuccess" class="hidden text-sm mt-4 font-bold" style="color: #FFFFFF;">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
-                <p id="leadNote" class="text-xs mt-4" style="color: rgba(255,255,255,0.5);">We respect your privacy. Unsubscribe anytime.</p>
+                <p id="leadNote" class="text-xs mt-5" style="color: rgba(255,255,255,0.45);">We respect your privacy. Unsubscribe anytime.</p>
             </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════
-             5. WHY I SHARE THIS, reframed, less salesy
+             5. WHY I SHARE THIS, Editorial with large numbers
              ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20 reveal">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">Why I organized this</h2>
-                <p class="text-lg mb-8" style="color: #4A4A4A;">When I was first researching on my own, I spent months trying to piece together information from forums and studies and other patients. It was exhausting and confusing, and I figured if I was going through all of that, other people were too. So I organized everything I've learned into one place.</p>
+        <section class="py-20 sm:py-28 reveal" data-delay="2">
+            <div class="max-w-3xl mx-auto px-4 sm:px-8">
+                <h2 class="font-display font-bold text-navy-900 mb-4" style="font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1;">Why I organized this</h2>
+                <p class="text-xl mb-12" style="color: #4A4A4A; line-height: 1.7; max-width: 36rem;">When I was first researching on my own, I spent months trying to piece together information from forums and studies and other patients. It was exhausting and confusing, and I figured if I was going through all of that, other people were too. So I organized everything I've learned into one place.</p>
 
-                <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                    <div class="space-y-5">
-                        <div class="flex items-start gap-4">
-                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">1.</span>
-                            <div>
-                                <p class="font-semibold text-navy-900">The blog is free. Always will be.</p>
-                                <p class="text-sm" style="color: #4A4A4A;">All the general supplement research, my story, and what I've learned over the years is free on the <a href="blog/index.html" class="text-als-red-500 font-semibold hover:text-als-red-700">blog</a>. That will always be free.</p>
-                            </div>
+                <div>
+                    <!-- Reason 1 -->
+                    <div class="reason-row">
+                        <span class="reason-number">1.</span>
+                        <div>
+                            <p class="font-display font-bold text-navy-900 text-xl sm:text-2xl mb-2" style="line-height: 1.2;">The blog is free. Always will be.</p>
+                            <p style="color: #4A4A4A; line-height: 1.7;">All the general supplement research, my story, and what I've learned over the years is free on the <a href="blog/index.html" class="text-als-red-500 font-semibold hover:text-als-red-700 editorial-link">blog</a>. That will always be free.</p>
                         </div>
-                        <div class="flex items-start gap-4 rounded-lg p-4 -mx-4" style="border-top: 1px solid #E8E4E0; padding-top: 20px; background: #FEF2F2; border: 1px solid #C41E3A20;">
-                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">2.</span>
-                            <div>
-                                <p class="font-semibold text-navy-900">The full protocol is $39, one time.</p>
-                                <p class="text-sm mb-3" style="color: #4A4A4A;">This is the complete guide with all 23 supplements, exact brands, doses and timing, my full daily routine, and my mindset framework. It's organized so a caregiver can print it out and hand it to a doctor. The $39 helps keep this site running and the guide up to date.</p>
-                                <a href="protocol.html" class="text-als-red-500 font-bold text-sm hover:text-als-red-700 transition-colors inline-flex items-center" style="min-height: 44px;">See what's included →</a>
-                            </div>
+                    </div>
+
+                    <!-- Reason 2 (highlighted) -->
+                    <div class="reason-row">
+                        <span class="reason-number" style="color: color-mix(in oklch, #C41E3A 35%, transparent);">2.</span>
+                        <div class="reason-highlight flex-1">
+                            <p class="font-display font-bold text-navy-900 text-xl sm:text-2xl mb-2" style="line-height: 1.2;">The full protocol is $39, one time.</p>
+                            <p class="mb-4" style="color: #4A4A4A; line-height: 1.7;">This is the complete guide with all 23 supplements, exact brands, doses and timing, my full daily routine, and my mindset framework. It's organized so a caregiver can print it out and hand it to a doctor. The $39 helps keep this site running and the guide up to date.</p>
+                            <a href="protocol.html" class="text-als-red-500 font-bold hover:text-als-red-700 transition-colors inline-flex items-center editorial-link" style="min-height: 44px;">See what's included &rarr;</a>
                         </div>
-                        <div class="flex items-start gap-4" style="border-top: 1px solid #E8E4E0; padding-top: 20px;">
-                            <span class="text-als-red-500 font-bold text-lg flex-shrink-0 mt-0.5">3.</span>
-                            <div>
-                                <p class="font-semibold text-navy-900">Stay connected for $9.99/month (optional).</p>
-                                <p class="text-sm" style="color: #4A4A4A;">Quarterly protocol updates when I change my regimen, monthly check-ins on how I'm doing, and new research I'm following. Cancel anytime.</p>
-                            </div>
+                    </div>
+
+                    <!-- Reason 3 -->
+                    <div class="reason-row">
+                        <span class="reason-number">3.</span>
+                        <div>
+                            <p class="font-display font-bold text-navy-900 text-xl sm:text-2xl mb-2" style="line-height: 1.2;">Stay connected for $9.99/month (optional).</p>
+                            <p style="color: #4A4A4A; line-height: 1.7;">Quarterly protocol updates when I change my regimen, monthly check-ins on how I'm doing, and new research I'm following. Cancel anytime.</p>
                         </div>
                     </div>
                 </div>
-                <p class="text-sm mt-4" style="color: #727272;">30-day money-back guarantee on everything. If it's not helpful, I'll refund you.</p>
+
+                <p class="text-sm mt-8" style="color: #727272;">30-day money-back guarantee on everything. If it's not helpful, I'll refund you.</p>
             </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════
              8. MEDICAL DISCLAIMER
              ═══════════════════════════════════════════════ -->
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <section class="py-10" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
+            <div class="max-w-2xl mx-auto px-4 sm:px-8 text-center">
                 <p class="text-sm" style="color: #727272; line-height: 1.7;">
                     <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
                 </p>
@@ -411,20 +591,20 @@
     <!-- ═══════════════════════════════════════════════
          9. FOOTER
          ═══════════════════════════════════════════════ -->
-    <footer class="py-12" style="border-top: 1px solid #E8E4E0; background: linear-gradient(180deg, #F5F3F0 0%, #FFFFFF 30%);">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+    <footer class="footer-section py-16 sm:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-14">
                 <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500">
-                            <span class="text-white font-display font-bold text-sm">J</span>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500" style="box-shadow: 0 2px 8px rgba(30,58,95,0.15);">
+                            <span class="text-white font-display font-bold text-lg">J</span>
                         </div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
+                        <span class="font-display font-bold text-navy-500 text-lg">Jon's ALS Protocol</span>
                     </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+                    <p class="text-sm" style="color: #727272; line-height: 1.7;">One patient's protocol, mindset, and daily routine - shared openly.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
+                    <h4 class="font-display font-bold mb-4 text-lg" style="color: #1A1A1A;">Navigate</h4>
                     <ul class="space-y-1 text-sm">
                         <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
                         <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
@@ -434,7 +614,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
+                    <h4 class="font-display font-bold mb-4 text-lg" style="color: #1A1A1A;">Legal</h4>
                     <ul class="space-y-1 text-sm">
                         <li><a href="contact.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Contact</a></li>
                         <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
@@ -443,9 +623,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div class="pt-10 text-center" style="border-top: 1px solid color-mix(in oklch, #1E3A5F 10%, #E8E4E0);">
+                <p class="text-sm" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+                <p class="text-sm mt-2" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px; text-underline-offset: 3px; text-decoration-thickness: 1px;">Full affiliate disclosure</a>.</p>
             </div>
         </div>
     </footer>
