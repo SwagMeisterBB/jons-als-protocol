@@ -84,6 +84,10 @@
             .btn-red, .btn-navy { width: 100%; text-align: center; }
         }
 
+        /* Responsive video embed */
+        .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; }
+        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
         /* Email input focus on dark bg */
         input[type="email"]:focus { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 8px; }
 
@@ -207,6 +211,31 @@
                             Read my full story →
                         </a>
                         <span class="text-sm" style="color: #727272;">Shared in the Rocky Mountain ALS community</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             2.5 VIDEO — Jon's Story (placeholder until recorded)
+             ═══════════════════════════════════════════════ -->
+        <section class="py-12 sm:py-16" id="video">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <div class="rounded-xl overflow-hidden" style="border: 2px solid #E8E4E0; background: #F5F3F0;">
+                    <!-- REPLACE THIS DIV with YouTube iframe when video is ready:
+                         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                             <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                 frameborder="0" allowfullscreen loading="lazy"
+                                 title="Jon Edy - I'm Not Dying Today"></iframe>
+                         </div>
+                    -->
+                    <div class="flex flex-col items-center justify-center py-16 sm:py-24 px-6 text-center">
+                        <div class="w-20 h-20 rounded-full bg-als-red-500 flex items-center justify-center mb-6" style="box-shadow: 0 4px 16px rgba(196,30,58,0.3);">
+                            <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <p class="font-display text-2xl sm:text-3xl font-bold text-navy-900 mb-3">Jon's Story: Coming Soon</p>
+                        <p style="color: #4A4A4A; max-width: 28rem;">Jon is recording a video telling his story in his own words. Sign up below to be notified when it goes live.</p>
                     </div>
                 </div>
             </div>
