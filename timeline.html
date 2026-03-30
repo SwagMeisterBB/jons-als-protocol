@@ -97,79 +97,282 @@
         .btn-navy:hover { background: #1E3A5F; color: white; }
         .btn-navy:active { background: #162C49; color: white; }
 
-        /* Timeline styles */
-        .timeline { position: relative; padding-left: 0; }
-        .timeline::before {
+        /* ===== VISUAL TIMELINE ===== */
+
+        .timeline-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Center line - desktop */
+        .timeline-wrapper::before {
             content: '';
             position: absolute;
-            left: 120px;
+            left: 50%;
             top: 0;
             bottom: 0;
             width: 3px;
-            background: #E8E4E0;
-        }
-        .timeline-entry {
-            position: relative;
-            display: flex;
-            align-items: flex-start;
-            gap: 24px;
-            padding-bottom: 40px;
-        }
-        .timeline-entry:last-child { padding-bottom: 0; }
-        .timeline-date {
-            flex-shrink: 0;
-            width: 96px;
-            text-align: right;
-            font-family: 'Fraunces', Georgia, serif;
-            font-weight: 700;
-            color: #1E3A5F;
-            font-size: 1.1rem;
-            padding-top: 4px;
-        }
-        .timeline-dot {
-            flex-shrink: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #C41E3A;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #C41E3A;
-            margin-top: 6px;
-            position: relative;
-            z-index: 2;
-        }
-        .timeline-content {
-            flex: 1;
-            background: white;
-            border: 1px solid #E8E4E0;
-            border-radius: 12px;
-            padding: 20px 24px;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .timeline-content:hover {
-            border-color: #C41E3A;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            background: linear-gradient(to bottom, #E8E4E0 0%, #D0CCC8 50%, #E8E4E0 100%);
+            transform: translateX(-50%);
         }
 
-        /* Mobile timeline adjustments */
-        @media (max-width: 639px) {
-            .timeline::before { left: 16px; }
-            .timeline-date {
-                width: auto;
+        .tl-entry {
+            position: relative;
+            width: 50%;
+            padding-bottom: 48px;
+        }
+        .tl-entry:last-child { padding-bottom: 0; }
+
+        /* Odd entries: left side */
+        .tl-entry:nth-child(odd) {
+            left: 0;
+            padding-right: 48px;
+            text-align: right;
+        }
+
+        /* Even entries: right side */
+        .tl-entry:nth-child(even) {
+            left: 50%;
+            padding-left: 48px;
+            text-align: left;
+        }
+
+        /* Date circles on the line */
+        .tl-dot {
+            position: absolute;
+            top: 4px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            border: 3px solid #FAF8F5;
+        }
+
+        .tl-dot-inner {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 700;
+            font-size: 0.65rem;
+            color: white;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .tl-dot--red { background: #C41E3A; }
+        .tl-dot--navy { background: #1E3A5F; }
+        .tl-dot--green { background: #16803C; }
+
+        /* Position dots for odd (left) entries: dot on right edge */
+        .tl-entry:nth-child(odd) .tl-dot {
+            right: -22px;
+        }
+
+        /* Position dots for even (right) entries: dot on left edge */
+        .tl-entry:nth-child(even) .tl-dot {
+            left: -22px;
+        }
+
+        /* Card styling */
+        .tl-card {
+            background: white;
+            border: 1px solid #E8E4E0;
+            border-radius: 14px;
+            padding: 24px 28px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            position: relative;
+        }
+        .tl-card:hover {
+            border-color: #C8C4C0;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .tl-card__date {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+        }
+        .tl-card__date--red { color: #C41E3A; }
+        .tl-card__date--navy { color: #1E3A5F; }
+        .tl-card__date--green { color: #16803C; }
+
+        .tl-card__title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 700;
+            color: #0F2040;
+            font-size: 1.2rem;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .tl-card__text {
+            color: #4A4A4A;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Special final card */
+        .tl-card--final {
+            background: #C41E3A;
+            border-color: #A91B32;
+            padding: 32px 32px;
+        }
+        .tl-card--final:hover {
+            border-color: #8E172A;
+            box-shadow: 0 8px 32px rgba(196,30,58,0.25);
+        }
+        .tl-card--final .tl-card__date { color: rgba(255,255,255,0.8); }
+        .tl-card--final .tl-card__title { color: white; font-size: 1.5rem; }
+        .tl-card--final .tl-card__text { color: rgba(255,255,255,0.9); }
+
+        /* Arrow connectors from card to dot */
+        .tl-entry:nth-child(odd) .tl-card::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid white;
+        }
+        .tl-entry:nth-child(odd) .tl-card::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: -12px;
+            width: 0;
+            height: 0;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            border-left: 11px solid #E8E4E0;
+        }
+
+        .tl-entry:nth-child(even) .tl-card::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+        .tl-entry:nth-child(even) .tl-card::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -12px;
+            width: 0;
+            height: 0;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            border-right: 11px solid #E8E4E0;
+        }
+
+        /* Final card arrow overrides (red background) */
+        .tl-entry:nth-child(odd) .tl-card--final::after {
+            border-left-color: #C41E3A;
+        }
+        .tl-entry:nth-child(odd) .tl-card--final::before {
+            border-left-color: #A91B32;
+        }
+        .tl-entry:nth-child(even) .tl-card--final::after {
+            border-right-color: #C41E3A;
+        }
+        .tl-entry:nth-child(even) .tl-card--final::before {
+            border-right-color: #A91B32;
+        }
+
+        /* ===== MOBILE: stack left ===== */
+        @media (max-width: 767px) {
+            .timeline-wrapper::before {
+                left: 22px;
+                transform: none;
+            }
+
+            .tl-entry,
+            .tl-entry:nth-child(odd),
+            .tl-entry:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-left: 60px;
+                padding-right: 0;
                 text-align: left;
-                font-size: 0.95rem;
+                padding-bottom: 32px;
             }
-            .timeline-entry {
-                flex-direction: column;
-                padding-left: 40px;
-                gap: 8px;
+
+            .tl-dot,
+            .tl-entry:nth-child(odd) .tl-dot,
+            .tl-entry:nth-child(even) .tl-dot {
+                left: 0;
+                right: auto;
             }
-            .timeline-dot {
+
+            /* Remove desktop arrows on mobile */
+            .tl-entry:nth-child(odd) .tl-card::after,
+            .tl-entry:nth-child(odd) .tl-card::before,
+            .tl-entry:nth-child(even) .tl-card::after,
+            .tl-entry:nth-child(even) .tl-card::before {
+                display: none;
+            }
+
+            /* Add left arrows on mobile */
+            .tl-card::after {
+                content: '' !important;
+                display: block !important;
                 position: absolute;
-                left: 9px;
-                top: 4px;
+                top: 16px;
+                left: -10px;
+                right: auto !important;
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent !important;
+                border-bottom: 10px solid transparent !important;
+                border-right: 10px solid white !important;
+                border-left: none !important;
             }
-            .timeline-content { margin-left: 0; }
+            .tl-card::before {
+                content: '' !important;
+                display: block !important;
+                position: absolute;
+                top: 15px;
+                left: -12px;
+                right: auto !important;
+                width: 0;
+                height: 0;
+                border-top: 11px solid transparent !important;
+                border-bottom: 11px solid transparent !important;
+                border-right: 11px solid #E8E4E0 !important;
+                border-left: none !important;
+            }
+
+            .tl-card--final::after {
+                border-right-color: #C41E3A !important;
+            }
+            .tl-card--final::before {
+                border-right-color: #A91B32 !important;
+            }
+
+            .tl-card {
+                padding: 20px 22px;
+            }
+            .tl-card--final {
+                padding: 24px 22px;
+            }
+            .tl-card--final .tl-card__title {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -225,138 +428,157 @@
 
         <!-- HERO -->
         <section class="pt-8 pb-12 sm:pt-12 sm:pb-16 fade-in">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h1 class="font-display text-navy-900 mb-6" style="font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; font-weight: 800;">
-                    My ALS Journey: 6+ Years and Counting
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                <h1 class="font-display text-navy-900 mb-4" style="font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.15; font-weight: 800;">
+                    My ALS Journey
                 </h1>
-                <p class="text-lg sm:text-xl" style="color: #4A4A4A; line-height: 1.7;">
-                    This is the real timeline. From the first sign something was wrong to right now. Every turning point, every decision, every time I chose to keep fighting.
+                <p class="text-lg sm:text-xl mx-auto" style="color: #4A4A4A; line-height: 1.7; max-width: 520px;">
+                    From the first sign something was wrong to where I am today.
                 </p>
             </div>
         </section>
 
-        <!-- TIMELINE -->
-        <section class="pb-16 sm:pb-24">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <div class="timeline">
+        <!-- VISUAL TIMELINE -->
+        <section class="pb-16 sm:pb-24 px-4 sm:px-6">
+            <div class="timeline-wrapper">
 
-                    <!-- 1. Hunting trip -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Oct 2019</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">The hunting trip</h3>
-                            <p style="color: #4A4A4A;">I kept tripping and falling. Over and over. I'm an outdoorsman. I know how to walk through rough terrain. Something was wrong and I knew it.</p>
-                        </div>
+                <!-- 1. Oct 2019 (navy) — odd/left -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--navy">
+                        <span class="tl-dot-inner">OCT<br>2019</span>
                     </div>
-
-                    <!-- 2. Back surgery -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Dec 2019</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Back surgery in Colorado Springs</h3>
-                            <p style="color: #4A4A4A;">Collapsed L5 and S1. They thought that was the problem. It wasn't. But we didn't know that yet.</p>
-                        </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--navy">October 2019</div>
+                        <h3 class="tl-card__title">Something Was Wrong</h3>
+                        <p class="tl-card__text">On a hunting trip, I kept tripping and falling. Over and over. I knew something was not right.</p>
                     </div>
-
-                    <!-- 3. Two years searching -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">2020-2021</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Two years of searching</h3>
-                            <p style="color: #4A4A4A;">9 specialists. 12 MRIs. 3 brain scans. Full blood panels. A spinal tap. Two years of "we don't know what's wrong with you." Nobody had answers.</p>
-                        </div>
-                    </div>
-
-                    <!-- 4. Diagnosis -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Sep 2021</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Diagnosed with ALS</h3>
-                            <p style="color: #4A4A4A;">Anschutz Hospital, Aurora, Colorado. "You have 2 to 5 years." I sat there with my wife and heard those words. Right then I decided I would be in the 5%.</p>
-                        </div>
-                    </div>
-
-                    <!-- 5. Clinical trial -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Late 2021</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Entered the Courage ALS clinical trial</h3>
-                            <p style="color: #4A4A4A;">I followed their plan. Did what they told me. Took what they gave me. I trusted the process because I didn't know any better yet.</p>
-                        </div>
-                    </div>
-
-                    <!-- 6. Trial ended -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Late 2022</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Trial ended. Steep decline.</h3>
-                            <p style="color: #4A4A4A;">Got the phone call: "Stop taking it, it doesn't work." I was in steep decline. Using a walker. My speech was slurred. That was the lowest point.</p>
-                        </div>
-                    </div>
-
-                    <!-- 7. My way -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Early 2023</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Decided to do it my way</h3>
-                            <p style="color: #4A4A4A;">I started researching supplements obsessively. Every night, reading studies, calling researchers, digging into anything I could find. And I started weight training. I could barely leg press 50 pounds.</p>
-                        </div>
-                    </div>
-
-                    <!-- 8. Full protocol -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Mid 2023</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Built the full protocol</h3>
-                            <p style="color: #4A4A4A;">23 supplements. Organized by category. Every single one backed by research I read myself. Exercise grew to 1.5 to 2 hours, 5 to 6 days a week. The gym became my second home.</p>
-                        </div>
-                    </div>
-
-                    <!-- 9. Improvements visible -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Improvements visible</h3>
-                            <p style="color: #4A4A4A;">Ankles stable. Knees stable on stairs. Speech improving. Leg pressing 200 pounds. Up from 50. People who hadn't seen me in months couldn't believe the difference.</p>
-                        </div>
-                    </div>
-
-                    <!-- 10. Sharing formally -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">2025</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">Started sharing the protocol</h3>
-                            <p style="color: #4A4A4A;">Phone calls with other ALS patients became routine. People started reaching out after hearing how long I'd been going. I joined the Rocky Mountain ALS community. What started as one-on-one calls turned into something bigger.</p>
-                        </div>
-                    </div>
-
-                    <!-- 11. Site launches -->
-                    <div class="timeline-entry">
-                        <div class="timeline-date">Mar 2026</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content" style="border-color: #C41E3A; background: #FEF2F2;">
-                            <h3 class="font-display font-bold text-navy-900 text-lg mb-1">This site launches</h3>
-                            <p style="color: #4A4A4A;">Everything I know, organized for others. My protocol, my routine, my mindset. So you don't have to piece it together alone.</p>
-                            <p class="mt-3 font-display font-bold text-als-red-500" style="font-size: 1.15rem;">I'M NOT DYING TODAY.</p>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- CTA -->
-                <div class="mt-12 text-center">
-                    <a href="about.html" class="btn-red">Read my full story</a>
+                <!-- 2. Dec 2019 (navy) — even/right -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--navy">
+                        <span class="tl-dot-inner">DEC<br>2019</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--navy">December 2019</div>
+                        <h3 class="tl-card__title">Surgery in Colorado Springs</h3>
+                        <p class="tl-card__text">Diagnosed with collapsed L5 and S1. Had surgery to repair them. Started physical therapy.</p>
+                    </div>
                 </div>
+
+                <!-- 3. 2020-2021 (navy) — odd/left -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--navy">
+                        <span class="tl-dot-inner">2020<br>2021</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--navy">2020 - 2021</div>
+                        <h3 class="tl-card__title">Two Years of Searching</h3>
+                        <p class="tl-card__text">9 specialists. 12 MRIs. 3 brain scans. Blood panels. CAT scans. X-rays. A spinal tap. Nobody could tell me what was wrong.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Sep 2021 (red) — even/right -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--red">
+                        <span class="tl-dot-inner">SEP<br>2021</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--red">September 2021</div>
+                        <h3 class="tl-card__title">Diagnosed with ALS</h3>
+                        <p class="tl-card__text">At Anschutz Hospital in Aurora, Colorado: "I am 90% certain you have ALS." They gave me 2 to 5 years. I decided to be in the 5%.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Late 2021 (navy) — odd/left -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--navy">
+                        <span class="tl-dot-inner">LATE<br>2021</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--navy">Late 2021</div>
+                        <h3 class="tl-card__title">Entered the Courage Clinical Trial</h3>
+                        <p class="tl-card__text">I followed their plan. Research trials, physical therapy, prescribed drugs. Did everything they told me.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Late 2022 (red) — even/right -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--red">
+                        <span class="tl-dot-inner">LATE<br>2022</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--red">Late 2022</div>
+                        <h3 class="tl-card__title">The Call: Stop. It Doesn't Work.</h3>
+                        <p class="tl-card__text">The trial ended. I was in steep decline. Slurred speech, weak legs, using a walker. Their way was not working.</p>
+                    </div>
+                </div>
+
+                <!-- 7. Early 2023 (green) — odd/left -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--green">
+                        <span class="tl-dot-inner">EARLY<br>2023</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--green">Early 2023</div>
+                        <h3 class="tl-card__title">I Decided to Do It My Way</h3>
+                        <p class="tl-card__text">Started researching supplements obsessively. Began weight training against doctors' advice. Could barely leg press 50 pounds.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Mid 2023 (green) — even/right -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--green">
+                        <span class="tl-dot-inner">MID<br>2023</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--green">Mid 2023</div>
+                        <h3 class="tl-card__title">Built My Protocol</h3>
+                        <p class="tl-card__text">23 supplements, organized by category. Exercise grew to 1.5 to 2 hours, 5 to 6 days a week. Monitoring every change.</p>
+                    </div>
+                </div>
+
+                <!-- 9. 2024 (green) — odd/left -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--green">
+                        <span class="tl-dot-inner">2024</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--green">2024</div>
+                        <h3 class="tl-card__title">The Improvements Were Real</h3>
+                        <p class="tl-card__text">Ankles stable. Knees stable on stairs. Speech improving. Leg pressing 200 pounds for 4 sets of 15. Doctors are impressed.</p>
+                    </div>
+                </div>
+
+                <!-- 10. 2025 (green) — even/right -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--green">
+                        <span class="tl-dot-inner">2025</span>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-card__date tl-card__date--green">2025</div>
+                        <h3 class="tl-card__title">Started Sharing My Protocol</h3>
+                        <p class="tl-card__text">Phone calls with other ALS patients became routine. Connected with the Rocky Mountain ALS community.</p>
+                    </div>
+                </div>
+
+                <!-- 11. Mar 2026 (green, special) — odd/left -->
+                <div class="tl-entry">
+                    <div class="tl-dot tl-dot--green" style="width: 52px; height: 52px; top: 0;">
+                        <span class="tl-dot-inner">MAR<br>2026</span>
+                    </div>
+                    <div class="tl-card tl-card--final">
+                        <div class="tl-card__date">March 2026</div>
+                        <h3 class="tl-card__title">I'M NOT DYING TODAY</h3>
+                        <p class="tl-card__text">This site launches. 23 supplements documented. Everything I know, organized for anyone who needs it.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-16 text-center">
+                <a href="about.html" class="btn-red">Read My Full Story</a>
             </div>
         </section>
 
