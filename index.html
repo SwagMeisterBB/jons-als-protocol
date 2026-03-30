@@ -112,6 +112,27 @@
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .card:hover { border-color: #C41E3A; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+        /* Subtle background texture */
+        body { background-image: radial-gradient(#E8E4E0 0.5px, transparent 0.5px); background-size: 24px 24px; }
+
+        /* Scroll reveal animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+        /* Card hover lift */
+        .protocol-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .protocol-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30,58,95,0.12); }
+
+        /* Gradient accent line on story blockquote */
+        .story-card { border-left: 4px solid transparent; border-image: linear-gradient(180deg, #C41E3A, #1E3A5F) 1; }
+
+        /* Navy section texture */
+        .navy-textured { background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%); background-size: 40px 40px; }
+
+        /* Icon styling for protocol cards */
+        .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     </style>
 </head>
 <body class="bg-cream">
@@ -165,7 +186,7 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
                 <div class="flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
                     <!-- Photo -->
-                    <div class="w-40 h-40 sm:w-72 sm:h-72 rounded-full flex-shrink-0 overflow-hidden order-first sm:order-last" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2);">
+                    <div class="w-40 h-40 sm:w-72 sm:h-72 rounded-full flex-shrink-0 overflow-hidden order-first sm:order-last" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2), 0 0 0 4px #FAF8F5, 0 0 0 6px #C41E3A30;">
                         <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" class="w-full h-full object-cover object-top" width="288" height="288" loading="eager" fetchpriority="high">
                     </div>
                     <!-- Text -->
@@ -191,9 +212,9 @@
         <!-- ═══════════════════════════════════════════════
              2. JON'S STORY, First person, empathetic
              ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24">
+        <section class="py-16 sm:py-24 reveal">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <div class="bg-white rounded-xl p-8 sm:p-12" style="border: 1px solid #E8E4E0;">
+                <div class="bg-white rounded-xl p-8 sm:p-12 story-card" style="border: 1px solid #E8E4E0;">
                     <p class="font-display text-2xl sm:text-3xl font-bold text-navy-500 mb-6" style="line-height: 1.4;">
                         &ldquo;When they told me I had ALS, they said I had 2 to 5 years. That was over 6 years ago.&rdquo;
                     </p>
@@ -219,7 +240,7 @@
         <!-- ═══════════════════════════════════════════════
              2.5 VIDEO, Jon's Story (placeholder until recorded)
              ═══════════════════════════════════════════════ -->
-        <section class="py-12 sm:py-16" id="video">
+        <section class="py-12 sm:py-16 reveal" id="video">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
                 <div class="rounded-xl overflow-hidden" style="border: 2px solid #E8E4E0; background: #F5F3F0;">
                     <!-- REPLACE THIS DIV with YouTube iframe when video is ready:
@@ -244,7 +265,7 @@
         <!-- ═══════════════════════════════════════════════
              3. MINDSET, The emotional peak
              ═══════════════════════════════════════════════ -->
-        <section class="py-16 sm:py-24 bg-navy-500">
+        <section class="py-16 sm:py-24 bg-navy-500 navy-textured">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
                 <p class="font-display text-2xl sm:text-3xl font-bold text-white mb-6" style="line-height: 1.4;">
                     &ldquo;When people ask me, how does it feel to be dying, I simply stand as tall as possible and reply: <span class="text-als-red-500" style="color: #FF6B7A;">I'M NOT DYING TODAY!</span>&rdquo;
@@ -264,23 +285,44 @@
         <!-- ═══════════════════════════════════════════════
              4. WHAT'S INSIDE, First person, with supplement preview
              ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20 bg-surface">
+        <section class="py-14 sm:py-20 bg-surface reveal">
             <div class="max-w-2xl mx-auto px-4 sm:px-6">
                 <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What's in my protocol</h2>
                 <p class="text-lg mb-10" style="color: #4A4A4A;">Everything I take, why I take it, and exactly where to buy it.</p>
 
                 <div class="space-y-4 mb-10">
-                    <div class="bg-white rounded-lg p-6 sm:p-7" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-2">23 supplements, fully documented</h3>
-                        <p style="color: #4A4A4A;">I take 23 supplements every day and I've documented all of them with the exact brand, how much I take, when I take it, and why. Things like <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">L-Serine</a>, <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700">HMB</a>, and a lot more that I've researched over the years.</p>
+                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
+                        <div class="flex items-start gap-4">
+                            <div class="card-icon" style="background: #EFF4FA;">
+                                <svg class="w-6 h-6" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">23 supplements, fully documented</h3>
+                                <p style="color: #4A4A4A;">I take 23 supplements every day and I've documented all of them with the exact brand, how much I take, when I take it, and why. Things like <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">L-Serine</a>, <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700">HMB</a>, and a lot more that I've researched over the years.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My daily routine</h3>
-                        <p style="color: #4A4A4A;">I lay out my whole day in here, from when I take my supplements to my workout schedule, meals, and how I wind down at night. This is <a href="blog/daily-routine.html" class="text-als-red-500 font-semibold hover:text-als-red-700">what I actually do</a>, not what some book says to do.</p>
+                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
+                        <div class="flex items-start gap-4">
+                            <div class="card-icon" style="background: #EFF4FA;">
+                                <svg class="w-6 h-6" style="color: #1E3A5F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My daily routine</h3>
+                                <p style="color: #4A4A4A;">I lay out my whole day in here, from when I take my supplements to my workout schedule, meals, and how I wind down at night. This is <a href="blog/daily-routine.html" class="text-als-red-500 font-semibold hover:text-als-red-700">what I actually do</a>, not what some book says to do.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg p-6 sm:p-7" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My 5 rules for living with ALS</h3>
-                        <p style="color: #4A4A4A;">Honestly, I think the mental side of this is just as important as any supplement I take. I have 5 rules I live by, and they keep me going even on the really hard days. <a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read them here</a>.</p>
+                    <div class="bg-white rounded-lg p-6 sm:p-7 protocol-card" style="border: 1px solid #E8E4E0;">
+                        <div class="flex items-start gap-4">
+                            <div class="card-icon" style="background: #FEF2F2;">
+                                <svg class="w-6 h-6" style="color: #C41E3A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-navy-900 mb-2">My 5 rules for living with ALS</h3>
+                                <p style="color: #4A4A4A;">Honestly, I think the mental side of this is just as important as any supplement I take. I have 5 rules I live by, and they keep me going even on the really hard days. <a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read them here</a>.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -319,7 +361,7 @@
         <!-- ═══════════════════════════════════════════════
              5. WHY I SHARE THIS, reframed, less salesy
              ═══════════════════════════════════════════════ -->
-        <section class="py-14 sm:py-20">
+        <section class="py-14 sm:py-20 reveal">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
                 <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3">Why I organized this</h2>
                 <p class="text-lg mb-8" style="color: #4A4A4A;">When I was first researching on my own, I spent months trying to piece together information from forums and studies and other patients. It was exhausting and confusing, and I figured if I was going through all of that, other people were too. So I organized everything I've learned into one place.</p>
@@ -369,7 +411,7 @@
     <!-- ═══════════════════════════════════════════════
          9. FOOTER
          ═══════════════════════════════════════════════ -->
-    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
+    <footer class="py-12" style="border-top: 1px solid #E8E4E0; background: linear-gradient(180deg, #F5F3F0 0%, #FFFFFF 30%);">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
                 <div>
@@ -414,6 +456,17 @@
     </button>
 
     <script>
+        // Scroll reveal
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
         // Scroll progress bar + back-to-top visibility
         window.addEventListener('scroll', function() {
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
