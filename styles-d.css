@@ -1,0 +1,142 @@
+/* Jon's ALS Protocol - Option D Design System */
+:root {
+    --navy: #1E3A5F;
+    --navy-dark: #0F2040;
+    --navy-light: rgba(30, 58, 95, 0.08);
+    --cream: #FAF8F5;
+    --red: #C41E3A;
+    --red-hover: #A91B32;
+    --red-glow: rgba(196, 30, 58, 0.25);
+    --text-light: #F5F3F0;
+    --text-dark: #1A1A1A;
+    --text-muted: #727272;
+    --text: #4A4A4A;
+    --border: #E8E4E0;
+    --surface: #F5F3F0;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Source Sans 3', system-ui, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-dark); }
+
+/* Override Tailwind colors with Option D custom properties */
+.bg-cream { background: var(--cream) !important; }
+.bg-navy-500, .bg-navy-500 { background: var(--navy) !important; }
+.text-navy-900, .text-navy-500 { color: var(--navy-dark) !important; }
+.text-als-red-500 { color: var(--red) !important; }
+
+/* Header override - make it dark navy frosted glass */
+header.bg-white, header[class*="bg-white"] {
+    background: rgba(15, 32, 64, 0.95) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* Header text colors */
+header a, header span, header button {
+    color: var(--text-light) !important;
+}
+header .font-display.font-bold.text-navy-500,
+header span[style*="color: #727272"],
+header span[style*="color: var(--text-muted)"] {
+    color: rgba(245,243,240,0.7) !important;
+}
+
+/* Header logo */
+header .bg-navy-500, header [class*="bg-navy"] {
+    background: rgba(255,255,255,0.12) !important;
+}
+
+/* Header nav links */
+header nav a[style*="color: #4A4A4A"],
+header nav a[style*="color: var(--text)"] {
+    color: rgba(245,243,240,0.7) !important;
+}
+header nav a:hover {
+    color: var(--text-light) !important;
+}
+
+/* Header CTA button */
+header .btn-red, header a[class*="btn-red"] {
+    background: var(--red) !important;
+    color: white !important;
+    border-radius: 6px !important;
+}
+
+/* Mobile menu dark */
+header + div[id="mobileMenu"],
+div.hidden.sm\:hidden,
+#mobileMenu {
+    background: rgba(15, 32, 64, 0.98) !important;
+    backdrop-filter: blur(16px);
+    border-color: rgba(255,255,255,0.08) !important;
+}
+#mobileMenu a {
+    color: rgba(245,243,240,0.8) !important;
+}
+#mobileMenu .btn-red {
+    background: var(--red) !important;
+    color: white !important;
+}
+
+/* Font size controls */
+.font-control {
+    border-color: rgba(255,255,255,0.15) !important;
+    background: transparent !important;
+    color: rgba(245,243,240,0.6) !important;
+}
+.font-control:hover {
+    background: rgba(255,255,255,0.08) !important;
+    color: var(--text-light) !important;
+}
+
+/* Footer override - dark navy */
+footer {
+    background: var(--navy-dark) !important;
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    color: var(--text-light) !important;
+}
+footer a, footer p, footer span, footer h4, footer li a {
+    color: rgba(245,243,240,0.6) !important;
+}
+footer a:hover {
+    color: var(--text-light) !important;
+}
+footer h4, footer .font-semibold {
+    color: var(--text-light) !important;
+}
+footer .font-display.font-bold {
+    color: var(--text-light) !important;
+}
+footer .bg-navy-500, footer [class*="bg-navy"] {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+/* Buttons */
+.btn-red {
+    background: var(--red) !important;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+}
+.btn-red:hover {
+    background: var(--red-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--red-glow) !important;
+}
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* Skip link */
+.skip-link { background: var(--red) !important; }
