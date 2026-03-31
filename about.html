@@ -25,547 +25,152 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
+                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
+                    'cream': '#FAF8F5', 'surface': '#F5F3F0', 'warm-border': '#E8E4E0',
+                },
+                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
+                borderRadius: { 'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px' },
+            }}
+        }
+    </script>
     <style>
-        /* ══════════════════════════════════════════
-           CSS CUSTOM PROPERTIES
-           ══════════════════════════════════════════ */
-        :root {
-            --navy: #1E3A5F;
-            --navy-dark: #0F2040;
-            --navy-light: rgba(30, 58, 95, 0.08);
-            --cream: #FAF8F5;
-            --red: #C41E3A;
-            --red-hover: #A91B32;
-            --red-glow: rgba(196, 30, 58, 0.25);
-            --text-light: #F5F3F0;
-            --text-dark: #1A1A1A;
-            --text-muted: #727272;
-            --text-mid: #4A4A4A;
-            --border: #E8E4E0;
-            --surface: #F5F3F0;
-            --white: #FFFFFF;
-            --font-display: 'Fraunces', Georgia, serif;
-            --font-body: 'Source Sans 3', system-ui, sans-serif;
-            --header-height: 64px;
-        }
-
-        /* ══════════════════════════════════════════
-           RESET & BASE
-           ══════════════════════════════════════════ */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-body);
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--text-dark);
-            background: var(--cream);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        img { max-width: 100%; display: block; }
-        a { text-decoration: none; }
-        h1, h2, h3, h4 { font-family: var(--font-display); }
-
-        /* ══════════════════════════════════════════
-           ACCESSIBILITY
-           ══════════════════════════════════════════ */
-        .skip-link {
-            position: absolute; top: -60px; left: 0;
-            background: var(--red); color: white;
-            padding: 8px 16px; z-index: 200;
-            transition: top 0.2s;
-            font-family: var(--font-body);
-        }
+        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
+        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
+        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
         .skip-link:focus { top: 0; }
-        *:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 4px; }
-
-        /* ══════════════════════════════════════════
-           SCROLL PROGRESS BAR
-           ══════════════════════════════════════════ */
-        .progress-bar {
-            position: fixed; top: var(--header-height); left: 0;
-            height: 3px; background: var(--red);
-            z-index: 50; width: 0%;
-            transition: width 0.1s linear;
-        }
-
-        /* ══════════════════════════════════════════
-           HEADER
-           ══════════════════════════════════════════ */
-        .site-header {
-            position: sticky; top: 0; z-index: 100;
-            height: var(--header-height);
-            background: rgba(15, 32, 64, 0.95);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .header-inner {
-            max-width: 1200px; margin: 0 auto;
-            padding: 0 24px; height: 100%;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .header-logo {
-            font-family: var(--font-display);
-            font-weight: 800; font-size: 1.05rem;
-            color: var(--text-light);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .header-logo:hover { opacity: 0.85; }
-        .header-nav {
-            display: flex; align-items: center; gap: 8px;
-        }
-        .header-nav a.nav-link {
-            font-family: var(--font-body);
-            font-size: 0.7rem; font-weight: 600;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            color: rgba(245, 243, 240, 0.7);
-            padding: 8px 14px; min-height: 48px;
-            display: inline-flex; align-items: center;
-            transition: color 0.2s;
-        }
-        .header-nav a.nav-link:hover { color: var(--text-light); }
-        .header-cta {
-            background: var(--red); color: white !important;
-            font-family: var(--font-body); font-weight: 700;
-            font-size: 0.75rem; letter-spacing: 0.12em;
-            text-transform: uppercase; padding: 10px 22px;
-            border-radius: 6px; margin-left: 8px;
-            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-            display: inline-flex; align-items: center;
-            min-height: 40px;
-        }
-        .header-cta:hover {
-            background: var(--red-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px var(--red-glow);
-        }
-        .mobile-menu-btn {
-            display: none; width: 48px; height: 48px;
-            background: transparent; border: none;
-            color: var(--text-light); cursor: pointer;
-            align-items: center; justify-content: center;
-            border-radius: 8px;
-        }
-        .mobile-menu-btn:hover { background: rgba(255,255,255,0.08); }
-        .mobile-menu {
-            display: none; position: absolute;
-            top: var(--header-height); left: 0; right: 0;
-            background: rgba(15, 32, 64, 0.98);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 16px 24px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-        .mobile-menu.open { display: block; }
-        .mobile-menu a {
-            display: block; padding: 14px 16px;
-            font-family: var(--font-body); font-weight: 600;
-            font-size: 0.85rem; letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(245, 243, 240, 0.8);
-            border-radius: 8px; min-height: 48px;
-            transition: background 0.15s;
-        }
-        .mobile-menu a:hover { background: rgba(255,255,255,0.06); }
-        .mobile-menu .mobile-cta {
-            background: var(--red); color: white;
-            text-align: center; margin-top: 8px;
-            border-radius: 8px; font-weight: 700;
-        }
-
-        /* Font size controls in header */
-        .font-controls {
-            display: flex; align-items: center; gap: 4px;
-            margin-right: 8px;
-        }
-        .font-control {
-            width: 36px; height: 36px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: transparent; border-radius: 4px;
-            cursor: pointer; display: flex;
-            align-items: center; justify-content: center;
-            font-weight: 700; color: rgba(245,243,240,0.6);
-            font-size: 0.75rem; transition: all 0.15s;
-            font-family: var(--font-body);
-        }
-        .font-control:hover {
-            background: rgba(255,255,255,0.08);
-            color: var(--text-light);
-        }
-
-        /* ══════════════════════════════════════════
-           HERO
-           ══════════════════════════════════════════ */
-        .hero {
-            min-height: 90vh; position: relative;
-            display: flex; overflow: hidden;
-            background: var(--navy-dark);
-        }
-
-        /* ══════════════════════════════════════════
-           BUTTONS (global)
-           ══════════════════════════════════════════ */
-        .btn-red {
-            background: var(--red); color: white;
-            padding: 14px 32px; border-radius: 8px;
-            font-family: var(--font-body); font-weight: 700;
-            font-size: 0.9rem; letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-            display: inline-flex; align-items: center; justify-content: center;
-            min-height: 48px; border: none; cursor: pointer;
-        }
-        .btn-red:hover {
-            background: var(--red-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--red-glow);
-        }
-        .btn-red:hover svg { transform: translateX(3px); }
+        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
+        .btn-red { background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
+        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
         .btn-red:active { transform: translateY(0); box-shadow: none; }
-        .btn-red svg, .btn-ghost svg { transition: transform 0.2s ease; }
-
-        .btn-ghost {
-            background: transparent;
-            color: rgba(245,243,240,0.85);
-            border: 2px solid rgba(245,243,240,0.3);
-            padding: 12px 28px; border-radius: 8px;
-            font-family: var(--font-body); font-weight: 700;
-            font-size: 0.9rem; letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: all 0.2s;
-            display: inline-flex; align-items: center; justify-content: center;
-            min-height: 48px;
-        }
-        .btn-ghost:hover {
-            background: rgba(245,243,240,0.1);
-            border-color: rgba(245,243,240,0.5);
-            color: var(--text-light);
-        }
-
-        .btn-navy {
-            background: transparent; color: var(--navy);
-            border: 2px solid var(--navy);
-            padding: 12px 28px; border-radius: 8px;
-            font-family: var(--font-body); font-weight: 700;
-            font-size: 0.9rem; letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: all 0.2s;
-            display: inline-flex; align-items: center; justify-content: center;
-            min-height: 48px;
-        }
-        .btn-navy:hover { background: var(--navy); color: white; }
-
-        /* ══════════════════════════════════════════
-           "I'M NOT DYING TODAY" SECTION
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           STORY SECTION
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           PROTOCOL SECTION
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           VIDEO PLACEHOLDER
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           CREDIBILITY / TRUST SECTION
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           PATIENTS & CAREGIVERS
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           EMAIL CAPTURE
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           WHY I SHARE THIS
-           ══════════════════════════════════════════ */
-
-        /* ══════════════════════════════════════════
-           MEDICAL DISCLAIMER
-           ══════════════════════════════════════════ */
-        .disclaimer-section {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 32px 24px;
-        }
-        .disclaimer-inner {
-            max-width: 680px; margin: 0 auto;
-            text-align: center;
-        }
-        .disclaimer-text {
-            font-size: 0.8rem; color: var(--text-muted);
-            line-height: 1.7;
-        }
-        .disclaimer-text strong { color: var(--text-mid); }
-
-        /* ══════════════════════════════════════════
-           FOOTER
-           ══════════════════════════════════════════ */
-        .site-footer {
-            background: var(--navy-dark);
-            padding: 64px 24px 40px;
-        }
-        .footer-inner {
-            max-width: 1000px; margin: 0 auto;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-        .footer-logo {
-            font-family: var(--font-display);
-            font-weight: 800; font-size: 1rem;
-            color: var(--text-light);
-            display: flex; align-items: center; gap: 8px;
-            margin-bottom: 12px;
-        }
-        .footer-logo-box {
-            width: 32px; height: 32px;
-            background: var(--navy); border-radius: 6px;
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display); font-weight: 800;
-            color: var(--text-light); font-size: 0.85rem;
-        }
-        .footer-desc {
-            font-size: 0.85rem;
-            color: rgba(245,243,240,0.45);
-            line-height: 1.7; max-width: 280px;
-        }
-        .footer-col-heading {
-            font-family: var(--font-body);
-            font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            color: rgba(245,243,240,0.4);
-            margin-bottom: 16px;
-        }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col li { margin-bottom: 4px; }
-        .footer-col a {
-            color: rgba(245,243,240,0.55);
-            font-size: 0.85rem;
-            display: inline-flex; align-items: center;
-            min-height: 36px; transition: color 0.2s;
-        }
-        .footer-col a:hover { color: var(--text-light); }
-        .footer-bottom {
-            border-top: 1px solid rgba(245,243,240,0.08);
-            padding-top: 32px; text-align: center;
-        }
-        .footer-copy {
-            font-size: 0.75rem;
-            color: rgba(245,243,240,0.3);
-        }
-        .footer-copy a {
-            color: rgba(245,243,240,0.4);
-            text-decoration: underline;
-            transition: color 0.2s;
-        }
-        .footer-copy a:hover { color: rgba(245,243,240,0.7); }
-        .footer-affiliate {
-            font-size: 0.75rem;
-            color: rgba(245,243,240,0.25);
-            margin-top: 6px;
-        }
-
-        /* ══════════════════════════════════════════
-           BACK TO TOP
-           ══════════════════════════════════════════ */
-        .back-to-top {
-            position: fixed; bottom: 24px; right: 24px;
-            width: 48px; height: 48px;
-            background: var(--navy); color: white;
-            border: none; border-radius: 50%;
-            cursor: pointer; z-index: 30;
-            opacity: 0; transform: translateY(12px);
-            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .back-to-top.visible { opacity: 1; transform: translateY(0); }
-        .back-to-top:hover { background: #162C49; }
-
-        /* ══════════════════════════════════════════
-           SCROLL REVEAL
-           ══════════════════════════════════════════ */
-        .reveal {
-            opacity: 0; transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ══════════════════════════════════════════
-           REDUCED MOTION
-           ══════════════════════════════════════════ */
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .reveal { opacity: 1; transform: none; transition: none; }
-            .back-to-top { transition: opacity 0.15s; }
-            .progress-bar { transition: none; }
-
-        /* ══════════════════════════════════════════
-           RESPONSIVE
-           ══════════════════════════════════════════ */
-        @media (max-width: 768px) {
-            .header-nav .nav-link { display: none; }
-            .header-nav .header-cta { display: none; }
-            .header-nav .font-controls { display: none; }
-            .mobile-menu-btn { display: flex; }
-
-            .hero {
-                flex-direction: column-reverse;
-                min-height: auto;
-            }
-
-
-
-
-
-            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-menu-btn { display: none; }
-        }
-
-        /* ══════════════════════════════════════════
-           RESPONSIVE VIDEO EMBED (for future)
-           ══════════════════════════════════════════ */
-        .video-embed {
-            position: relative; padding-bottom: 56.25%;
-            height: 0; overflow: hidden; border-radius: 16px;
-        }
-        .video-embed iframe {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; border: 0;
-        }
-
-        /* Email input focus on dark bg */
-        input[type="email"]:focus {
-            outline: 2px solid var(--red);
-            outline-offset: 2px; border-radius: 8px;
-        }
-    
-        /* PROSE (blog posts) */
-        .prose { max-width: 42rem; margin: 0 auto; }
-        .prose p { margin-bottom: 1.25rem; color: var(--text); line-height: 1.8; font-size: 1.125rem; }
-        .prose h2 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--navy); margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
-        .prose h3 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--navy); margin-top: 2rem; margin-bottom: 0.75rem; }
-        .prose a { color: var(--red); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-        .prose a:hover { color: var(--red-hover); }
-        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; color: var(--text); }
-        .prose ul li, .prose ol li { margin-bottom: 0.5rem; font-size: 1.125rem; line-height: 1.75; }
-        .prose ul { list-style: disc; }
-        .prose ol { list-style: decimal; }
-        .prose strong { color: var(--navy); font-weight: 600; }
-        .prose blockquote { border-left: 4px solid var(--red); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(196,30,58,0.05); border-radius: 0 8px 8px 0; }
-        .prose blockquote p { color: var(--navy); font-weight: 500; font-style: italic; margin-bottom: 0; }
-        
-        /* Content wrapper */
-        .content-wrap { max-width: 48rem; margin: 0 auto; padding: 0 1.5rem; }
-        .content-narrow { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
-        
-        /* Page header */
-        .page-hero { padding: clamp(3rem, 6vw, 5rem) 0; text-align: center; }
-        .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 1rem; }
-        .page-hero p { color: var(--text-muted); font-size: 1.125rem; max-width: 36rem; margin: 0 auto; }
-        
-        /* Breadcrumb */
-        .breadcrumb { padding: 1rem 0; font-size: 0.875rem; color: var(--text-muted); }
-        .breadcrumb a { color: var(--text-muted); text-decoration: none; }
-        .breadcrumb a:hover { color: var(--red); }
-        
-        /* Section spacing */
-        .section { padding: clamp(3rem, 6vw, 5rem) 0; }
-        .section-navy { background: var(--navy); color: var(--text-light); padding: clamp(3rem, 6vw, 5rem) 0; }
-        
-        /* Cards */
-        .card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,32,64,0.1); }
-        
-        /* Author card (blog) */
-        .author-card { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
-        .author-card img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
-        .author-card .name { font-weight: 600; color: var(--navy); }
-        .author-card .meta { font-size: 0.875rem; color: var(--text-muted); }
-        
-        /* TOC */
-        .toc { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
-        .toc-title { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
-        .toc ol { list-style: decimal; padding-left: 1.25rem; }
-        .toc li { margin-bottom: 0.5rem; }
-        .toc a { font-size: 0.875rem; color: var(--text-muted); text-decoration: none; }
-        .toc a:hover { color: var(--red); }
-        
-        /* Category badge */
-        .category-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.75rem; border-radius: 9999px; }
-        .badge-supplements { background: rgba(196,30,58,0.1); color: var(--red); }
-        .badge-mindset { background: rgba(30,58,95,0.1); color: var(--navy); }
-        .badge-daily { background: rgba(30,58,95,0.1); color: var(--navy); }
-        .badge-research { background: rgba(30,58,95,0.1); color: var(--navy); }
-        .badge-caregivers { background: rgba(146,97,14,0.15); color: #92610E; }
-        
-        /* Related posts */
-        .related-posts { padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 3rem; }
-        .related-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1rem; }
-        .related-grid { display: grid; gap: 0.75rem; }
-        .related-card { display: block; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); background: white; transition: all 0.15s; text-decoration: none; color: inherit; }
-        .related-card:hover { border-color: var(--red); box-shadow: 0 2px 8px rgba(196,30,58,0.1); }
-        .related-card .title { font-weight: 600; color: var(--navy); font-size: 0.9375rem; }
-        .related-card:hover .title { color: var(--red); }
-        @media (min-width: 640px) { .related-grid { grid-template-columns: 1fr 1fr; } }
-        
-        /* CTA box */
-        .cta-box { background: var(--navy); border-radius: 16px; padding: 2rem; text-align: center; margin-top: 3rem; }
-        .cta-box h3 { font-family: var(--font-display); color: var(--text-light); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .cta-box p { color: rgba(245,243,240,0.7); font-size: 0.875rem; margin-bottom: 1rem; }
-        
-        /* Disclaimer */
-        .disclaimer-section { padding: 1.5rem 0; border-top: 1px solid var(--border); }
-        .disclaimer-section p { font-size: 0.875rem; color: var(--text-muted); text-align: center; max-width: 42rem; margin: 0 auto; line-height: 1.6; }
-
+        @media (max-width: 639px) { .btn-red { width: 100%; text-align: center; } }
+        .prose p { margin-bottom: 1.25rem; color: #4A4A4A; }
+        .prose h2 { font-size: 1.75rem; font-weight: 700; color: #0F2040; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.375rem; font-weight: 600; color: #0F2040; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose blockquote { border-left: 4px solid #C41E3A; padding: 1rem 1.5rem; margin: 1.5rem 0; background: #FEF2F2; border-radius: 0 10px 10px 0; }
+        .prose blockquote p { color: #0F2040; font-weight: 500; font-style: italic; margin-bottom: 0; }
     </style>
 </head>
-<body style="background: var(--cream, #FAF8F5);">
+<body class="bg-cream">
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
-                JON'S ALS PROTOCOL
-            </a>
-            <nav class="header-nav" aria-label="Main navigation">
-                <!-- Font size controls -->
-                <div class="font-controls" aria-label="Text size controls">
-                    <button onclick="adjustFont(-1)" class="font-control" aria-label="Decrease text size">A-</button>
-                    <button onclick="adjustFont(1)" class="font-control" aria-label="Increase text size">A+</button>
+    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
+                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
                 </div>
-                <a href="about.html" class="nav-link">The Story</a>
-                <a href="protocol.html" class="nav-link">The Protocol</a>
-                <a href="blog/index.html" class="nav-link">Blog</a>
-                <a href="about.html" class="nav-link">About Jon</a>
-                <a href="protocol.html" class="header-cta">Get the Protocol</a>
-                <!-- Mobile menu button -->
-                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <div class="leading-tight">
+                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
+                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
+                </div>
+            </a>
+            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
+                <a href="about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors text-als-red-500 px-2" style="min-height: 48px;">About Jon</a>
+                <a href="blog/index.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px;">Blog</a>
+                <a href="protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
+                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <!-- Mobile menu dropdown -->
-        
+        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
+            <div class="flex flex-col gap-3">
+                <a href="about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #C41E3A; min-height: 48px;">About Jon</a>
+                <a href="blog/index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">Blog</a>
+                <a href="protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Breadcrumb -->
+        <nav class="max-w-3xl mx-auto px-4 sm:px-6 py-4" aria-label="Breadcrumb">
+            <span class="text-sm" style="color: #727272;"><a href="index.html" class="hover:text-als-red-500 transition-colors" style="color: #727272;">Home</a> &rsaquo; About Jon</span>
+        </nav>
+
+        <!-- Hero -->
+        <section class="pb-12 pt-4">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full mx-auto mb-8 overflow-hidden" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2);">
+                    <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" class="w-full h-full object-cover object-top" width="224" height="224">
+                </div>
+                <p class="text-xs mb-6" style="color: #727272;">Jon with <a href="https://www.dukehealth.org/find-doctors-physicians/richard-s-bedlack-jr-md-phd-ms" target="_blank" rel="noopener" class="underline hover:text-als-red-500">Dr. Richard Bedlack</a>, Director of the Duke ALS Program</p>
+                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-4">I'm Not Dying Today</h1>
+                <p class="text-xl" style="color: #4A4A4A;">Husband. Father. Fighter. Bodybuilder. 4+ years past my diagnosis and still walking.</p>
+            </div>
+        </section>
+
+        <!-- Story -->
+        <section class="py-12 sm:py-16">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 prose">
+
+                <h2>Before ALS</h2>
+                <p>I was born and raised in California. I was a bodybuilder in high school and college, and I taught martial arts. I have always been active, always physical. That's who I am.</p>
+                <p>In 1997, my wife Josiane and I relocated to Colorado, where we raised our three boys. I spent my career in automotive paint sales. Life was good. I was strong, I was healthy, and I never slowed down.</p>
+
+                <h2>When Everything Changed</h2>
+                <p>October 2019. I was on a hunting trip and I kept tripping and falling. Over and over. I knew something was wrong.</p>
+                <p>By December 2019, I had surgery for a collapsed L5 and S1 in Colorado Springs. But the surgery didn't explain what was really happening to my body.</p>
+                <p>Over the next two years, I saw 9 specialists. I had 12 MRIs, 3 brain scans, blood panels, CAT scans, X-rays, and a spinal tap. Nobody could tell me what was wrong. Nothing showed up. Two years of searching and no answers.</p>
+                <p>Then in September 2021, a doctor at Anschutz Hospital in Aurora, Colorado looked at me and said, "I am 90% certain you have ALS."</p>
+                <p>My wife Josiane knew exactly what that meant. I did not.</p>
+                <p>They gave me 2 to 5 years. They told me 10% of ALS patients live to 10 years. Only 5% live longer than that.</p>
+                <p>I decided right then that I would be in the 5%.</p>
+
+                <h2>Their Way</h2>
+                <p>I did what patients are supposed to do. I entered the Courage ALS clinical trial and stayed in it for a year. I continued the drug protocol for two more months after that, until I got a phone call telling me to stop. It doesn't work.</p>
+                <p>During that entire period, I was falling apart. I was extremely weak. My speech was slurred. I could barely move. I was dragging my feet. My knees were hyper-extending. I couldn't sit in a car for more than 30 minutes. My ankles were collapsing. My hands and grip were weak. I had no energy. I was using walking sticks and a walker just to get around.</p>
+                <p>The traditional ALS medical protocol was not working. Not for me.</p>
+
+                <h2>My Way</h2>
+                <p>So I started doing my own research. Obsessively. I read about alternative supplements, treatments, and protocols. I talked to other patients. I studied everything I could find.</p>
+                <p>And I insisted on weight training. My doctors told me I couldn't build muscle with ALS. I didn't buy it.</p>
+                <p>I started slowly. In the beginning, I couldn't leg press more than 50 pounds. Today, I leg press 200 pounds for 4 sets of 15. I exercise 1.5 to 2 hours a day, 5 to 6 days a week.</p>
+                <p>I am currently taking 23 supplements. Vitamins, plant-based supplements, bodybuilding supplements, and clinical trial supplements. I built this protocol one supplement at a time, one study at a time.</p>
+                <p>The results speak for themselves. My hamstrings don't hurt anymore. My ankles are rated 5 and they don't collapse. My knees don't snap back on stairs. My balance has improved. I carry on conversations with everyone. At the gym, people tell me I'm a hero and an inspiration.</p>
+                <blockquote>
+                    <p>"MY WAY is not for everyone, but I do believe if you're diagnosed early on, some of my ideas may help... if you are open to stepping out of the box."</p>
+                </blockquote>
+
+                <h2>Josiane</h2>
+                <p>I could not have accomplished what I have without my wife Josiane. We have been married 45 years. She is my primary caregiver and the backbone of my fight.</p>
+                <p>She makes sure I get to the gym. She makes sure I get to every appointment. She makes sure everything gets done. And she brings me back on those rare occasions when I am down.</p>
+                <p>I thank God for her every day.</p>
+
+                <h2>My Rules</h2>
+                <p>People ask me how I stay positive. I'm not always positive. But I have rules I live by, and they keep me moving forward even on the hardest days.</p>
+                <ol style="padding-left: 1.25rem; margin-bottom: 1.25rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #0F2040;">I don't let anyone tell me my timeline.</strong> Doctors give averages. I am not average.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #0F2040;">I treat every day like I'm building something.</strong> Not surviving, but building. This protocol, this site, this life.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #0F2040;">I refuse to be a statistic.</strong> Statistics describe populations. I'm focused on what I can control.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #0F2040;">I do the work even when I don't feel like it.</strong> 23 supplements, weight training, the routine. Some days it's exhausting. I do it anyway.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #0F2040;">I stay connected.</strong> Isolation kills faster than any disease. Family, community, other patients. I stay engaged.</li>
+                </ol>
+                <blockquote>
+                    <p>"People with ALS know that others really do not understand what we're going through on the inside."</p>
+                </blockquote>
+                <p>The full protocol includes a detailed section on my mindset framework and how I apply these rules daily. <a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read more about how I think about ALS</a>.</p>
+
+                <h2>Why I Share This</h2>
+                <p>For years, I've been sharing my supplement list informally. Over phone calls, in support groups, at doctor's visits. Other ALS patients ask me what I take, and I tell them. Many of them start taking the same supplements.</p>
+                <p>This site exists to make that information available to every ALS patient who wants it, not just the ones who happen to know me personally.</p>
+                <blockquote>
+                    <p>"We have two choices: give up and give in. Or stand and fight. I have chosen to stand and fight."</p>
+                </blockquote>
+                <p>And when people ask me, how does it feel to be dying, I simply stand as tall as possible and reply:</p>
+                <p style="font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 800; color: #0F2040; text-align: center; margin: 2rem 0;">I'M NOT DYING TODAY.</p>
+
+                <div class="bg-white rounded-xl p-6 sm:p-8 mt-10 text-center" style="border: 1px solid #E8E4E0;">
+                    <p class="font-display text-xl font-bold text-navy-900 mb-4">Ready to see my full protocol?</p>
+                    <a href="protocol.html" class="btn-red">Get the Protocol</a>
+                </div>
+            </div>
         </section>
 
         <!-- Disclaimer -->
@@ -578,54 +183,38 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
+    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
                 <div>
-                    <div class="footer-logo">
-                        <div class="footer-logo-box">J</div>
-                        Jon's ALS Protocol
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500"><span class="text-white font-display font-bold text-sm">J</span></div>
+                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
                     </div>
-                    <p class="footer-desc">One patient's protocol, mindset, and daily routine, shared openly.</p>
+                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-col-heading">Navigate</h4>
-                    <ul>
-                        <li><a href="about.html">About Jon</a></li>
-                        <li><a href="blog/index.html">Blog</a></li>
-                        <li><a href="supplements.html">My Supplements</a></li>
-                        <li><a href="timeline.html">My Journey</a></li>
-                        <li><a href="protocol.html">Get the Protocol</a></li>
+                <div>
+                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
+                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
+                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-col-heading">Legal</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                <div>
+                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
+                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="footer-affiliate">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html">Full affiliate disclosure</a>.</p>
+            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
+                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-    </script>
-
 </body>
 </html>
