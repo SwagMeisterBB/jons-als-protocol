@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jon's ALS Protocol: The Complete Guide - Jon's ALS Protocol</title>
+    <meta name="description" content="Jon Edy's complete ALS supplement protocol. 23 supplements with exact brands, doses, daily timing, costs, and the mindset framework behind 6+ years of fighting ALS.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #1E3A5F;
+            --navy-dark: #0F2040;
+            --cream: #FAF8F5;
+            --red: #C41E3A;
+            --red-hover: #A91B32;
+            --text-dark: #1A1A1A;
+            --text-mid: #4A4A4A;
+            --text-muted: #727272;
+            --border: #E8E4E0;
+            --surface: #F5F3F0;
+            --white: #FFFFFF;
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Source Sans 3', system-ui, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-dark); }
+
+        /* ── COVER PAGE ── */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+            color: var(--white);
+        }
+        .cover-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 100px;
+            margin-bottom: 40px;
+            color: rgba(255,255,255,0.7);
+        }
+        .cover h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .cover h1 span { color: var(--red); }
+        .cover .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
+            max-width: 500px;
+        }
+        .cover-author {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: auto;
+            padding-top: 40px;
+        }
+        .cover-author strong { color: rgba(255,255,255,0.8); }
+
+        /* ── SECTIONS ── */
+        .guide-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 32px;
+        }
+        .guide-section + .guide-section {
+            border-top: 1px solid var(--border);
+        }
+        .section-number {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+        .guide-section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .guide-section p {
+            color: var(--text-mid);
+            margin-bottom: 16px;
+        }
+        .guide-section p:last-child { margin-bottom: 0; }
+
+        /* ── QUOTE BLOCK ── */
+        .quote-block {
+            background: var(--surface);
+            border-left: 3px solid var(--red);
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .quote-block p {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            font-style: italic;
+            margin: 0;
+        }
+        .quote-block cite {
+            display: block;
+            font-style: normal;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ── SUPPLEMENT TABLE ── */
+        .supp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+        .supp-table thead th {
+            background: var(--navy-dark);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .supp-table thead th:first-child { border-radius: 8px 0 0 0; }
+        .supp-table thead th:last-child { border-radius: 0 8px 0 0; }
+        .supp-table tbody td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-mid);
+            vertical-align: top;
+        }
+        .supp-table tbody tr:nth-child(even) td { background: var(--surface); }
+        .supp-table .supp-name { font-weight: 700; color: var(--text-dark); }
+        .supp-table .top3 { color: var(--red); font-weight: 800; }
+        .supp-table a { color: var(--red); text-decoration: none; font-weight: 600; }
+        .supp-table a:hover { text-decoration: underline; }
+
+        /* ── CATEGORY HEADER ── */
+        .cat-row td {
+            background: var(--navy) !important;
+            color: var(--white) !important;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 8px 14px !important;
+        }
+
+        /* ── RECIPE CARD ── */
+        .recipe-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 24px 0;
+        }
+        .recipe-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+        .recipe-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .recipe-card li {
+            padding: 6px 0;
+            color: var(--text-mid);
+            border-bottom: 1px solid var(--border);
+        }
+        .recipe-card li:last-child { border-bottom: none; }
+        .recipe-card li strong { color: var(--text-dark); }
+
+        /* ── COST SUMMARY ── */
+        .cost-summary {
+            background: var(--navy-dark);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 24px 0;
+        }
+        .cost-summary h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+        .cost-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+        }
+        .cost-line:last-child { border-bottom: none; }
+        .cost-line .label { color: rgba(255,255,255,0.6); }
+        .cost-line .value { font-weight: 700; }
+        .cost-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0 0;
+            margin-top: 8px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            font-size: 1.1rem;
+        }
+        .cost-total .value { color: var(--red); font-weight: 800; font-size: 1.25rem; }
+
+        /* ── TIMING TABLE ── */
+        .timing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+        .timing-table th {
+            background: var(--surface);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+        }
+        .timing-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-mid);
+            vertical-align: top;
+        }
+        .timing-table .time { font-weight: 700; color: var(--navy-dark); white-space: nowrap; }
+
+        /* ── MINDSET LIST ── */
+        .mindset-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+            counter-reset: mindset;
+        }
+        .mindset-list li {
+            counter-increment: mindset;
+            padding: 16px 20px 16px 60px;
+            position: relative;
+            margin-bottom: 12px;
+            background: var(--surface);
+            border-radius: 12px;
+            color: var(--text-mid);
+        }
+        .mindset-list li::before {
+            content: counter(mindset);
+            position: absolute;
+            left: 20px;
+            top: 16px;
+            width: 28px;
+            height: 28px;
+            background: var(--red);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mindset-list li strong {
+            display: block;
+            color: var(--navy-dark);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        /* ── DISCLAIMER ── */
+        .disclaimer-section {
+            background: var(--surface);
+            padding: 40px 32px;
+            text-align: center;
+        }
+        .disclaimer-section p {
+            max-width: 600px;
+            margin: 0 auto 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .disclaimer-section strong { color: var(--text-mid); }
+
+        /* ── PRINT STYLES ── */
+        @media print {
+            body { font-size: 11pt; }
+            .cover { min-height: auto; padding: 80px 40px; page-break-after: always; }
+            .guide-section { padding: 32px 0; }
+            .supp-table { font-size: 9pt; }
+            .supp-table thead th { padding: 8px 10px; }
+            .supp-table tbody td { padding: 6px 10px; }
+            .no-print { display: none !important; }
+            a { color: var(--text-dark) !important; text-decoration: none !important; }
+            .cost-summary { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .cat-row td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .supp-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        @media (max-width: 640px) {
+            .guide-section { padding: 32px 20px; }
+            .supp-table { font-size: 0.8rem; }
+            .supp-table thead th, .supp-table tbody td { padding: 8px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════
+         COVER PAGE
+         ══════════════════════════════════════ -->
+    <div class="cover">
+        <span class="cover-badge">The Complete Guide</span>
+        <h1>Jon's ALS<br><span>Protocol</span></h1>
+        <p class="subtitle">23 supplements. Exact brands, doses, and daily timing. The protocol behind 6+ years of fighting ALS.</p>
+        <div class="cover-author">
+            <strong>Jon Edy</strong> &middot; ALS Patient & Protocol Author<br>
+            Diagnosed September 2021 &middot; Still Walking
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 1: MY STORY
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 1</span>
+        <h2>Why This Protocol Exists</h2>
+        <p>In October 2019, I was on a hunting trip when I started tripping and falling for no reason. That was the beginning. Two months later I had surgery on a collapsed L5/S1 disc. Then came two years of searching for answers: 9 specialists, 12 MRIs, 3 brain scans. Nobody could tell me what was wrong.</p>
+        <p>In September 2021, at Anschutz Hospital in Aurora, Colorado, I got my answer: ALS.</p>
+        <p>I entered the Courage ALS clinical trial for a year. The drug did not work. After the trial ended, I went into a steep decline. My speech was slurring, my legs and ankles were getting weaker, my hands were losing grip, and I was using a walker.</p>
+        <p>That is when I decided to do this my way. I had been a bodybuilder in high school and college. I was a martial arts instructor. I knew what it meant to push a body. So I went to work. Thousands of hours of research on PubMed. Conversations with Dr. Richard Bedlack, the director of the Duke ALS program. And I built this protocol, supplement by supplement, based on what the research actually showed.</p>
+
+        <div class="quote-block">
+            <p>"I am not dying from ALS. I will die from something else. Dying is not an option."</p>
+            <cite>Jon Edy</cite>
+        </div>
+
+        <p>Today I leg press 200 pounds, 4 sets of 15 reps. When I started, I could barely press 50. I exercise 1.5 to 2 hours a day, 5 to 6 days a week. I am still walking. And I am sharing everything I have learned so that other patients and caregivers do not have to piece it together alone.</p>
+        <p>This guide is everything. Every supplement, every brand, every dose, every cost. The daily timing. The protein shake recipe. The mindset. All of it.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 2: THE COMPLETE SUPPLEMENT STACK
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 2</span>
+        <h2>The Complete Supplement Stack</h2>
+        <p>These are the 23 supplements I take. My Top 3 are marked in red. Every single one of these was chosen after extensive research, and several were recommended or endorsed by Dr. Richard Bedlack at Duke.</p>
+
+        <table class="supp-table">
+            <thead>
+                <tr>
+                    <th>Supplement</th>
+                    <th>Dosage</th>
+                    <th>Brand</th>
+                    <th>Notes</th>
+                    <th>Cost/Mo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- VITAMINS & SUPPLEMENTS -->
+                <tr class="cat-row"><td colspan="5">Vitamins & Core Supplements</td></tr>
+                <tr>
+                    <td class="supp-name top3">L-Serine *</td>
+                    <td>30,600 mg/day</td>
+                    <td><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener">Jo-Mar Labs</a></td>
+                    <td>20% discount. Guided by Dr. Bedlack. Split across meals + protein shake.</td>
+                    <td>$145</td>
+                </tr>
+                <tr>
+                    <td class="supp-name top3">Basis (NAD+) *</td>
+                    <td>8 tablets/day</td>
+                    <td><a href="https://www.elysiumhealth.com/products/basis/" target="_blank" rel="noopener">Elysium Health</a></td>
+                    <td>50% discount. Guided by Dr. Bedlack. NAD+ precursor for cellular energy.</td>
+                    <td>$128</td>
+                </tr>
+                <tr>
+                    <td class="supp-name top3">HMB *</td>
+                    <td>6,000 mg/day</td>
+                    <td><a href="https://www.lifeextension.com/vitamins-supplements/item02221/wellness-code-muscle-strength-and-restore-formula" target="_blank" rel="noopener">Life Extension</a></td>
+                    <td>30 min before exercise. Dr. Bedlack showed interest.</td>
+                    <td>$50</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">CoQ10</td>
+                    <td>400 mg/day</td>
+                    <td><a href="https://www.qunol.com/products/qunol-ultra-coq10" target="_blank" rel="noopener">Qunol</a></td>
+                    <td>Mitochondrial support. Ubiquinol form.</td>
+                    <td>$20</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Magnesium Glycinate</td>
+                    <td>500 mg/day</td>
+                    <td><a href="https://www.naturebellusa.com/products/magnesium-glycinate" target="_blank" rel="noopener">Naturebell</a></td>
+                    <td>Muscle relaxation, sleep support.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Turmeric</td>
+                    <td>4,500 mg/day</td>
+                    <td><a href="https://www.youtheory.com/products/turmeric" target="_blank" rel="noopener">Youtheory</a></td>
+                    <td>Anti-inflammatory. High dose.</td>
+                    <td>$34</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Vitamin D3</td>
+                    <td>2,000 IU/day</td>
+                    <td><a href="https://www.costco.com/p/-/kirkland-signature-extra-strength-d3-50-mcg-600-softgels/11467951" target="_blank" rel="noopener">Kirkland</a></td>
+                    <td>Foundation supplement. Most ALS patients are deficient.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Vitamin E</td>
+                    <td>400 IU</td>
+                    <td><a href="https://www.naturemade.com/products/nature-made-vitamin-e-180-mg-400-iu-dl-alpha-softgels" target="_blank" rel="noopener">Nature Made</a></td>
+                    <td>3-4 times/week, evening.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Wholemega Fish Oil</td>
+                    <td>520 mg/day</td>
+                    <td><a href="https://newchapter.com/products/wholemega" target="_blank" rel="noopener">New Chapter</a></td>
+                    <td>3-4 times/week, evening. Anti-inflammatory.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Super B Complex</td>
+                    <td>1 tablet</td>
+                    <td><a href="https://www.costco.com/p/-/kirkland-signature-super-b-complex-with-electrolytes-500-tablets/100112668" target="_blank" rel="noopener">Kirkland</a></td>
+                    <td>3-4 times/week, evening.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Vitamin C</td>
+                    <td>1,000 mg/day</td>
+                    <td><a href="https://www.nowfoods.com/products/supplements/vitamin-c-1000-veg-capsules" target="_blank" rel="noopener">NOW</a></td>
+                    <td>3-4 times/week, evening.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Lion's Mane</td>
+                    <td>4,000 mg/day</td>
+                    <td><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener">OM Mushrooms</a></td>
+                    <td>Capsules (evening, 3-4x/week) + powder in daily protein shake.</td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Mullein</td>
+                    <td>1,200 mg/day</td>
+                    <td><a href="https://herbamama.com/products/mullein-leaf-100-capsules" target="_blank" rel="noopener">Herbamama</a></td>
+                    <td>2 capsules. Lung health support.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Protandim</td>
+                    <td>1 tablet/day</td>
+                    <td><a href="https://www.lifevantage.com/us-en/shop/protandim-nrf2" target="_blank" rel="noopener">Life Advantage</a></td>
+                    <td>Nrf2 activator. Antioxidant pathway.</td>
+                    <td>$50</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Milk Thistle</td>
+                    <td>1 dropper</td>
+                    <td><a href="https://wildandorganic.com/products/milk-thistle-tincture-4-fl-oz-bottle" target="_blank" rel="noopener">Wild & Organic</a></td>
+                    <td>As needed. Liver health support for heavy supplement load.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Quinine</td>
+                    <td>1 dropper</td>
+                    <td><a href="https://www.amazon.com/Premium-Quinine-Tincture-Cinchona-Drops/dp/B096DD3TTV" target="_blank" rel="noopener">Herbify</a></td>
+                    <td>As needed. Muscle stiffness and joint support.</td>
+                    <td></td>
+                </tr>
+
+                <!-- BODYBUILDING SUPPLEMENTS -->
+                <tr class="cat-row"><td colspan="5">Bodybuilding Supplements</td></tr>
+                <tr>
+                    <td class="supp-name">Creatine 3000</td>
+                    <td>3 tablets/day</td>
+                    <td><a href="https://www.allstarhealth.com/f/allmax_nutrition-creatine_3000_capsules.htm" target="_blank" rel="noopener">Allmax</a></td>
+                    <td>Dosage is 4/day but I take 3. Cellular energy.</td>
+                    <td>$10</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Turkesterone</td>
+                    <td>3 tablets/day</td>
+                    <td><a href="https://www.amazon.com/Turkesterone-Tongkat-BioPerine-Maximum-Strength/dp/B0B7QG4G2Q" target="_blank" rel="noopener">Benevolent</a></td>
+                    <td>Dosage is 2/day but I take 3. Natural anabolic.</td>
+                    <td>$40</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Plant Aminos</td>
+                    <td>6 tablets/day</td>
+                    <td><a href="https://www.amazon.com/Plant-Aminos-Organic-Essential-Amino/dp/B08NTS8PRV" target="_blank" rel="noopener">Triquetra</a></td>
+                    <td>Essential amino acids. Plant-based.</td>
+                    <td>$15</td>
+                </tr>
+                <tr>
+                    <td class="supp-name">BPC-157</td>
+                    <td>1 capsule/day</td>
+                    <td><a href="https://www.amazon.com/bpc-157-rapid-pro-500mcg-infiniwell/s?k=bpc-157+rapid+pro+-+500mcg+infiniwell" target="_blank" rel="noopener">Infiniwell</a></td>
+                    <td>Peptide. Tissue repair and recovery.</td>
+                    <td>$80</td>
+                </tr>
+
+                <!-- PROTEIN SHAKE -->
+                <tr class="cat-row"><td colspan="5">Daily Protein Shake</td></tr>
+                <tr>
+                    <td class="supp-name">Orgain Protein Powder</td>
+                    <td>2 scoops (24g protein)</td>
+                    <td><a href="https://www.amazon.com/Orgain-Organic-Protein-Powder-Vanilla/dp/B00J074W7Q" target="_blank" rel="noopener">Orgain</a></td>
+                    <td>Costco. Plant-based.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Lion's Mane Powder</td>
+                    <td>1 scoop (2,000 mg)</td>
+                    <td><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener">OM Mushrooms</a></td>
+                    <td>Part of total 4,000 mg daily dose.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">L-Serine</td>
+                    <td>4 scoops (13,600 mg)</td>
+                    <td></td>
+                    <td>Part of total 30,600 mg daily dose.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="supp-name">Berries & Spinach</td>
+                    <td>Handful</td>
+                    <td></td>
+                    <td>Antioxidants. Whatever is in the fridge.</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong style="color: var(--red);">* Jon's Top 3:</strong> HMB, L-Serine, and Basis are the three supplements Jon considers most important. All three were guided or endorsed by Dr. Richard Bedlack, Director of the Duke ALS Program.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 3: DAILY PROTEIN SHAKE
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 3</span>
+        <h2>The Daily Protein Shake</h2>
+        <p>I make this every single morning. It is the foundation of my day and it carries a huge chunk of my L-Serine and Lion's Mane doses. It takes about 3 minutes.</p>
+
+        <div class="recipe-card">
+            <h3>Jon's Protocol Shake</h3>
+            <ul>
+                <li><strong>Orgain Protein Powder</strong> &mdash; 2 scoops (24g protein)</li>
+                <li><strong>L-Serine</strong> &mdash; 4 scoops (13,600 mg)</li>
+                <li><strong>Lion's Mane Powder</strong> &mdash; 1 scoop (2,000 mg)</li>
+                <li><strong>Berries</strong> &mdash; blueberries, strawberries, whatever is around</li>
+                <li><strong>Spinach</strong> &mdash; a handful, you do not taste it</li>
+                <li><strong>Water or almond milk</strong> &mdash; enough to blend smooth</li>
+            </ul>
+        </div>
+
+        <p>Blend it all together. The L-Serine dissolves clean and has no taste. The Lion's Mane powder adds a slight earthiness but the berries cover it completely. I drink this first thing after my morning supplements.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 4: DAILY TIMING
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 4</span>
+        <h2>Daily Timing Schedule</h2>
+        <p>Timing matters. Some of these supplements need to be taken with food, some before exercise, some in the evening. Here is how I structure my day.</p>
+
+        <table class="timing-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>What I Take</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time">Morning<br>(with breakfast)</td>
+                    <td>L-Serine (partial dose), Basis, CoQ10, Magnesium Glycinate, Turmeric, Vitamin D3, Protandim, Mullein, Creatine, Turkesterone, Plant Aminos, BPC-157</td>
+                    <td>The big morning batch. Take with food for absorption.</td>
+                </tr>
+                <tr>
+                    <td class="time">Mid-morning</td>
+                    <td>Protein Shake (L-Serine 13,600 mg + Lion's Mane 2,000 mg + Orgain + berries/spinach)</td>
+                    <td>Blend and drink. Carries most of L-Serine and Lion's Mane dose.</td>
+                </tr>
+                <tr>
+                    <td class="time">30 min before exercise</td>
+                    <td>HMB (6,000 mg full dose)</td>
+                    <td>Critical timing. Take before gym, not after.</td>
+                </tr>
+                <tr>
+                    <td class="time">Exercise</td>
+                    <td>1.5 to 2 hours, 5-6 days/week</td>
+                    <td>Bodybuilding-style. Leg press, upper body, full routine.</td>
+                </tr>
+                <tr>
+                    <td class="time">With lunch</td>
+                    <td>L-Serine (remaining dose), Turmeric (remaining)</td>
+                    <td>Split high-dose supplements across meals.</td>
+                </tr>
+                <tr>
+                    <td class="time">Evening<br>(3-4x/week)</td>
+                    <td>Vitamin E, Fish Oil, Super B Complex, Vitamin C, Lion's Mane capsules</td>
+                    <td>Not daily. Rotate these 3-4 times per week.</td>
+                </tr>
+                <tr>
+                    <td class="time">As needed</td>
+                    <td>Milk Thistle, Quinine</td>
+                    <td>Milk Thistle for liver support. Quinine for muscle stiffness.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 5: MY TOP 3 AND WHY
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 5</span>
+        <h2>My Top 3 and Why</h2>
+        <p>If someone asked me "if you could only take three supplements, what would they be?" the answer is immediate. These three are the core of everything I do.</p>
+
+        <ol class="mindset-list">
+            <li>
+                <strong>HMB (6,000 mg/day)</strong>
+                I was a bodybuilder. I know what HMB does for muscle preservation. When ALS is attacking your muscles every single day, anything that slows breakdown is worth its weight in gold. I take it 30 minutes before I train, every time. Dr. Bedlack showed interest in this one.
+            </li>
+            <li>
+                <strong>L-Serine (30,600 mg/day)</strong>
+                This is the one with the most direct ALS research behind it. A Phase 1 clinical trial showed patients taking L-Serine had roughly 85% slower functional decline. Dr. Bedlack guided me on this. It is also the most expensive supplement in my stack, but it is the one I would never drop.
+            </li>
+            <li>
+                <strong>Basis / NAD+ (8 tablets/day)</strong>
+                NAD+ is the molecule your cells need to produce energy. It declines as you age and declines faster with neurodegeneration. Basis from Elysium contains nicotinamide riboside and pterostilbene, both NAD+ precursors. Dr. Bedlack guided me on this one too. Elysium gives me a 50% discount.
+            </li>
+        </ol>
+
+        <p>Every other supplement in my stack supports these three in some way, whether it is reducing inflammation, supporting mitochondrial function, protecting the liver from the supplement load, or feeding the muscles I am fighting to keep.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 6: MONTHLY COST
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 6</span>
+        <h2>What This Costs</h2>
+        <p>I am not going to pretend this is cheap. A protocol like this costs real money every month. But I break it down here so you can see exactly where the dollars go and decide what fits your budget.</p>
+
+        <div class="cost-summary">
+            <h3>Monthly Cost Breakdown</h3>
+            <div class="cost-line"><span class="label">L-Serine (Jo-Mar Labs, with 20% discount)</span><span class="value">$145</span></div>
+            <div class="cost-line"><span class="label">Basis / NAD+ (Elysium, with 50% discount)</span><span class="value">$128</span></div>
+            <div class="cost-line"><span class="label">BPC-157 (Infiniwell)</span><span class="value">$80</span></div>
+            <div class="cost-line"><span class="label">HMB (Life Extension)</span><span class="value">$50</span></div>
+            <div class="cost-line"><span class="label">Protandim (Life Advantage)</span><span class="value">$50</span></div>
+            <div class="cost-line"><span class="label">Turkesterone (Benevolent)</span><span class="value">$40</span></div>
+            <div class="cost-line"><span class="label">Turmeric (Youtheory)</span><span class="value">$34</span></div>
+            <div class="cost-line"><span class="label">Lion's Mane (OM Mushrooms)</span><span class="value">$30</span></div>
+            <div class="cost-line"><span class="label">CoQ10 (Qunol)</span><span class="value">$20</span></div>
+            <div class="cost-line"><span class="label">Plant Aminos (Triquetra)</span><span class="value">$15</span></div>
+            <div class="cost-line"><span class="label">Creatine (Allmax)</span><span class="value">$10</span></div>
+            <div class="cost-line"><span class="label">Vitamin D3, E, C, B Complex, Fish Oil, Magnesium, Mullein, Milk Thistle, Quinine</span><span class="value">~$40</span></div>
+            <div class="cost-total"><span class="label"><strong>Estimated Monthly Total</strong></span><span class="value">~$642</span></div>
+        </div>
+
+        <p>Yes, that is a significant investment. L-Serine and Basis alone account for nearly half the total. If you are on a tighter budget, start with HMB, Creatine, Vitamin D3, and Magnesium. Those four cost under $100/month combined and cover the basics of muscle preservation, cellular energy, and foundational nutrition.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 7: MINDSET
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 7</span>
+        <h2>The Mindset</h2>
+        <p>I will be honest with you: I believe the mindset matters as much as the supplements. Maybe more. You can take every pill on this list, but if you have already decided you are dying, none of it will matter. You have to fight. Every single day.</p>
+
+        <div class="quote-block">
+            <p>"You have to believe in yourself. Believe you are going to do this."</p>
+            <cite>Jon Edy</cite>
+        </div>
+
+        <div class="quote-block">
+            <p>"Remember this: people break barriers every day. Why not you."</p>
+            <cite>Jon Edy</cite>
+        </div>
+
+        <div class="quote-block">
+            <p>"I live every day to live, not to die."</p>
+            <cite>Jon Edy</cite>
+        </div>
+
+        <div class="quote-block">
+            <p>"Every single day you are at the gym is a shot into ALS. You will not take me. Not going to happen."</p>
+            <cite>Jon Edy</cite>
+        </div>
+
+        <div class="quote-block">
+            <p>"Newly diagnosed, remember this: you are not dead yet. Your journey is just beginning. Make it on your terms and make it happen."</p>
+            <cite>Jon Edy</cite>
+        </div>
+
+        <p>I do not have a magic formula for mental toughness. What I have is a decision I made the day I was diagnosed: this disease will not define me. I am a bodybuilder. I am a fighter. And every morning I wake up and prove that again.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 8: FOR CAREGIVERS
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 8</span>
+        <h2>A Note for Caregivers</h2>
+        <p>My wife Josiane has been by my side for 45 years. She is the one who organizes the pills, keeps the schedule, orders the refills, and makes sure nothing falls through the cracks. If you are reading this guide for someone you love, I see you. You are doing something that takes incredible strength.</p>
+        <p>A few practical notes for caregivers managing this protocol:</p>
+        <ul style="padding-left: 20px; margin: 16px 0; color: var(--text-mid);">
+            <li style="margin-bottom: 8px;"><strong>Use a weekly pill organizer.</strong> This many supplements requires a system. Josiane fills mine every Sunday.</li>
+            <li style="margin-bottom: 8px;"><strong>Set up auto-delivery</strong> where possible. Amazon Subscribe & Save, Elysium auto-ship, etc. Running out of a supplement breaks the routine.</li>
+            <li style="margin-bottom: 8px;"><strong>Keep a simple spreadsheet</strong> tracking what is ordered, when it arrives, and when it runs out. The supplement data in Section 2 of this guide is a good starting template.</li>
+            <li style="margin-bottom: 8px;"><strong>Talk to the patient's neurologist</strong> before adding anything. Bring this guide to the appointment. Doctors respond better when you show up prepared.</li>
+            <li style="margin-bottom: 8px;"><strong>Take care of yourself too.</strong> You cannot pour from an empty cup. This is a marathon, not a sprint.</li>
+        </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 9: DR. BEDLACK
+         ══════════════════════════════════════ -->
+    <div class="guide-section">
+        <span class="section-number">Section 9</span>
+        <h2>Working with Your Neurologist</h2>
+        <p>I am fortunate to work with Dr. Richard Bedlack, who directs the Duke ALS Program. He is one of the most respected ALS researchers in the world, and he has been open to discussing supplements with me, which is not always the case with neurologists.</p>
+        <p>Dr. Bedlack specifically guided me on L-Serine and Basis, and showed interest in HMB. That does not mean he endorses everything on this list, and it does not mean your neurologist will agree with any of it. But it does mean that having these conversations with your doctor is worth the effort.</p>
+        <p>Bring data. Bring PubMed links. Be respectful of their expertise. And be persistent. You are your own best advocate.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         DISCLAIMER
+         ══════════════════════════════════════ -->
+    <div class="disclaimer-section">
+        <p><strong>Medical Disclaimer</strong></p>
+        <p>This guide is not medical advice. Jon Edy is an ALS patient sharing his personal experience and personal research. He is not a doctor, pharmacist, or licensed healthcare provider. None of the supplements described in this guide are FDA-approved for the treatment of ALS or any neurodegenerative disease.</p>
+        <p>Before starting, stopping, or modifying any supplement regimen, consult with your neurologist or primary care physician. They know your specific medical history, medications, and condition.</p>
+        <p>Individual results will vary. What works for one person may not work for another. This guide is shared in good faith, with the hope that it helps other ALS patients and caregivers who are searching for answers.</p>
+        <p style="margin-top: 24px; color: var(--text-mid);">&copy; 2026 Jon's ALS Protocol. All rights reserved.<br>This document is for the personal use of the purchaser and may not be redistributed.</p>
+    </div>
+
+</body>
+</html>

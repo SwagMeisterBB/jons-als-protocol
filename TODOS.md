@@ -31,7 +31,7 @@ Updated: March 31, 2026
 
 ### Product
 - [ ] Custom domain — register (notdyingtoday.com or Jon's preference), point to Vercel, update all URLs
-- [ ] Protocol PDF — create the $39 product using Jon's spreadsheet data (23 supplements, brands, doses, routine, mindset)
+- [x] Protocol PDF — created protocol-guide.html with all 23 supplements, brands, doses, costs, daily timing, protein shake recipe, Top 3, mindset, caregiver notes (print-ready, noindex)
 - [ ] Payment integration — Lemon Squeezy, replace "coming soon" buttons with real checkout
 - [ ] Email list backend — connect forms to Buttondown, deliver lead magnet
 
@@ -45,13 +45,13 @@ Updated: March 31, 2026
 - [ ] Josiane section on about page — she deserves more prominence (45 years married, the backbone)
 - [ ] Add Jon's gym photos if available (bodybuilder angle is powerful)
 - [ ] Expand caregiver content — Jon's mom's perspective could be valuable
-- [ ] Write Basis/NAD+ blog post (Jon's #2 most important supplement, no post yet)
-- [ ] Write Lion's Mane blog post (Jon takes 4000mg/day, no post yet)
+- [x] Write Basis/NAD+ blog post — blog/basis-nad-als.html (8 tablets/day, Elysium, Dr. Bedlack guided, PubMed citations)
+- [x] Write Lion's Mane blog post — blog/lions-mane-als.html (4000mg/day, OM Mushrooms, NGF research, capsules + powder)
 
 ### Dr. Bedlack Prep
 - [ ] Ensure Dr. Bedlack connection is accurate and respectful on all pages
 - [ ] Prepare a clean printable version of the site for the May visit
-- [ ] Have the protocol PDF ready to show Bedlack
+- [x] Have the protocol PDF ready to show Bedlack — protocol-guide.html (print to PDF from browser)
 - [ ] Ask Jon to request a quote from Bedlack during the May visit
 
 ## Phase 3: Growth (After May)

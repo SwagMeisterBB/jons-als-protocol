@@ -35,6 +35,14 @@
 - URL: https://jons-als-protocol.vercel.app/blog/l-serine-for-als.html
 - Phase 1 clinical trial showing ~85% slower functional decline, FDA GRAS status, how Jon takes 30g/day
 
+### Basis and NAD+ for ALS: Why I Take 8 Tablets a Day
+- URL: https://jons-als-protocol.vercel.app/blog/basis-nad-als.html
+- NAD+ precursor (Elysium Health Basis), Jon's #3 most important supplement, guided by Dr. Bedlack, 8 tablets/day
+
+### Lion's Mane for ALS: Can a Mushroom Help Nerve Growth?
+- URL: https://jons-als-protocol.vercel.app/blog/lions-mane-als.html
+- Lion's Mane mushroom (OM Mushrooms), 4000mg/day, nerve growth factor stimulation, capsules + powder in protein shake
+
 ### HMB for Muscle Preservation: A Bodybuilding Supplement for ALS?
 - URL: https://jons-als-protocol.vercel.app/blog/hmb-muscle-preservation.html
 - Beta-Hydroxy Beta-Methylbutyrate for reducing muscle breakdown in ALS
