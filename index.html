@@ -1169,14 +1169,16 @@
                 <p class="email-sub">
                     Free PDF guide &mdash; the 5 supplements Jon considers most important for ALS, with brands and doses. No spam, ever.
                 </p>
-                <form id="leadForm" class="email-form" onsubmit="return handleLeadForm(event)">
+                <form id="leadForm" class="email-form" action="https://buttondown.com/api/emails/embed-subscribe/jonsalsprotocol" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/jonsalsprotocol','popupwindow');document.getElementById('leadForm').style.display='none';document.getElementById('leadSuccess').classList.add('show');document.getElementById('leadNote').style.display='none';">
                     <input
                         type="email"
+                        name="email"
                         id="leadEmail"
                         placeholder="Your email address"
                         required
                         aria-label="Email address"
                     >
+                    <input type="hidden" name="tag" value="top5-guide">
                     <button type="submit" class="btn-red"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right:6px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>Send the Guide</button>
                 </form>
                 <p id="leadSuccess" class="email-success">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
@@ -1326,16 +1328,7 @@
         }
 
         // Lead magnet form, show success message (no backend yet)
-        function handleLeadForm(e) {
-            e.preventDefault();
-            var email = document.getElementById('leadEmail').value;
-            if (email) {
-                document.getElementById('leadForm').style.display = 'none';
-                document.getElementById('leadSuccess').classList.add('show');
-                document.getElementById('leadNote').style.display = 'none';
-            }
-            return false;
-        }
+        /* Lead form now submits directly to Buttondown */
     </script>
 </body>
 </html>
