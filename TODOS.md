@@ -33,7 +33,7 @@ Updated: March 31, 2026
 - [ ] Custom domain — register (notdyingtoday.com or Jon's preference), point to Vercel, update all URLs
 - [x] Protocol PDF — created protocol-guide.html with all 23 supplements, brands, doses, costs, daily timing, protein shake recipe, Top 3, mindset, caregiver notes (print-ready, noindex)
 - [ ] Payment integration — Lemon Squeezy, replace "coming soon" buttons with real checkout
-- [ ] Email list backend — connect forms to Buttondown, deliver lead magnet
+- [x] Email list backend — both forms wired to Buttondown embed-subscribe endpoint (username: jonsalsprotocol, tag: top5-guide). Need to create Buttondown account and set up welcome email with Top 5 PDF.
 
 ### Video
 - [ ] Record 1-2 videos with Jon (priority: "I'm Not Dying Today" story + "For Caregivers")
@@ -42,7 +42,7 @@ Updated: March 31, 2026
 - [ ] Add YouTube URL to sameAs schema
 
 ### Content Updates
-- [ ] Josiane section on about page — she deserves more prominence (45 years married, the backbone)
+- [x] Josiane section on about page — expanded from 3 sentences to full section with pill organizing, appointments, hard days, caregiver quote
 - [ ] Add Jon's gym photos if available (bodybuilder angle is powerful)
 - [ ] Expand caregiver content — Jon's mom's perspective could be valuable
 - [x] Write Basis/NAD+ blog post — blog/basis-nad-als.html (8 tablets/day, Elysium, Dr. Bedlack guided, PubMed citations)
