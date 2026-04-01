@@ -191,9 +191,12 @@
             <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
                 <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-4">Get Jon's Top 5 Supplements</h2>
                 <p class="text-lg mb-6" style="color: rgba(255,255,255,0.7);">Free PDF guide. No spam, ever.</p>
-                <form id="blogLeadForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="https://buttondown.com/api/emails/embed-subscribe/jonsalsprotocol" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/jonsalsprotocol','popupwindow');this.style.display='none';document.getElementById('blogLeadSuccess').classList.remove('hidden');">
+                <form id="blogLeadForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="https://formsubmit.co/austin@blinkbuild.ai" method="POST" onsubmit="setTimeout(function(){document.getElementById('blogLeadForm').style.display='none';document.getElementById('blogLeadSuccess').classList.remove('hidden');},100);">
                     <input type="email" name="email" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-lg text-lg border-0" aria-label="Email address" style="min-height: 48px;">
-                    <input type="hidden" name="tag" value="top5-guide">
+                    <input type="hidden" name="_subject" value="New lead: Jon's ALS Protocol (Blog)">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://jons-als-protocol.vercel.app/blog/">
+                    <input type="text" name="_honey" style="display:none">
                     <button type="submit" class="btn-red !rounded-lg whitespace-nowrap">Send the Guide</button>
                 </form>
                 <p id="blogLeadSuccess" class="hidden text-sm mt-4 font-bold text-white">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
