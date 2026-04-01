@@ -30,6 +30,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        *:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 4px; }
 
         body {
             font-family: var(--font-body);
@@ -351,6 +352,7 @@
     </style>
 </head>
 <body>
+    <a href="#guide-start" style="position:absolute;top:-60px;left:0;background:var(--red);color:white;padding:8px 16px;z-index:100;transition:top 0.2s;text-decoration:none;font-family:var(--font-body);" onfocus="this.style.top='0'" onblur="this.style.top='-60px'">Skip to guide content</a>
 
     <!-- ══════════════════════════════════════
          COVER PAGE
@@ -395,7 +397,7 @@
     <!-- ══════════════════════════════════════
          SECTION 1: MY STORY
          ══════════════════════════════════════ -->
-    <div class="guide-section">
+    <div id="guide-start" class="guide-section">
         <span class="section-number">Section 1</span>
         <h2>Why This Protocol Exists</h2>
         <p>In October 2019, I was on a hunting trip when I started tripping and falling for no reason. That was the beginning. Two months later I had surgery on a collapsed L5/S1 disc. Then came two years of searching for answers: 9 specialists, 12 MRIs, 3 brain scans. Nobody could tell me what was wrong.</p>
