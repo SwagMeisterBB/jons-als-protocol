@@ -325,14 +325,19 @@
         /* ── PRINT STYLES ── */
         @media print {
             body { font-size: 11pt; }
-            .cover { min-height: auto; padding: 80px 40px; page-break-after: always; }
+            .cover { min-height: auto; padding: 80px 40px; page-break-after: always; background: var(--navy-dark) !important; }
+            .toc-page { page-break-after: always; }
             .guide-section { padding: 32px 0; }
+            .page-break-before { page-break-before: always; }
             .supp-table { font-size: 9pt; }
             .supp-table thead th { padding: 8px 10px; }
             .supp-table tbody td { padding: 6px 10px; }
+            .supp-table tbody tr { page-break-inside: avoid; }
+            .quote-block, .recipe-card, .cost-summary, .mindset-list li { page-break-inside: avoid; }
             .no-print { display: none !important; }
             a { color: var(--text-dark) !important; text-decoration: none !important; }
             .cost-summary { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .cost-summary .cost-total .value { color: var(--text-dark) !important; font-weight: 900; }
             .cat-row td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .supp-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -358,6 +363,33 @@
             <strong>Jon Edy</strong> &middot; ALS Patient & Protocol Author<br>
             Diagnosed September 2021 &middot; Still Walking
         </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         UTILITY BAR (screen only)
+         ══════════════════════════════════════ -->
+    <div class="no-print" style="background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 32px; display: flex; justify-content: space-between; align-items: center; max-width: 100%;">
+        <a href="index.html" style="color: var(--navy); font-size: 0.875rem; font-weight: 600; text-decoration: none; font-family: var(--font-body);">&#8592; Back to JonsALSProtocol.com</a>
+        <button onclick="window.print()" style="background: var(--red); color: white; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; font-size: 0.875rem; cursor: pointer; font-family: var(--font-body);">Print / Save as PDF</button>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         TABLE OF CONTENTS
+         ══════════════════════════════════════ -->
+    <div class="toc-page" style="max-width: 720px; margin: 0 auto; padding: 64px 32px;">
+        <span class="section-number">Contents</span>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 32px;">What's Inside</h2>
+        <ol style="list-style: none; padding: 0; margin: 0; counter-reset: toc;">
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">1.</strong> Why This Protocol Exists</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">2.</strong> The Complete Supplement Stack (23 supplements)</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">3.</strong> The Daily Protein Shake</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">4.</strong> Daily Timing Schedule</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">5.</strong> My Top 3 and Why</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">6.</strong> What This Costs (~$642/month breakdown)</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">7.</strong> The Mindset</li>
+            <li style="counter-increment: toc; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">8.</strong> A Note for Caregivers</li>
+            <li style="counter-increment: toc; padding: 14px 0; font-size: 1.05rem; color: var(--text-mid);"><strong style="color: var(--navy-dark); margin-right: 12px;">9.</strong> Working with Your Neurologist</li>
+        </ol>
     </div>
 
     <!-- ══════════════════════════════════════
@@ -388,6 +420,7 @@
         <h2>The Complete Supplement Stack</h2>
         <p>These are the 23 supplements I take. My Top 3 are marked in red. Every single one of these was chosen after extensive research, and several were recommended or endorsed by Dr. Richard Bedlack at Duke.</p>
 
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
         <table class="supp-table">
             <thead>
                 <tr>
@@ -578,6 +611,7 @@
             </tbody>
         </table>
 
+        </div>
         <p><strong style="color: var(--red);">* Jon's Top 3:</strong> HMB, L-Serine, and Basis are the three supplements Jon considers most important. All three were guided or endorsed by Dr. Richard Bedlack, Director of the Duke ALS Program.</p>
     </div>
 
@@ -663,7 +697,7 @@
     <!-- ══════════════════════════════════════
          SECTION 5: MY TOP 3 AND WHY
          ══════════════════════════════════════ -->
-    <div class="guide-section">
+    <div class="guide-section page-break-before">
         <span class="section-number">Section 5</span>
         <h2>My Top 3 and Why</h2>
         <p>If someone asked me "if you could only take three supplements, what would they be?" the answer is immediate. These three are the core of everything I do.</p>
@@ -717,7 +751,7 @@
     <!-- ══════════════════════════════════════
          SECTION 7: MINDSET
          ══════════════════════════════════════ -->
-    <div class="guide-section">
+    <div class="guide-section page-break-before">
         <span class="section-number">Section 7</span>
         <h2>The Mindset</h2>
         <p>I will be honest with you: I believe the mindset matters as much as the supplements. Maybe more. You can take every pill on this list, but if you have already decided you are dying, none of it will matter. You have to fight. Every single day.</p>
