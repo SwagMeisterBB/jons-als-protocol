@@ -26,48 +26,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                        'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                        'cream': '#FAF8F5',
-                        'surface': '#F5F3F0',
-                        'warm-border': '#E8E4E0',
-                    },
-                    fontFamily: {
-                        'display': ['Fraunces', 'Georgia', 'serif'],
-                        'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px',
-                    },
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="option-d.css">
 
     <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
+        .progress-bar { position: fixed; top: 64px; left: 0; height: 3px; background: var(--red); z-index: 50; width: 0%; transition: width 0.1s linear; }
 
-        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
-
-        .progress-bar { position: fixed; top: 56px; left: 0; height: 3px; background: #C41E3A; z-index: 50; width: 0%; transition: width 0.1s linear; }
-
-        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; background: #1E3A5F; color: white; border: none; border-radius: 50%; cursor: pointer; z-index: 30; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; background: var(--navy); color: white; border: none; border-radius: 50%; cursor: pointer; z-index: 30; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .back-to-top.visible { opacity: 1; transform: translateY(0); }
-        .back-to-top:hover { background: #162C49; }
+        .back-to-top:hover { background: var(--navy-dark); }
 
-        .font-control { width: 48px; height: 48px; border: 1px solid #E8E4E0; background: white; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A5F; transition: background 0.15s; }
-        .font-control:hover { background: #F5F3F0; }
-        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
+        .btn-navy {
+            background: transparent; color: var(--navy); border: 2px solid var(--navy); padding: 12px 28px; border-radius: 10px;
+            font-family: var(--font-body); font-weight: 700; font-size: 1.125rem;
+            transition: background 0.2s ease, color 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
+        }
+        .btn-navy:hover { background: var(--navy); color: white; }
+        .btn-navy:active { background: var(--navy-dark); color: white; }
 
         .fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -77,148 +51,161 @@
             .progress-bar { transition: none; }
         }
 
-        @media (max-width: 639px) {
-            .btn-red, .btn-navy { width: 100%; text-align: center; }
-        }
-
-        .btn-red {
-            background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px;
-            font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
-        }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-
-        .btn-navy {
-            background: transparent; color: #1E3A5F; border: 2px solid #1E3A5F; padding: 12px 28px; border-radius: 10px;
-            font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, color 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
-        }
-        .btn-navy:hover { background: #1E3A5F; color: white; }
-        .btn-navy:active { background: #162C49; color: white; }
-
         /* Category badge colors */
+        .cat-badge { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 100px; display: inline-block; white-space: nowrap; }
         .cat-vitamin { background: #D1FAE5; color: #065F46; }
         .cat-bodybuilding { background: #FEE2E2; color: #991B1B; }
         .cat-protein { background: #FEF3C7; color: #92400E; }
-        .cat-top3 { background: #FEF3C7; color: #92400E; border: 1.5px solid #F59E0B; }
 
         /* Dr. Bedlack badge */
-        .badge-bedlack { background: #1E3A5F; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+        .badge-bedlack { background: var(--navy); color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; margin-left: 4px; }
 
         /* TOP 3 star badge */
-        .badge-top3 { background: #F59E0B; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap; }
+        .badge-top3 { background: #F59E0B; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap; margin-left: 4px; }
 
         /* Table styling */
         .supp-table { width: 100%; border-collapse: separate; border-spacing: 0; }
-        .supp-table thead th { background: #1E3A5F; color: white; padding: 14px 16px; text-align: left; font-weight: 700; font-size: 0.95rem; }
+        .supp-table thead th { background: var(--navy); color: white; padding: 14px 16px; text-align: left; font-weight: 700; font-size: 0.95rem; }
         .supp-table thead th:first-child { border-radius: 10px 0 0 0; }
         .supp-table thead th:last-child { border-radius: 0 10px 0 0; }
-        .supp-table tbody td { padding: 14px 16px; border-bottom: 1px solid #E8E4E0; vertical-align: top; }
+        .supp-table tbody td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
         .supp-table tbody tr:last-child td { border-bottom: none; }
         .supp-table tbody tr:last-child td:first-child { border-radius: 0 0 0 10px; }
         .supp-table tbody tr:last-child td:last-child { border-radius: 0 0 10px 0; }
-        .supp-table tbody tr { background: white; transition: background 0.15s; }
-        .supp-table tbody tr:hover { background: #FAF8F5; }
+        .supp-table tbody tr { background: var(--white); transition: background 0.15s; }
+        .supp-table tbody tr:hover { background: var(--cream); }
+        .supp-table .supp-name { font-weight: 600; }
+        .supp-table .vendor-link { color: var(--navy); font-weight: 600; font-size: 0.875rem; white-space: nowrap; }
+        .supp-table .vendor-link:hover { color: var(--red); }
+        .supp-table .post-link { color: var(--red); font-weight: 600; white-space: nowrap; }
+        .supp-table .post-link:hover { color: var(--red-hover); }
+        .supp-table .coming-soon { color: var(--text-muted); font-size: 0.875rem; }
 
         /* Category group header */
-        .cat-header td { background: #F5F3F0 !important; font-weight: 700; font-family: 'Fraunces', Georgia, serif; font-size: 1.05rem; color: #1E3A5F; padding: 12px 16px !important; }
-        .cat-header:hover td { background: #F5F3F0 !important; }
+        .cat-header td { background: var(--surface) !important; font-weight: 700; font-family: var(--font-display); font-size: 1.05rem; color: var(--navy); padding: 12px 16px !important; }
+        .cat-header:hover td { background: var(--surface) !important; }
 
         /* Mobile cards */
         @media (max-width: 767px) {
             .supp-table, .supp-table thead, .supp-table tbody, .supp-table th, .supp-table td, .supp-table tr { display: block !important; }
             .supp-table thead { display: none !important; }
             .supp-table { width: 100% !important; }
-            .supp-table tbody tr { background: white !important; border: 1px solid #E8E4E0 !important; border-radius: 10px !important; margin-bottom: 12px !important; padding: 16px !important; }
-            .supp-table tbody tr.cat-header { background: #F5F3F0 !important; border: none !important; border-radius: 10px !important; margin-bottom: 8px !important; margin-top: 20px !important; padding: 12px 16px !important; }
+            .supp-table tbody tr { background: var(--white) !important; border: 1px solid var(--border) !important; border-radius: 10px !important; margin-bottom: 12px !important; padding: 16px !important; }
+            .supp-table tbody tr.cat-header { background: var(--surface) !important; border: none !important; border-radius: 10px !important; margin-bottom: 8px !important; margin-top: 20px !important; padding: 12px 16px !important; }
             .supp-table tbody tr.cat-header td { padding: 0 !important; border: none !important; }
             .supp-table tbody td { padding: 6px 0 !important; border: none !important; display: flex !important; gap: 8px; align-items: flex-start; font-size: 0.9375rem; }
-            .supp-table tbody td::before { font-weight: 700; color: #727272; min-width: 90px; flex-shrink: 0; font-size: 0.8125rem; padding-top: 2px; }
+            .supp-table tbody td::before { font-weight: 700; color: var(--text-muted); min-width: 90px; flex-shrink: 0; font-size: 0.8125rem; padding-top: 2px; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(1)::before { content: "Supplement"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(2)::before { content: "Category"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(3)::before { content: "Dose"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(4)::before { content: "Notes"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(5)::before { content: "Where I Buy"; }
             .supp-table tbody tr:not(.cat-header) td:nth-child(6)::before { content: "Learn More"; }
-            .overflow-x-auto { overflow-x: visible !important; }
+            .table-wrap { overflow-x: visible !important; }
+        }
+
+        /* Top 3 callout */
+        .top3-callout { margin-top: 24px; background: var(--white); border-radius: 10px; padding: 20px; border: 2px solid #F59E0B; }
+        .top3-callout .top3-title { font-weight: 600; color: var(--navy-dark); font-size: 1.05rem; margin-bottom: 4px; }
+        .top3-callout p { color: var(--text-mid); }
+
+        /* Cost box */
+        .cost-box { margin-top: 24px; background: var(--white); border-radius: 10px; padding: 20px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .cost-box .cost-label { font-weight: 600; color: var(--navy-dark); font-size: 1.05rem; }
+        .cost-box .cost-sub { font-size: 0.875rem; color: var(--text-muted); }
+        .cost-box .cost-amount { font-family: var(--font-display); font-weight: 700; color: var(--navy-dark); font-size: 1.5rem; }
+
+        /* CTA navy section */
+        .cta-navy { background: var(--navy); padding: 56px 24px; }
+        .cta-navy h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+        .cta-navy .cta-desc { font-size: 1.125rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 32px; }
+        .cta-navy .cta-fine { font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-top: 24px; }
+
+        /* Page header gradient */
+        .page-hero { padding: 40px 0 64px; background: linear-gradient(180deg, #FFFFFF 0%, var(--cream) 100%); }
+
+        /* Mobile card section (toggled by JS) */
+        .mobile-cards > div + div { margin-top: 12px; }
+        .mobile-card { background: var(--white); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+        .mobile-card .mc-name { font-weight: 600; color: var(--navy-dark); margin-bottom: 4px; }
+        .mobile-card .mc-dose { font-size: 0.875rem; color: var(--text-mid); margin-bottom: 4px; }
+        .mobile-card .mc-dose strong { color: var(--text-muted); }
+        .mobile-card .mc-note { font-size: 0.875rem; color: var(--text-mid); margin-bottom: 8px; }
+        .mobile-card .mc-links a { font-weight: 600; font-size: 0.875rem; }
+        .mobile-card .mc-links .mc-vendor { color: var(--navy); }
+        .mobile-card .mc-links .mc-post { color: var(--red); }
+        .mc-cat-header { border-radius: 10px; padding: 12px; font-family: var(--font-display); font-weight: 700; color: var(--navy-dark); background: var(--surface); }
+        .mc-badge-top3 { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; }
+        .mc-badge-bedlack { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; background: #EFF4FA; color: var(--navy); }
+
+        @media (max-width: 639px) {
+            .btn-red, .btn-navy { width: 100%; text-align: center; }
         }
     </style>
-    <link rel="stylesheet" href="styles-d.css">
 </head>
-<body class="bg-cream">
-
+<body>
     <div class="progress-bar" id="progressBar"></div>
     <a href="#main" class="skip-link">Skip to main content</a>
 
     <!-- HEADER -->
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
-                </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
+                <span class="logo-icon">J</span>
+                Jon's ALS Protocol
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <div class="hidden sm:flex items-center gap-1" aria-label="Text size controls">
-                    <button onclick="adjustFont(-1)" class="font-control text-xs" aria-label="Decrease text size">A-</button>
-                    <button onclick="adjustFont(1)" class="font-control text-sm" aria-label="Increase text size">A+</button>
+            <nav class="header-nav" aria-label="Main navigation">
+                <div class="font-controls">
+                    <button onclick="adjustFont(-1)" class="font-control" aria-label="Decrease text size">A-</button>
+                    <button onclick="adjustFont(1)" class="font-control" aria-label="Increase text size">A+</button>
                 </div>
-                <a href="about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px; line-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px; line-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <a href="about.html" class="nav-link">About Jon</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
+                <a href="protocol.html" class="header-cta">Get the Protocol</a>
+                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
-            <div class="flex flex-col gap-3">
-                <a href="about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="about.html">About Jon</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
 
         <!-- Breadcrumb -->
-        <nav class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-2" aria-label="Breadcrumb">
-            <ol class="flex items-center gap-2 text-sm" style="color: #727272;">
-                <li><a href="index.html" class="hover:text-als-red-500 transition-colors">Home</a></li>
-                <li><span aria-hidden="true">/</span></li>
-                <li class="font-semibold" style="color: #1A1A1A;" aria-current="page">My Supplements</li>
-            </ol>
-        </nav>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Home</a> &rsaquo; My Supplements
+            </nav>
+        </div>
 
         <!-- Page Header -->
-        <section class="py-10 sm:py-16 fade-in" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h1 class="font-display text-navy-900 mb-6" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; font-weight: 800;">
+        <section class="page-hero fade-in">
+            <div class="container-narrow">
+                <h1 style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; font-weight: 800; color: var(--navy-dark); margin-bottom: 24px;">
                     My Complete Supplement Stack
                 </h1>
-                <p class="text-lg" style="color: #4A4A4A; line-height: 1.7;">
-                    These are my real supplements as of March 2026. All 23 of them. I take every single one of these daily. The <a href="protocol.html" class="text-als-red-500 font-semibold hover:text-als-red-700">full protocol ($39)</a> includes the exact brands, where to buy them, timing, and my complete daily routine.
+                <p style="font-size: 1.125rem; color: var(--text-mid); line-height: 1.7;">
+                    These are my real supplements as of March 2026. All 23 of them. I take every single one of these daily. The <a href="protocol.html" style="color: var(--red); font-weight: 600;">full protocol ($39)</a> includes the exact brands, where to buy them, timing, and my complete daily routine.
                 </p>
 
                 <!-- Top 3 callout -->
-                <div class="mt-6 bg-white rounded-lg p-5" style="border: 2px solid #F59E0B;">
-                    <p class="font-semibold text-navy-900 mb-1" style="font-size: 1.05rem;">My Top 3</p>
-                    <p style="color: #4A4A4A;">If I could only take three supplements, it would be <strong>L-Serine</strong>, <strong>Basis (NAD+)</strong>, and <strong>HMB</strong>. All three were guided by Dr. Bedlack at Duke University, one of the top ALS researchers in the country.</p>
+                <div class="top3-callout">
+                    <p class="top3-title">My Top 3</p>
+                    <p>If I could only take three supplements, it would be <strong>L-Serine</strong>, <strong>Basis (NAD+)</strong>, and <strong>HMB</strong>. All three were guided by Dr. Bedlack at Duke University, one of the top ALS researchers in the country.</p>
                 </div>
             </div>
         </section>
 
         <!-- Supplement Table -->
-        <section class="py-10 sm:py-16">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <section class="section-lg">
+            <div class="container">
 
-                <div id="desktopTable" class="overflow-x-auto rounded-lg" style="border: 1px solid #E8E4E0;">
+                <div id="desktopTable" class="table-wrap" style="overflow-x: auto; border-radius: 10px; border: 1px solid var(--border);">
                     <table class="supp-table">
                         <thead>
                             <tr>
@@ -235,144 +222,144 @@
                                 <td colspan="6">Vitamins &amp; Supplements (16)</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">
+                                <td class="supp-name">
                                     L-Serine
-                                    <span class="badge-top3 ml-1">TOP 3</span>
-                                    <span class="badge-bedlack ml-1">Dr. Bedlack guided</span>
+                                    <span class="badge-top3">TOP 3</span>
+                                    <span class="badge-bedlack">Dr. Bedlack guided</span>
                                 </td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>30,600 mg/day</td>
                                 <td>The centerpiece of my protocol. I take it in my protein drink and throughout the day.</td>
-                                <td><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Jo-Mar Labs &rarr;</a></td>
-                                <td><a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="vendor-link">Jo-Mar Labs &rarr;</a></td>
+                                <td><a href="blog/l-serine-for-als.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">
+                                <td class="supp-name">
                                     Basis (NAD+)
-                                    <span class="badge-top3 ml-1">TOP 3</span>
-                                    <span class="badge-bedlack ml-1">Dr. Bedlack guided</span>
+                                    <span class="badge-top3">TOP 3</span>
+                                    <span class="badge-bedlack">Dr. Bedlack guided</span>
                                 </td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>8 tablets/day</td>
                                 <td>NAD+ support for cellular energy and repair. High dose, guided by Dr. Bedlack.</td>
-                                <td><a href="https://www.elysiumhealth.com/products/basis/" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Elysium &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.elysiumhealth.com/products/basis/" target="_blank" rel="noopener" class="vendor-link">Elysium &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">
+                                <td class="supp-name">
                                     HMB
-                                    <span class="badge-top3 ml-1">TOP 3</span>
-                                    <span class="badge-bedlack ml-1">Dr. Bedlack guided</span>
+                                    <span class="badge-top3">TOP 3</span>
+                                    <span class="badge-bedlack">Dr. Bedlack guided</span>
                                 </td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>6,000 mg/day</td>
                                 <td>30 minutes before exercise. Preserves lean muscle mass. Dr. Bedlack showed strong interest in this one.</td>
-                                <td><a href="https://www.lifeextension.com/vitamins-supplements/item02221/wellness-code-muscle-strength-and-restore-formula" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Life Extension &rarr;</a></td>
-                                <td><a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://www.lifeextension.com/vitamins-supplements/item02221/wellness-code-muscle-strength-and-restore-formula" target="_blank" rel="noopener" class="vendor-link">Life Extension &rarr;</a></td>
+                                <td><a href="blog/hmb-muscle-preservation.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">CoQ10</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">CoQ10</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>400 mg/day</td>
                                 <td>Mitochondrial energy production and cellular protection.</td>
-                                <td><a href="https://www.qunol.com/products/qunol-ultra-coq10" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Qunol &rarr;</a></td>
-                                <td><a href="blog/coq10-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://www.qunol.com/products/qunol-ultra-coq10" target="_blank" rel="noopener" class="vendor-link">Qunol &rarr;</a></td>
+                                <td><a href="blog/coq10-als.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Magnesium Glycinate</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Magnesium Glycinate</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>500 mg/day</td>
                                 <td>Muscle cramps and sleep. Glycinate form absorbs better.</td>
-                                <td><a href="https://www.naturebellusa.com/products/magnesium-glycinate" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Naturebell &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.naturebellusa.com/products/magnesium-glycinate" target="_blank" rel="noopener" class="vendor-link">Naturebell &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Turmeric</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Turmeric</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>4,500 mg/day</td>
                                 <td>Anti-inflammatory support. High dose.</td>
-                                <td><a href="https://www.youtheory.com/products/turmeric" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Youtheory &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.youtheory.com/products/turmeric" target="_blank" rel="noopener" class="vendor-link">Youtheory &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Vitamin D3</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Vitamin D3</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>2,000 IU/day</td>
                                 <td>Immune function and bone health.</td>
-                                <td><a href="https://www.costco.com/p/-/kirkland-signature-extra-strength-d3-50-mcg-600-softgels/11467951" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Kirkland &rarr;</a></td>
-                                <td><a href="blog/vitamin-d3-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://www.costco.com/p/-/kirkland-signature-extra-strength-d3-50-mcg-600-softgels/11467951" target="_blank" rel="noopener" class="vendor-link">Kirkland &rarr;</a></td>
+                                <td><a href="blog/vitamin-d3-als.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Vitamin E</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Vitamin E</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>400 IU, 3-4x/week</td>
                                 <td>Evening dose. Fat-soluble antioxidant for nerve cell protection.</td>
-                                <td><a href="https://www.naturemade.com/products/nature-made-vitamin-e-180-mg-400-iu-dl-alpha-softgels" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Nature Made &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.naturemade.com/products/nature-made-vitamin-e-180-mg-400-iu-dl-alpha-softgels" target="_blank" rel="noopener" class="vendor-link">Nature Made &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Fish Oil (Omega-3)</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Fish Oil (Omega-3)</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>520 mg/day, 3-4x/week</td>
                                 <td>Evening dose. Anti-inflammatory support for the brain and nervous system.</td>
-                                <td><a href="https://newchapter.com/products/wholemega" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">New Chapter &rarr;</a></td>
-                                <td><a href="blog/omega-3-fish-oil-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://newchapter.com/products/wholemega" target="_blank" rel="noopener" class="vendor-link">New Chapter &rarr;</a></td>
+                                <td><a href="blog/omega-3-fish-oil-als.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Super B Complex</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Super B Complex</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>3-4x/week</td>
                                 <td>Evening dose. Nerve function and energy metabolism.</td>
-                                <td><a href="https://www.costco.com/p/-/kirkland-signature-super-b-complex-with-electrolytes-500-tablets/100112668" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Kirkland &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.costco.com/p/-/kirkland-signature-super-b-complex-with-electrolytes-500-tablets/100112668" target="_blank" rel="noopener" class="vendor-link">Kirkland &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Vitamin C</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Vitamin C</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>1,000 mg/day, 3-4x/week</td>
                                 <td>Evening dose. Immune support and antioxidant layer.</td>
-                                <td><a href="https://www.nowfoods.com/products/supplements/vitamin-c-1000-veg-capsules" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">NOW &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.nowfoods.com/products/supplements/vitamin-c-1000-veg-capsules" target="_blank" rel="noopener" class="vendor-link">NOW &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Lion's Mane</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Lion's Mane</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>4,000 mg/day</td>
                                 <td>Nerve growth factor support. I also add the powder form to my protein drink.</td>
-                                <td><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">OM Mushrooms &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="vendor-link">OM Mushrooms &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Mullein</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Mullein</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>1,200 mg/day</td>
                                 <td>Lung health. Breathing matters when you have ALS.</td>
-                                <td><a href="https://herbamama.com/products/mullein-leaf-100-capsules" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Herbamama &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://herbamama.com/products/mullein-leaf-100-capsules" target="_blank" rel="noopener" class="vendor-link">Herbamama &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Protandim</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Protandim</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>1 tablet/day</td>
                                 <td>Nrf2 activator. Supports the body's own antioxidant production.</td>
-                                <td><a href="https://www.lifevantage.com/us-en/shop/protandim-nrf2" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Life Vantage &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.lifevantage.com/us-en/shop/protandim-nrf2" target="_blank" rel="noopener" class="vendor-link">Life Vantage &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Milk Thistle</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Milk Thistle</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>1 dropper as needed</td>
                                 <td>Liver health. I take a lot of supplements, so I protect my liver.</td>
-                                <td><a href="https://wildandorganic.com/products/milk-thistle-tincture-4-fl-oz-bottle" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Wild & Organic &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://wildandorganic.com/products/milk-thistle-tincture-4-fl-oz-bottle" target="_blank" rel="noopener" class="vendor-link">Wild & Organic &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Quinine</td>
-                                <td><span class="cat-vitamin text-xs font-semibold px-2.5 py-1 rounded-full">Vitamin</span></td>
+                                <td class="supp-name">Quinine</td>
+                                <td><span class="cat-badge cat-vitamin">Vitamin</span></td>
                                 <td>1 dropper as needed</td>
                                 <td>Muscle stiffness and joint support.</td>
-                                <td><a href="https://www.amazon.com/Premium-Quinine-Tincture-Cinchona-Drops/dp/B096DD3TTV" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Herbify &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.amazon.com/Premium-Quinine-Tincture-Cinchona-Drops/dp/B096DD3TTV" target="_blank" rel="noopener" class="vendor-link">Herbify &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
 
                             <!-- ===== BODY BUILDING (4) ===== -->
@@ -380,36 +367,36 @@
                                 <td colspan="6">Body Building (4)</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Creatine</td>
-                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td class="supp-name">Creatine</td>
+                                <td><span class="cat-badge cat-bodybuilding">Body Building</span></td>
                                 <td>3 tablets/day</td>
                                 <td>Cellular energy for muscles. Helps me push harder in the gym.</td>
-                                <td><a href="https://www.allstarhealth.com/f/allmax_nutrition-creatine_3000_capsules.htm" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Allmax &rarr;</a></td>
-                                <td><a href="blog/creatine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://www.allstarhealth.com/f/allmax_nutrition-creatine_3000_capsules.htm" target="_blank" rel="noopener" class="vendor-link">Allmax &rarr;</a></td>
+                                <td><a href="blog/creatine-for-als.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Turkesterone</td>
-                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td class="supp-name">Turkesterone</td>
+                                <td><span class="cat-badge cat-bodybuilding">Body Building</span></td>
                                 <td>3 tablets/day</td>
                                 <td>Natural muscle support.</td>
-                                <td><a href="https://www.amazon.com/Turkesterone-Tongkat-BioPerine-Maximum-Strength/dp/B0B7QG4G2Q" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Benevolent &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.amazon.com/Turkesterone-Tongkat-BioPerine-Maximum-Strength/dp/B0B7QG4G2Q" target="_blank" rel="noopener" class="vendor-link">Benevolent &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Plant Aminos</td>
-                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td class="supp-name">Plant Aminos</td>
+                                <td><span class="cat-badge cat-bodybuilding">Body Building</span></td>
                                 <td>6/day</td>
                                 <td>Amino acid support for muscle recovery.</td>
-                                <td><a href="https://www.amazon.com/Plant-Aminos-Organic-Essential-Amino/dp/B08NTS8PRV" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Triquetra &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.amazon.com/Plant-Aminos-Organic-Essential-Amino/dp/B08NTS8PRV" target="_blank" rel="noopener" class="vendor-link">Triquetra &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">BPC-157</td>
-                                <td><span class="cat-bodybuilding text-xs font-semibold px-2.5 py-1 rounded-full">Body Building</span></td>
+                                <td class="supp-name">BPC-157</td>
+                                <td><span class="cat-badge cat-bodybuilding">Body Building</span></td>
                                 <td>1/day</td>
                                 <td>Peptide. Tissue repair and recovery support.</td>
-                                <td><a href="https://www.amazon.com/bpc-157-rapid-pro-500mcg-infiniwell/s?k=bpc-157+rapid+pro+-+500mcg+infiniwell" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Infiniwell &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">Coming soon</span></td>
+                                <td><a href="https://www.amazon.com/bpc-157-rapid-pro-500mcg-infiniwell/s?k=bpc-157+rapid+pro+-+500mcg+infiniwell" target="_blank" rel="noopener" class="vendor-link">Infiniwell &rarr;</a></td>
+                                <td><span class="coming-soon">Coming soon</span></td>
                             </tr>
 
                             <!-- ===== DAILY PROTEIN DRINK (3) ===== -->
@@ -417,255 +404,249 @@
                                 <td colspan="6">Daily Protein Drink (3)</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Protein Powder</td>
-                                <td><span class="cat-protein text-xs font-semibold px-2.5 py-1 rounded-full">Protein Drink</span></td>
+                                <td class="supp-name">Protein Powder</td>
+                                <td><span class="cat-badge cat-protein">Protein Drink</span></td>
                                 <td>2 scoops (24g protein)</td>
                                 <td>Plant-based protein. The foundation of my daily shake.</td>
-                                <td><a href="https://www.amazon.com/Orgain-Organic-Protein-Powder-Vanilla/dp/B00J074W7Q" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Orgain &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">-</span></td>
+                                <td><a href="https://www.amazon.com/Orgain-Organic-Protein-Powder-Vanilla/dp/B00J074W7Q" target="_blank" rel="noopener" class="vendor-link">Orgain &rarr;</a></td>
+                                <td><span class="coming-soon">-</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Lion's Mane Powder</td>
-                                <td><span class="cat-protein text-xs font-semibold px-2.5 py-1 rounded-full">Protein Drink</span></td>
+                                <td class="supp-name">Lion's Mane Powder</td>
+                                <td><span class="cat-badge cat-protein">Protein Drink</span></td>
                                 <td>1 scoop (2,000 mg)</td>
                                 <td>Added to my daily shake on top of the capsule form.</td>
-                                <td><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">OM Mushrooms &rarr;</a></td>
-                                <td><span style="color: #727272;" class="text-sm">-</span></td>
+                                <td><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="vendor-link">OM Mushrooms &rarr;</a></td>
+                                <td><span class="coming-soon">-</span></td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">L-Serine</td>
-                                <td><span class="cat-protein text-xs font-semibold px-2.5 py-1 rounded-full">Protein Drink</span></td>
+                                <td class="supp-name">L-Serine</td>
+                                <td><span class="cat-badge cat-protein">Protein Drink</span></td>
                                 <td>4 scoops (13,600 mg)</td>
                                 <td>The biggest portion of my daily L-Serine goes right in the shake.</td>
-                                <td><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="text-navy-500 font-semibold hover:text-als-red-500 text-sm whitespace-nowrap">Jo-Mar Labs &rarr;</a></td>
-                                <td><a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700 whitespace-nowrap">Read post &rarr;</a></td>
+                                <td><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="vendor-link">Jo-Mar Labs &rarr;</a></td>
+                                <td><a href="blog/l-serine-for-als.html" class="post-link">Read post &rarr;</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                                <!-- Mobile cards (shown on mobile only) -->
-                <div id="mobileCards" class="space-y-3">
-                    <div class="rounded-lg p-3 font-display font-bold text-navy-900" style="background: #F5F3F0;">Vitamins & Supplements (16)</div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">L-Serine <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B;">TOP 3</span> <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Dr. Bedlack</span></div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 30,600 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">The centerpiece of my protocol</div>
-                        <div><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Jo-Mar Labs</a> · <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                <!-- Mobile cards (shown on mobile only) -->
+                <div id="mobileCards" class="mobile-cards">
+                    <div class="mc-cat-header">Vitamins & Supplements (16)</div>
+                    <div class="mobile-card">
+                        <div class="mc-name">L-Serine <span class="mc-badge-top3">TOP 3</span> <span class="mc-badge-bedlack">Dr. Bedlack</span></div>
+                        <div class="mc-dose"><strong>Dose:</strong> 30,600 mg/day</div>
+                        <div class="mc-note">The centerpiece of my protocol</div>
+                        <div class="mc-links"><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="mc-vendor">Jo-Mar Labs</a> · <a href="blog/l-serine-for-als.html" class="mc-post">Read post</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Basis (NAD+) <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B;">TOP 3</span> <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Dr. Bedlack</span></div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 8 tablets/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">NAD+ support, guided by Dr. Bedlack</div>
-                        <div><a href="https://www.elysiumhealth.com/products/basis/" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Elysium</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Basis (NAD+) <span class="mc-badge-top3">TOP 3</span> <span class="mc-badge-bedlack">Dr. Bedlack</span></div>
+                        <div class="mc-dose"><strong>Dose:</strong> 8 tablets/day</div>
+                        <div class="mc-note">NAD+ support, guided by Dr. Bedlack</div>
+                        <div class="mc-links"><a href="https://www.elysiumhealth.com/products/basis/" target="_blank" rel="noopener" class="mc-vendor">Elysium</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">HMB <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B;">TOP 3</span> <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Dr. Bedlack</span></div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 6,000 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">30 min before exercise, muscle preservation</div>
-                        <div><a href="https://www.lifeextension.com/vitamins-supplements/item02221/wellness-code-muscle-strength-and-restore-formula" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Life Extension</a> · <a href="blog/hmb-muscle-preservation.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">HMB <span class="mc-badge-top3">TOP 3</span> <span class="mc-badge-bedlack">Dr. Bedlack</span></div>
+                        <div class="mc-dose"><strong>Dose:</strong> 6,000 mg/day</div>
+                        <div class="mc-note">30 min before exercise, muscle preservation</div>
+                        <div class="mc-links"><a href="https://www.lifeextension.com/vitamins-supplements/item02221/wellness-code-muscle-strength-and-restore-formula" target="_blank" rel="noopener" class="mc-vendor">Life Extension</a> · <a href="blog/hmb-muscle-preservation.html" class="mc-post">Read post</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">CoQ10</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 400 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Mitochondrial energy</div>
-                        <div><a href="https://www.qunol.com/products/qunol-ultra-coq10" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Qunol</a> · <a href="blog/coq10-als.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">CoQ10</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 400 mg/day</div>
+                        <div class="mc-note">Mitochondrial energy</div>
+                        <div class="mc-links"><a href="https://www.qunol.com/products/qunol-ultra-coq10" target="_blank" rel="noopener" class="mc-vendor">Qunol</a> · <a href="blog/coq10-als.html" class="mc-post">Read post</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Magnesium Glycinate</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 500 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Muscle cramps and sleep</div>
-                        <div><a href="https://www.naturebellusa.com/products/magnesium-glycinate" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Naturebell</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Magnesium Glycinate</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 500 mg/day</div>
+                        <div class="mc-note">Muscle cramps and sleep</div>
+                        <div class="mc-links"><a href="https://www.naturebellusa.com/products/magnesium-glycinate" target="_blank" rel="noopener" class="mc-vendor">Naturebell</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Turmeric</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 4,500 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Anti-inflammatory</div>
-                        <div><a href="https://www.youtheory.com/products/turmeric" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Youtheory</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Turmeric</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 4,500 mg/day</div>
+                        <div class="mc-note">Anti-inflammatory</div>
+                        <div class="mc-links"><a href="https://www.youtheory.com/products/turmeric" target="_blank" rel="noopener" class="mc-vendor">Youtheory</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Vitamin D3</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 2,000 IU/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Foundation supplement</div>
-                        <div><a href="https://www.costco.com/p/-/kirkland-signature-extra-strength-d3-50-mcg-600-softgels/11467951" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Kirkland</a> · <a href="blog/vitamin-d3-als.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Vitamin D3</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 2,000 IU/day</div>
+                        <div class="mc-note">Foundation supplement</div>
+                        <div class="mc-links"><a href="https://www.costco.com/p/-/kirkland-signature-extra-strength-d3-50-mcg-600-softgels/11467951" target="_blank" rel="noopener" class="mc-vendor">Kirkland</a> · <a href="blog/vitamin-d3-als.html" class="mc-post">Read post</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Vitamin E</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 400 IU, 3-4x/week</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Evening</div>
-                        <div><a href="https://www.naturemade.com/products/nature-made-vitamin-e-180-mg-400-iu-dl-alpha-softgels" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Nature Made</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Vitamin E</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 400 IU, 3-4x/week</div>
+                        <div class="mc-note">Evening</div>
+                        <div class="mc-links"><a href="https://www.naturemade.com/products/nature-made-vitamin-e-180-mg-400-iu-dl-alpha-softgels" target="_blank" rel="noopener" class="mc-vendor">Nature Made</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Fish Oil</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 520 mg/day, 3-4x/week</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Anti-inflammatory</div>
-                        <div><a href="https://newchapter.com/products/wholemega" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">New Chapter</a> · <a href="blog/omega-3-fish-oil-als.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Fish Oil</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 520 mg/day, 3-4x/week</div>
+                        <div class="mc-note">Anti-inflammatory</div>
+                        <div class="mc-links"><a href="https://newchapter.com/products/wholemega" target="_blank" rel="noopener" class="mc-vendor">New Chapter</a> · <a href="blog/omega-3-fish-oil-als.html" class="mc-post">Read post</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Super B Complex</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 3-4x/week</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Evening</div>
-                        <div><a href="https://www.costco.com/p/-/kirkland-signature-super-b-complex-with-electrolytes-500-tablets/100112668" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Kirkland</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Super B Complex</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 3-4x/week</div>
+                        <div class="mc-note">Evening</div>
+                        <div class="mc-links"><a href="https://www.costco.com/p/-/kirkland-signature-super-b-complex-with-electrolytes-500-tablets/100112668" target="_blank" rel="noopener" class="mc-vendor">Kirkland</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Vitamin C</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1000 mg/day, 3-4x/week</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Evening</div>
-                        <div><a href="https://www.nowfoods.com/products/supplements/vitamin-c-1000-veg-capsules" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">NOW</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Vitamin C</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1000 mg/day, 3-4x/week</div>
+                        <div class="mc-note">Evening</div>
+                        <div class="mc-links"><a href="https://www.nowfoods.com/products/supplements/vitamin-c-1000-veg-capsules" target="_blank" rel="noopener" class="mc-vendor">NOW</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Lion's Mane</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 4000 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Nerve support</div>
-                        <div><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">OM Mushrooms</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Lion's Mane</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 4000 mg/day</div>
+                        <div class="mc-note">Nerve support</div>
+                        <div class="mc-links"><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="mc-vendor">OM Mushrooms</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Mullein</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1200 mg/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Lung health</div>
-                        <div><a href="https://herbamama.com/products/mullein-leaf-100-capsules" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Herbamama</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Mullein</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1200 mg/day</div>
+                        <div class="mc-note">Lung health</div>
+                        <div class="mc-links"><a href="https://herbamama.com/products/mullein-leaf-100-capsules" target="_blank" rel="noopener" class="mc-vendor">Herbamama</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Protandim</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1 tablet/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Nrf2 activator</div>
-                        <div><a href="https://www.lifevantage.com/us-en/shop/protandim-nrf2" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Life Vantage</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Protandim</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1 tablet/day</div>
+                        <div class="mc-note">Nrf2 activator</div>
+                        <div class="mc-links"><a href="https://www.lifevantage.com/us-en/shop/protandim-nrf2" target="_blank" rel="noopener" class="mc-vendor">Life Vantage</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Milk Thistle</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1 dropper as needed</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Liver health</div>
-                        <div><a href="https://wildandorganic.com/products/milk-thistle-tincture-4-fl-oz-bottle" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Wild & Organic</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Milk Thistle</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1 dropper as needed</div>
+                        <div class="mc-note">Liver health</div>
+                        <div class="mc-links"><a href="https://wildandorganic.com/products/milk-thistle-tincture-4-fl-oz-bottle" target="_blank" rel="noopener" class="mc-vendor">Wild & Organic</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Quinine</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1 dropper as needed</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Muscle stiffness</div>
-                        <div><a href="https://www.amazon.com/Premium-Quinine-Tincture-Cinchona-Drops/dp/B096DD3TTV" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Herbify</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Quinine</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1 dropper as needed</div>
+                        <div class="mc-note">Muscle stiffness</div>
+                        <div class="mc-links"><a href="https://www.amazon.com/Premium-Quinine-Tincture-Cinchona-Drops/dp/B096DD3TTV" target="_blank" rel="noopener" class="mc-vendor">Herbify</a></div>
                     </div>
-                    <div class="rounded-lg p-3 font-display font-bold text-navy-900" style="background: #F5F3F0;">Body Building (4)</div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Creatine 3000</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 3 tablets/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Muscle energy</div>
-                        <div><a href="https://www.allstarhealth.com/f/allmax_nutrition-creatine_3000_capsules.htm" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Allmax</a> · <a href="blog/creatine-for-als.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                    <div class="mc-cat-header">Body Building (4)</div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Creatine 3000</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 3 tablets/day</div>
+                        <div class="mc-note">Muscle energy</div>
+                        <div class="mc-links"><a href="https://www.allstarhealth.com/f/allmax_nutrition-creatine_3000_capsules.htm" target="_blank" rel="noopener" class="mc-vendor">Allmax</a> · <a href="blog/creatine-for-als.html" class="mc-post">Read post</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Turkesterone</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 3 tablets/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Natural anabolic</div>
-                        <div><a href="https://www.amazon.com/Turkesterone-Tongkat-BioPerine-Maximum-Strength/dp/B0B7QG4G2Q" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Benevolent</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Turkesterone</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 3 tablets/day</div>
+                        <div class="mc-note">Natural anabolic</div>
+                        <div class="mc-links"><a href="https://www.amazon.com/Turkesterone-Tongkat-BioPerine-Maximum-Strength/dp/B0B7QG4G2Q" target="_blank" rel="noopener" class="mc-vendor">Benevolent</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Plant Aminos</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 6/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Essential amino acids</div>
-                        <div><a href="https://www.amazon.com/Plant-Aminos-Organic-Essential-Amino/dp/B08NTS8PRV" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Triquetra</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Plant Aminos</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 6/day</div>
+                        <div class="mc-note">Essential amino acids</div>
+                        <div class="mc-links"><a href="https://www.amazon.com/Plant-Aminos-Organic-Essential-Amino/dp/B08NTS8PRV" target="_blank" rel="noopener" class="mc-vendor">Triquetra</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">BPC-157</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1/day</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Peptide, tissue repair</div>
-                        <div><a href="https://www.amazon.com/bpc-157-rapid-pro-500mcg-infiniwell/s?k=bpc-157+rapid+pro+-+500mcg+infiniwell" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Infiniwell</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">BPC-157</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1/day</div>
+                        <div class="mc-note">Peptide, tissue repair</div>
+                        <div class="mc-links"><a href="https://www.amazon.com/bpc-157-rapid-pro-500mcg-infiniwell/s?k=bpc-157+rapid+pro+-+500mcg+infiniwell" target="_blank" rel="noopener" class="mc-vendor">Infiniwell</a></div>
                     </div>
-                    <div class="rounded-lg p-3 font-display font-bold text-navy-900" style="background: #F5F3F0;">Daily Protein Drink (3)</div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Protein Powder</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 2 scoops (24g)</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Plant-based shake foundation</div>
-                        <div><a href="https://www.amazon.com/Orgain-Organic-Protein-Powder-Vanilla/dp/B00J074W7Q" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Orgain</a></div>
+                    <div class="mc-cat-header">Daily Protein Drink (3)</div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Protein Powder</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 2 scoops (24g)</div>
+                        <div class="mc-note">Plant-based shake foundation</div>
+                        <div class="mc-links"><a href="https://www.amazon.com/Orgain-Organic-Protein-Powder-Vanilla/dp/B00J074W7Q" target="_blank" rel="noopener" class="mc-vendor">Orgain</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">Lion's Mane Powder</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 1 scoop (2,000 mg)</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Added to shake</div>
-                        <div><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">OM Mushrooms</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">Lion's Mane Powder</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 1 scoop (2,000 mg)</div>
+                        <div class="mc-note">Added to shake</div>
+                        <div class="mc-links"><a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="mc-vendor">OM Mushrooms</a></div>
                     </div>
-                    <div class="bg-white rounded-lg p-4" style="border: 1px solid #E8E4E0;">
-                        <div class="font-semibold text-navy-900 mb-1">L-Serine</div>
-                        <div class="text-sm mb-1" style="color: #4A4A4A;"><strong style="color: #727272;">Dose:</strong> 4 scoops (13,600 mg)</div>
-                        <div class="text-sm mb-2" style="color: #4A4A4A;">Biggest portion goes in shake</div>
-                        <div><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="text-navy-500 font-semibold text-sm">Jo-Mar Labs</a> · <a href="blog/l-serine-for-als.html" class="text-als-red-500 font-semibold text-sm">Read post</a></div>
+                    <div class="mobile-card">
+                        <div class="mc-name">L-Serine</div>
+                        <div class="mc-dose"><strong>Dose:</strong> 4 scoops (13,600 mg)</div>
+                        <div class="mc-note">Biggest portion goes in shake</div>
+                        <div class="mc-links"><a href="https://www.jomarlabs.com/products/l-serine" target="_blank" rel="noopener" class="mc-vendor">Jo-Mar Labs</a> · <a href="blog/l-serine-for-als.html" class="mc-post">Read post</a></div>
                     </div>
                 </div>
 
                 <!-- Cost estimate -->
-                <div class="mt-6 bg-white rounded-lg p-5 flex items-center justify-between flex-wrap gap-4" style="border: 1px solid #E8E4E0;">
+                <div class="cost-box">
                     <div>
-                        <p class="font-semibold text-navy-900" style="font-size: 1.05rem;">Approximate monthly cost</p>
-                        <p class="text-sm" style="color: #727272;">All 23 supplements, full doses.</p>
+                        <p class="cost-label">Approximate monthly cost</p>
+                        <p class="cost-sub">All 23 supplements, full doses.</p>
                     </div>
-                    <p class="font-display font-bold text-navy-900" style="font-size: 1.5rem;">~$650/month</p>
-                <p class="text-xs mt-4" style="color: #727272;">Some links on this page are affiliate links. As an Amazon Associate, I earn from qualifying purchases. I only link to the exact products I use.</p>
+                    <p class="cost-amount">~$650/month</p>
+                    <p style="font-size: 0.75rem; margin-top: 16px; color: var(--text-muted); width: 100%;">Some links on this page are affiliate links. As an Amazon Associate, I earn from qualifying purchases. I only link to the exact products I use.</p>
                 </div>
 
-                <p class="text-sm mt-4" style="color: #727272;">This is what I take. The full protocol with exact brands, where to buy, and my complete daily timing is available for $39.</p>
+                <p style="font-size: 0.875rem; margin-top: 16px; color: var(--text-muted);">This is what I take. The full protocol with exact brands, where to buy, and my complete daily timing is available for $39.</p>
 
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="py-14 sm:py-20 bg-navy-500">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Want exact brands, doses, and timing?</h2>
-                <p class="text-lg mb-8" style="color: rgba(255,255,255,0.8); line-height: 1.7;">
+        <section class="cta-navy">
+            <div class="container-narrow" style="text-align: center;">
+                <h2>Want exact brands, doses, and timing?</h2>
+                <p class="cta-desc">
                     This page shows you what I take. The full protocol includes every brand name, exact dosage, when I take each one, my complete daily routine, and the mindset framework I follow. It's organized so you (or your caregiver) can hand it to a doctor.
                 </p>
                 <a href="protocol.html" class="btn-red">Get the Full Protocol for $39 &rarr;</a>
-                <p class="text-sm mt-6" style="color: rgba(255,255,255,0.5);">One-time purchase. 30-day money-back guarantee.</p>
+                <p class="cta-fine">One-time purchase. 30-day money-back guarantee.</p>
             </div>
         </section>
 
         <!-- Medical Disclaimer -->
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: #727272; line-height: 1.7;">
-                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
-                </p>
-            </div>
+        <section class="disclaimer-bar">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
+            </p>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500">
-                            <span class="text-white font-display font-bold text-sm">J</span>
-                        </div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
-                    </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span class="logo-icon">J</span>
+                    <span>Jon's ALS Protocol</span>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
-                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
-                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
-                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class="footer-desc">One patient's protocol, mindset, and daily routine shared openly.</p>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div>
+                <p class="footer-heading">Navigate</p>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Jon</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="protocol.html">Get the Protocol</a></li>
+                </ul>
             </div>
+            <div>
+                <p class="footer-heading">Legal</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+            <p class="footer-copy" style="margin-top: 4px;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html">Full affiliate disclosure</a>.</p>
         </div>
     </footer>
 
     <!-- Back to top button -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
     </button>
 
     <script>
@@ -689,18 +670,18 @@
             document.body.style.fontSize = fontSizes[currentSize] + 'px';
         }
     </script>
-<script>
-function toggleSupplementView() {
-  var w = window.innerWidth;
-  var dt = document.getElementById("desktopTable");
-  var mc = document.getElementById("mobileCards");
-  if (dt && mc) {
-    if (w < 640) { dt.style.display = "none"; mc.style.display = "block"; }
-    else { dt.style.display = "block"; mc.style.display = "none"; }
-  }
-}
-toggleSupplementView();
-window.addEventListener("resize", toggleSupplementView);
-</script>
+    <script>
+    function toggleSupplementView() {
+      var w = window.innerWidth;
+      var dt = document.getElementById("desktopTable");
+      var mc = document.getElementById("mobileCards");
+      if (dt && mc) {
+        if (w < 640) { dt.style.display = "none"; mc.style.display = "block"; }
+        else { dt.style.display = "block"; mc.style.display = "none"; }
+      }
+    }
+    toggleSupplementView();
+    window.addEventListener("resize", toggleSupplementView);
+    </script>
 </body>
 </html>

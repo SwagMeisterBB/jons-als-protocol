@@ -25,91 +25,77 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: { extend: {
-                colors: {
-                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                    'cream': '#FAF8F5', 'surface': '#F5F3F0', 'warm-border': '#E8E4E0',
-                },
-                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
-                borderRadius: { 'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px' },
-            }}
-        }
-    </script>
+    <link rel="stylesheet" href="option-d.css">
     <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
-        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
-        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
-        .btn-red { background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-        @media (max-width: 639px) { .btn-red { width: 100%; text-align: center; } }
-        .prose p { margin-bottom: 1.25rem; color: #4A4A4A; }
-        .prose h2 { font-size: 1.75rem; font-weight: 700; color: #0F2040; margin-top: 2.5rem; margin-bottom: 1rem; }
-        .prose h3 { font-size: 1.375rem; font-weight: 600; color: #0F2040; margin-top: 2rem; margin-bottom: 0.75rem; }
-        .prose blockquote { border-left: 4px solid #C41E3A; padding: 1rem 1.5rem; margin: 1.5rem 0; background: #FEF2F2; border-radius: 0 10px 10px 0; }
-        .prose blockquote p { color: #0F2040; font-weight: 500; font-style: italic; margin-bottom: 0; }
+        .hero-photo {
+            width: 192px; height: 192px;
+            border-radius: 50%;
+            margin: 0 auto 32px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(30,58,95,0.2);
+        }
+        @media (min-width: 640px) {
+            .hero-photo { width: 224px; height: 224px; }
+        }
+        .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .signature-line {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            text-align: center;
+            margin: 2rem 0;
+        }
     </style>
-    <link rel="stylesheet" href="styles-d.css">
 </head>
-<body class="bg-cream">
+<body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
-                </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
+                <span class="logo-icon">J</span>
+                Jon's ALS Protocol
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <a href="about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors text-als-red-500 px-2" style="min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="about.html" class="nav-link active">About Jon</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
+                <a href="protocol.html" class="header-cta">Get the Protocol</a>
+                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
-            <div class="flex flex-col gap-3">
-                <a href="about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #C41E3A; min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="about.html">About Jon</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
         <!-- Breadcrumb -->
-        <nav class="max-w-3xl mx-auto px-4 sm:px-6 py-4" aria-label="Breadcrumb">
-            <span class="text-sm" style="color: #727272;"><a href="index.html" class="hover:text-als-red-500 transition-colors" style="color: #727272;">Home</a> &rsaquo; About Jon</span>
-        </nav>
+        <div class="container-narrow">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Home</a> &rsaquo; About Jon
+            </nav>
+        </div>
 
         <!-- Hero -->
-        <section class="pb-12 pt-4">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full mx-auto mb-8 overflow-hidden" style="box-shadow: 0 8px 32px rgba(30,58,95,0.2);">
-                    <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" class="w-full h-full object-cover object-top" width="224" height="224">
+        <section class="section-sm" style="padding-top: 16px;">
+            <div class="container-narrow" style="text-align: center;">
+                <div class="hero-photo">
+                    <img src="images/jon-edy.jpg" alt="Jon Edy with Dr. Richard Bedlack, Director of the Duke ALS Program" width="224" height="224">
                 </div>
-                <p class="text-xs mb-6" style="color: #727272;">Jon with <a href="https://www.dukehealth.org/find-doctors-physicians/richard-s-bedlack-jr-md-phd-ms" target="_blank" rel="noopener" class="underline hover:text-als-red-500">Dr. Richard Bedlack</a>, Director of the Duke ALS Program</p>
-                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-4">I'm Not Dying Today</h1>
-                <p class="text-xl" style="color: #4A4A4A;">Husband. Father. Fighter. Bodybuilder. 4+ years past my diagnosis and still walking.</p>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 24px;">Jon with <a href="https://www.dukehealth.org/find-doctors-physicians/richard-s-bedlack-jr-md-phd-ms" target="_blank" rel="noopener" style="text-decoration: underline;">Dr. Richard Bedlack</a>, Director of the Duke ALS Program</p>
+                <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: var(--navy-dark); margin-bottom: 16px;">I'm Not Dying Today</h1>
+                <p style="font-size: 1.25rem; color: var(--text-mid);">Husband. Father. Fighter. Bodybuilder. 4+ years past my diagnosis and still walking.</p>
             </div>
         </section>
 
         <!-- Story -->
-        <section class="py-12 sm:py-16">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 prose">
+        <section class="section-lg">
+            <div class="container-narrow prose">
 
                 <h2>Before ALS</h2>
                 <p>I was born and raised in California. I was a bodybuilder in high school and college, and I taught martial arts. I have always been active, always physical. That's who I am.</p>
@@ -166,7 +152,7 @@
                 <blockquote><p>"Newly diagnosed, remember this: you are not dead yet. Your journey is just beginning. Make it on your terms and make it happen."</p></blockquote>
 
                 <p>People with ALS know that others really do not understand what we're going through on the inside. We have two choices: give up and give in, or stand and fight. I have chosen to stand and fight.</p>
-                <p><a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read more about how I think about ALS</a>.</p>
+                <p><a href="blog/mindset-als.html">Read more about how I think about ALS</a>.</p>
 
                 <h2>Why I Share This</h2>
                 <p>For years, I've been sharing my supplement list informally. Over phone calls, in support groups, at doctor's visits. Other ALS patients ask me what I take, and I tell them. Many of them start taking the same supplements.</p>
@@ -175,56 +161,52 @@
                     <p>"We have two choices: give up and give in. Or stand and fight. I have chosen to stand and fight."</p>
                 </blockquote>
                 <p>And when people ask me, how does it feel to be dying, I simply stand as tall as possible and reply:</p>
-                <p style="font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 800; color: #0F2040; text-align: center; margin: 2rem 0;">I'M NOT DYING TODAY.</p>
+                <p class="signature-line">I'M NOT DYING TODAY.</p>
 
-                <div class="bg-white rounded-xl p-6 sm:p-8 mt-10 text-center" style="border: 1px solid #E8E4E0;">
-                    <p class="font-display text-xl font-bold text-navy-900 mb-4">Ready to see my full protocol?</p>
+                <div class="cta-box">
+                    <p class="cta-title">Ready to see my full protocol?</p>
                     <a href="protocol.html" class="btn-red">Get the Protocol</a>
                 </div>
             </div>
         </section>
 
         <!-- Disclaimer -->
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: #727272; line-height: 1.7;">
-                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
-                </p>
-            </div>
+        <section class="disclaimer-bar">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
+            </p>
         </section>
     </main>
 
-    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500"><span class="text-white font-display font-bold text-sm">J</span></div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
-                    </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span class="logo-icon">J</span>
+                    <span>Jon's ALS Protocol</span>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
-                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
-                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
-                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class="footer-desc">One patient's protocol, mindset, and daily routine shared openly.</p>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div>
+                <p class="footer-heading">Navigate</p>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Jon</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="protocol.html">Get the Protocol</a></li>
+                </ul>
             </div>
+            <div>
+                <p class="footer-heading">Legal</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+            <p class="footer-copy" style="margin-top: 4px;">As an Amazon Associate, I earn from qualifying purchases. This site contains affiliate links.</p>
         </div>
     </footer>
 </body>

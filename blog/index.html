@@ -17,232 +17,194 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: { extend: {
-                colors: {
-                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                    'cream': '#FAF8F5', 'surface': '#F5F3F0',
-                },
-                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
-                borderRadius: { 'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px' },
-            }}
-        }
-    </script>
-    <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
-        .skip-link { position: absolute; top: -60px; transition: top 0.2s; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; }
-        .skip-link:focus { top: 0; }
-        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
-        .btn-red { background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-        @media (max-width: 639px) { .btn-red { width: 100%; text-align: center; } }
-        .blog-card { background: white; border: 1px solid #E8E4E0; border-radius: 16px; padding: 32px; transition: border-color 0.2s, box-shadow 0.2s; display: block; text-decoration: none; color: inherit; }
-        .blog-card:hover { border-color: #C41E3A; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    </style>
-    <link rel="stylesheet" href="../styles-d.css">
+    <link rel="stylesheet" href="../option-d.css">
 </head>
-<body class="bg-cream">
+<body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
-                </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
+                <span class="logo-icon">J</span>
+                Jon's ALS Protocol
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <a href="../about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="index.html" class="hidden sm:inline-flex items-center font-semibold text-als-red-500 px-2" style="min-height: 48px;">Blog</a>
-                <a href="../protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="../about.html" class="nav-link">About Jon</a>
+                <a href="index.html" class="nav-link active">Blog</a>
+                <a href="../protocol.html" class="header-cta">Get the Protocol</a>
+                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
-            <div class="flex flex-col gap-3">
-                <a href="../about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #C41E3A; min-height: 48px;">Blog</a>
-                <a href="../protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="../about.html">About Jon</a>
+            <a href="index.html">Blog</a>
+            <a href="../protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
-        <section class="py-12 sm:py-16">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-4">Blog</h1>
-                <p class="text-lg mb-12" style="color: #4A4A4A;">Free articles about the supplements I take, what I've learned about ALS, and practical guides for patients and caregivers.</p>
+        <section class="section-md">
+            <div class="container-narrow">
+                <h1 class="article-title" style="margin-bottom: 0.5rem;">Blog</h1>
+                <p style="font-size: 1.125rem; margin-bottom: 3rem;">Free articles about the supplements I take, what I've learned about ALS, and practical guides for patients and caregivers.</p>
 
-                <div class="space-y-6">
-                    <a href="mindset-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #1E3A5F; color: white;">Mindset</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">How I Think About ALS: The Mental Approach That Keeps Me Walking</h2>
-                        <p style="color: #4A4A4A;">"This disease will not kill me." The 5 rules I live by and the daily mental framework I credit as much as any supplement.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                <div class="blog-list">
+                    <a href="mindset-als.html" class="blog-card">
+                        <span class="article-tag">Mindset</span>
+                        <h2 class="blog-card-title">How I Think About ALS: The Mental Approach That Keeps Me Walking</h2>
+                        <p>"This disease will not kill me." The 5 rules I live by and the daily mental framework I credit as much as any supplement.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="l-serine-for-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">L-Serine for ALS: What the Research Says and Why I Take It</h2>
-                        <p style="color: #4A4A4A;">A Phase 1 clinical trial showed ALS patients taking L-Serine had roughly 85% slower functional decline. Here's what I've learned about this amino acid over 6+ years.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="l-serine-for-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">L-Serine for ALS: What the Research Says and Why I Take It</h2>
+                        <p>A Phase 1 clinical trial showed ALS patients taking L-Serine had roughly 85% slower functional decline. Here's what I've learned about this amino acid over 6+ years.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="basis-nad-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">Basis and NAD+ for ALS: Why I Take 8 Tablets a Day</h2>
-                        <p style="color: #4A4A4A;">NAD+ is the molecule your cells need to produce energy, and it declines with neurodegeneration. Basis is one of my Top 3 supplements, guided by Dr. Bedlack.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="basis-nad-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">Basis and NAD+ for ALS: Why I Take 8 Tablets a Day</h2>
+                        <p>NAD+ is the molecule your cells need to produce energy, and it declines with neurodegeneration. Basis is one of my Top 3 supplements, guided by Dr. Bedlack.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="hmb-muscle-preservation.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">HMB for Muscle Preservation: A Bodybuilding Supplement for ALS?</h2>
-                        <p style="color: #4A4A4A;">HMB is used by bodybuilders to reduce muscle breakdown. I take it every day for ALS muscle preservation. Here's the rationale and what I use.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="hmb-muscle-preservation.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">HMB for Muscle Preservation: A Bodybuilding Supplement for ALS?</h2>
+                        <p>HMB is used by bodybuilders to reduce muscle breakdown. I take it every day for ALS muscle preservation. Here's the rationale and what I use.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="daily-routine.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Daily Life</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">My Daily Routine with ALS: Supplements, Exercise, and Structure</h2>
-                        <p style="color: #4A4A4A;">How I structure my day, from my morning supplement routine to exercise and evening wind-down.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="daily-routine.html" class="blog-card">
+                        <span class="article-tag">Daily Life</span>
+                        <h2 class="blog-card-title">My Daily Routine with ALS: Supplements, Exercise, and Structure</h2>
+                        <p>How I structure my day, from my morning supplement routine to exercise and evening wind-down.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="creatine-for-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">Creatine for ALS: Can a Gym Supplement Help?</h2>
-                        <p style="color: #4A4A4A;">Creatine is one of the most studied supplements in sports science. Here's why I take it for ALS and what the research actually shows.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="creatine-for-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">Creatine for ALS: Can a Gym Supplement Help?</h2>
+                        <p>Creatine is one of the most studied supplements in sports science. Here's why I take it for ALS and what the research actually shows.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="vitamin-d3-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">Vitamin D3 for ALS: Why It's One of My Foundation Supplements</h2>
-                        <p style="color: #4A4A4A;">Most ALS patients are deficient. I take 5000 IU daily and get my levels tested every 6 months. Here's the research and why I consider it foundational.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="vitamin-d3-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">Vitamin D3 for ALS: Why It's One of My Foundation Supplements</h2>
+                        <p>Most ALS patients are deficient. I take 5000 IU daily and get my levels tested every 6 months. Here's the research and why I consider it foundational.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="omega-3-fish-oil-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">Omega-3 Fish Oil for ALS: Fighting Neuroinflammation</h2>
-                        <p style="color: #4A4A4A;">Neuroinflammation drives ALS progression. I take high-dose EPA and DHA daily as my anti-inflammatory strategy. Here's why.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="omega-3-fish-oil-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">Omega-3 Fish Oil for ALS: Fighting Neuroinflammation</h2>
+                        <p>Neuroinflammation drives ALS progression. I take high-dose EPA and DHA daily as my anti-inflammatory strategy. Here's why.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="lions-mane-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">Lion's Mane for ALS: Can a Mushroom Help Nerve Growth?</h2>
-                        <p style="color: #4A4A4A;">Lion's Mane contains compounds that stimulate nerve growth factor. I take 4,000 mg daily split between capsules and my protein shake. Here's why.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="lions-mane-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">Lion's Mane for ALS: Can a Mushroom Help Nerve Growth?</h2>
+                        <p>Lion's Mane contains compounds that stimulate nerve growth factor. I take 4,000 mg daily split between capsules and my protein shake. Here's why.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="coq10-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">CoQ10 for ALS: Mitochondrial Support That Makes Sense to Me</h2>
-                        <p style="color: #4A4A4A;">Mitochondrial dysfunction is one of the mechanisms driving ALS. I take ubiquinol daily to support cellular energy production.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="coq10-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">CoQ10 for ALS: Mitochondrial Support That Makes Sense to Me</h2>
+                        <p>Mitochondrial dysfunction is one of the mechanisms driving ALS. I take ubiquinol daily to support cellular energy production.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="glutathione-als.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-3">Supplements</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2">NAC and Glutathione for ALS: My Antioxidant Strategy</h2>
-                        <p style="color: #4A4A4A;">Oxidative stress kills motor neurons. NAC is how I support my body's master antioxidant. 600mg twice daily, and here's the research behind it.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="glutathione-als.html" class="blog-card">
+                        <span class="article-tag">Supplements</span>
+                        <h2 class="blog-card-title">NAC and Glutathione for ALS: My Antioxidant Strategy</h2>
+                        <p>Oxidative stress kills motor neurons. NAC is how I support my body's master antioxidant. 600mg twice daily, and here's the research behind it.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="how-i-research.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Research</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">How I Built This Protocol: Thousands of Hours of Research</h2>
-                        <p style="color: #4A4A4A;">I read PubMed, not blogs. I evaluate supplements against a 5-point framework. Here's exactly how I decide what makes the cut.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="how-i-research.html" class="blog-card">
+                        <span class="article-tag">Research</span>
+                        <h2 class="blog-card-title">How I Built This Protocol: Thousands of Hours of Research</h2>
+                        <p>I read PubMed, not blogs. I evaluate supplements against a 5-point framework. Here's exactly how I decide what makes the cut.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="what-to-ask-your-neurologist.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #EFF4FA; color: #1E3A5F;">Practical Guides</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">What to Ask Your Neurologist About Supplements</h2>
-                        <p style="color: #4A4A4A;">Having the supplement conversation with your doctor can be intimidating. Here are the questions I wish I'd asked sooner.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="what-to-ask-your-neurologist.html" class="blog-card">
+                        <span class="article-tag">Practical Guides</span>
+                        <h2 class="blog-card-title">What to Ask Your Neurologist About Supplements</h2>
+                        <p>Having the supplement conversation with your doctor can be intimidating. Here are the questions I wish I'd asked sooner.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
 
-                    <a href="caregiver-guide.html" class="blog-card block">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full" style="background: #FFF8E7; color: #92610E;">Caregivers</span>
-                        <h2 class="font-display text-2xl font-bold text-navy-900 mb-2 mt-3">For Caregivers: How to Use This Protocol for Someone You Love</h2>
-                        <p style="color: #4A4A4A;">If you're the one researching, ordering supplements, and organizing pill boxes, this post is for you. I see you.</p>
-                        <span class="text-als-red-500 font-semibold text-sm mt-3 inline-block">Read more →</span>
+                    <a href="caregiver-guide.html" class="blog-card">
+                        <span class="article-tag">Caregivers</span>
+                        <h2 class="blog-card-title">For Caregivers: How to Use This Protocol for Someone You Love</h2>
+                        <p>If you're the one researching, ordering supplements, and organizing pill boxes, this post is for you. I see you.</p>
+                        <span class="blog-card-link">Read more &rarr;</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Email CTA -->
-        <section class="py-16 bg-navy-500">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-4">Get Jon's Top 5 Supplements</h2>
-                <p class="text-lg mb-6" style="color: rgba(255,255,255,0.7);">Free PDF guide. No spam, ever.</p>
-                <form id="blogLeadForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="https://formsubmit.co/austin@blinkbuild.ai" method="POST" onsubmit="setTimeout(function(){document.getElementById('blogLeadForm').style.display='none';document.getElementById('blogLeadSuccess').classList.remove('hidden');},100);">
-                    <input type="email" name="email" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-lg text-lg border-0" aria-label="Email address" style="min-height: 48px;">
+        <section class="email-cta">
+            <div class="container-narrow" style="text-align: center;">
+                <h2 class="article-title" style="color: #fff; margin-bottom: 0.5rem;">Get Jon's Top 5 Supplements</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.125rem; margin-bottom: 1.5rem;">Free PDF guide. No spam, ever.</p>
+                <form id="blogLeadForm" class="email-form" action="https://formsubmit.co/austin@blinkbuild.ai" method="POST" onsubmit="setTimeout(function(){document.getElementById('blogLeadForm').style.display='none';document.getElementById('blogLeadSuccess').classList.remove('hidden');},100);">
+                    <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
                     <input type="hidden" name="_subject" value="New lead: Jon's ALS Protocol (Blog)">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://jons-als-protocol.vercel.app/blog/">
                     <input type="text" name="_honey" style="display:none">
-                    <button type="submit" class="btn-red !rounded-lg whitespace-nowrap">Send the Guide</button>
+                    <button type="submit" class="btn-red">Send the Guide</button>
                 </form>
-                <p id="blogLeadSuccess" class="hidden text-sm mt-4 font-bold text-white">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
+                <p id="blogLeadSuccess" class="hidden" style="color: #fff; font-weight: 700; margin-top: 1rem;">Thanks! We'll send Jon's Top 5 to your inbox soon.</p>
             </div>
         </section>
 
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: #727272;">
-                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. Consult your physician before starting any supplement regimen.
-                </p>
-            </div>
+        <section class="disclaimer-bar">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. Consult your physician before starting any supplement regimen.
+            </p>
         </section>
     </main>
 
-    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500"><span class="text-white font-display font-bold text-sm">J</span></div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
-                    </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span class="logo-icon">J</span>
+                    <span>Jon's ALS Protocol</span>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="../about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
-                        <li><a href="index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
-                        <li><a href="../protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="../privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
-                        <li><a href="../terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
-                        <li><a href="../disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class="footer-desc">One patient's protocol, mindset, and daily routine shared openly.</p>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="../disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div>
+                <p class="footer-heading">Navigate</p>
+                <ul class="footer-links">
+                    <li><a href="../about.html">About Jon</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../protocol.html">Get the Protocol</a></li>
+                </ul>
             </div>
+            <div>
+                <p class="footer-heading">Legal</p>
+                <ul class="footer-links">
+                    <li><a href="../privacy.html">Privacy Policy</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                    <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+            <p class="footer-copy" style="margin-top: 4px;">As an Amazon Associate, I earn from qualifying purchases. <a href="../disclaimer.html">Full affiliate disclosure</a>.</p>
         </div>
     </footer>
 </body>

@@ -24,189 +24,155 @@
     {"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://jons-als-protocol.vercel.app/contact.html","name":"Contact Jon","description":"Get in touch with Jon Edy. Whether you are an ALS patient, caregiver, or just want to say hello, Jon would love to hear from you.","url":"https://jons-als-protocol.vercel.app/contact.html","isPartOf":{"@id":"https://jons-als-protocol.vercel.app/#website"},"about":{"@id":"https://jons-als-protocol.vercel.app/#jon-edy"},"datePublished":"2026-03-29","dateModified":"2026-03-29"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jons-als-protocol.vercel.app/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://jons-als-protocol.vercel.app/contact.html"}]}]}
     </script>
 
-    <!-- Fonts: Fraunces (display) + Source Sans 3 (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                        'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                        'cream': '#FAF8F5',
-                        'surface': '#F5F3F0',
-                        'warm-border': '#E8E4E0',
-                    },
-                    fontFamily: {
-                        'display': ['Fraunces', 'Georgia', 'serif'],
-                        'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px',
-                    },
-                }
-            }
-        }
-    </script>
-
+    <link rel="stylesheet" href="option-d.css">
     <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
-
-        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
-
-        .progress-bar { position: fixed; top: 56px; left: 0; height: 3px; background: #C41E3A; z-index: 50; width: 0%; transition: width 0.1s linear; }
-
-        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; background: #1E3A5F; color: white; border: none; border-radius: 50%; cursor: pointer; z-index: 30; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 32px;
+        }
+        @media (min-width: 640px) { .contact-card { padding: 32px; } }
+        .contact-card h2 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 12px;
+        }
+        .crisis-card {
+            background: #FEF2F2;
+            border: 1px solid rgba(196,30,58,0.15);
+            border-radius: 12px;
+            padding: 24px 32px;
+        }
+        @media (min-width: 640px) { .crisis-card { padding: 32px; } }
+        .helpful-link {
+            color: var(--red);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            transition: color 0.2s;
+        }
+        .helpful-link:hover { color: var(--red-hover); }
+        .progress-bar {
+            position: fixed; top: var(--header-height); left: 0;
+            height: 3px; background: var(--red); z-index: 50;
+            width: 0%; transition: width 0.1s linear;
+        }
+        .back-to-top {
+            position: fixed; bottom: 24px; right: 24px;
+            width: 48px; height: 48px;
+            background: var(--navy); color: white;
+            border: none; border-radius: 50%; cursor: pointer;
+            z-index: 30; opacity: 0; transform: translateY(12px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
         .back-to-top.visible { opacity: 1; transform: translateY(0); }
-        .back-to-top:hover { background: #162C49; }
-
-        .font-control { width: 48px; height: 48px; border: 1px solid #E8E4E0; background: white; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A5F; transition: background 0.15s; }
-        .font-control:hover { background: #F5F3F0; }
-        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
-
-        .fade-in { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .back-to-top:hover { background: var(--navy-dark); }
         @media (prefers-reduced-motion: reduce) {
-            .fade-in { animation: none; }
             .back-to-top { transition: opacity 0.15s; }
             .progress-bar { transition: none; }
         }
-
-        .btn-red {
-            background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px;
-            font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.125rem;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px;
-        }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-
-        @media (max-width: 639px) {
-            .btn-red { width: 100%; text-align: center; }
-        }
     </style>
-    <link rel="stylesheet" href="styles-d.css">
 </head>
-<body class="bg-cream">
+<body>
 
     <div class="progress-bar" id="progressBar"></div>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- HEADER -->
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
-                </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
+                <span class="logo-icon">J</span>
+                Jon's ALS Protocol
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <!-- Font size controls -->
-                <div class="hidden sm:flex items-center gap-1" aria-label="Text size controls">
-                    <button onclick="adjustFont(-1)" class="font-control text-xs" aria-label="Decrease text size">A-</button>
-                    <button onclick="adjustFont(1)" class="font-control text-sm" aria-label="Increase text size">A+</button>
-                </div>
-                <a href="about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px; line-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px; line-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <!-- Mobile menu button -->
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="about.html" class="nav-link">About Jon</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
+                <a href="protocol.html" class="header-cta">Get the Protocol</a>
+                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <!-- Mobile menu dropdown -->
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
-            <div class="flex flex-col gap-3">
-                <a href="about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="about.html">About Jon</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
 
-        <!-- BREADCRUMB -->
-        <nav class="max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-2" aria-label="Breadcrumb">
-            <ol class="flex items-center gap-2 text-sm" style="color: #727272;">
-                <li><a href="index.html" class="hover:text-als-red-500 transition-colors">Home</a></li>
-                <li aria-hidden="true">&rsaquo;</li>
-                <li class="font-semibold" style="color: #1A1A1A;" aria-current="page">Contact</li>
-            </ol>
-        </nav>
+        <!-- Breadcrumb -->
+        <div class="container-narrow">
+            <nav class="breadcrumb" style="padding-top: 24px;" aria-label="Breadcrumb">
+                <a href="index.html">Home</a> &rsaquo; Contact
+            </nav>
+        </div>
 
-        <!-- CONTACT CONTENT -->
-        <section class="py-10 sm:py-16 fade-in">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <!-- Contact Content -->
+        <section class="section-md">
+            <div class="container-narrow">
 
-                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-8" style="line-height: 1.15;">Get in Touch</h1>
+                <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: var(--navy-dark); margin-bottom: 32px; line-height: 1.15;">Get in Touch</h1>
 
-                <div class="space-y-8">
+                <div style="display: flex; flex-direction: column; gap: 32px;">
 
                     <!-- Intro -->
-                    <p class="text-lg" style="color: #4A4A4A; line-height: 1.7;">
+                    <p style="font-size: 1.125rem; color: var(--text-mid); line-height: 1.7;">
                         I love hearing from other ALS patients and caregivers. If my protocol or this site has helped you, or if you just want to say hello, I would genuinely like to hear from you.
                     </p>
 
                     <!-- Email -->
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h2 class="font-display text-xl font-bold text-navy-900 mb-3">Email me</h2>
-                        <p class="text-lg mb-3" style="color: #4A4A4A;">
-                            <a href="mailto:jon@jonsalsprotocol.com" class="text-als-red-500 font-semibold hover:text-als-red-700 transition-colors">jon@jonsalsprotocol.com</a>
+                    <div class="contact-card">
+                        <h2>Email me</h2>
+                        <p style="font-size: 1.125rem; color: var(--text-mid); margin-bottom: 12px;">
+                            <a href="mailto:jon@jonsalsprotocol.com" style="color: var(--red); font-weight: 600;">jon@jonsalsprotocol.com</a>
                         </p>
-                        <p class="text-sm" style="color: #727272;">
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">
                             This is a placeholder email until our custom domain is fully registered. It will be updated once the domain is live.
                         </p>
                     </div>
 
                     <!-- Response times -->
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h2 class="font-display text-xl font-bold text-navy-900 mb-3">A note about response times</h2>
-                        <p style="color: #4A4A4A; line-height: 1.7;">
+                    <div class="contact-card">
+                        <h2>A note about response times</h2>
+                        <p style="color: var(--text-mid); line-height: 1.7;">
                             I have ALS. Some days are better than others. I read every email, but it may take me a few days to respond. My son Austin helps me manage this site and will make sure your message gets to me.
                         </p>
                     </div>
 
                     <!-- Crisis notice -->
-                    <div class="rounded-xl p-6 sm:p-8" style="background: #FEF2F2; border: 1px solid rgba(196,30,58,0.15);">
-                        <p class="font-semibold text-navy-900 mb-2">If you need immediate help</p>
-                        <p style="color: #4A4A4A; line-height: 1.7;">
+                    <div class="crisis-card">
+                        <p style="font-weight: 600; color: var(--navy-dark); margin-bottom: 8px;">If you need immediate help</p>
+                        <p style="color: var(--text-mid); line-height: 1.7;">
                             If you are in crisis or need immediate medical help, please contact your doctor or call <strong>911</strong>.
                         </p>
                     </div>
 
                     <!-- Helpful links -->
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h2 class="font-display text-xl font-bold text-navy-900 mb-4">You might also find these helpful</h2>
-                        <ul class="space-y-3">
+                    <div class="contact-card">
+                        <h2 style="margin-bottom: 16px;">You might also find these helpful</h2>
+                        <ul style="display: flex; flex-direction: column; gap: 12px;">
                             <li>
-                                <a href="blog/caregiver-guide.html" class="text-als-red-500 font-semibold hover:text-als-red-700 transition-colors inline-flex items-center" style="min-height: 44px;">
-                                    Caregiver Guide &rarr;
-                                </a>
-                                <p class="text-sm" style="color: #727272;">Practical advice for the people caring for someone with ALS.</p>
+                                <a href="blog/caregiver-guide.html" class="helpful-link">Caregiver Guide &rarr;</a>
+                                <p style="font-size: 0.875rem; color: var(--text-muted);">Practical advice for the people caring for someone with ALS.</p>
                             </li>
                             <li>
-                                <a href="blog/index.html" class="text-als-red-500 font-semibold hover:text-als-red-700 transition-colors inline-flex items-center" style="min-height: 44px;">
-                                    The Blog &rarr;
-                                </a>
-                                <p class="text-sm" style="color: #727272;">Free articles on supplements, mindset, and living with ALS.</p>
+                                <a href="blog/index.html" class="helpful-link">The Blog &rarr;</a>
+                                <p style="font-size: 0.875rem; color: var(--text-muted);">Free articles on supplements, mindset, and living with ALS.</p>
                             </li>
                             <li>
-                                <a href="protocol.html" class="text-als-red-500 font-semibold hover:text-als-red-700 transition-colors inline-flex items-center" style="min-height: 44px;">
-                                    My Full Protocol &rarr;
-                                </a>
-                                <p class="text-sm" style="color: #727272;">Every supplement I take, with exact brands, doses, and timing.</p>
+                                <a href="protocol.html" class="helpful-link">My Full Protocol &rarr;</a>
+                                <p style="font-size: 0.875rem; color: var(--text-muted);">Every supplement I take, with exact brands, doses, and timing.</p>
                             </li>
                         </ul>
                     </div>
@@ -215,78 +181,61 @@
             </div>
         </section>
 
-        <!-- MEDICAL DISCLAIMER -->
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: #727272; line-height: 1.7;">
-                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
-                </p>
-            </div>
+        <!-- Medical Disclaimer -->
+        <section class="disclaimer-bar">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
+            </p>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500">
-                            <span class="text-white font-display font-bold text-sm">J</span>
-                        </div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
-                    </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span class="logo-icon">J</span>
+                    <span>Jon's ALS Protocol</span>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
-                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
-                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
-                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class="footer-desc">One patient's protocol, mindset, and daily routine shared openly.</p>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div>
+                <p class="footer-heading">Navigate</p>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Jon</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="protocol.html">Get the Protocol</a></li>
+                </ul>
             </div>
+            <div>
+                <p class="footer-heading">Legal</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+            <p class="footer-copy" style="margin-top: 4px;">As an Amazon Associate, I earn from qualifying purchases. This site contains affiliate links.</p>
         </div>
     </footer>
 
     <!-- Back to top button -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
     </button>
 
     <script>
-        // Scroll progress bar + back-to-top visibility
         window.addEventListener('scroll', function() {
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             var progress = (scrollTop / scrollHeight) * 100;
             document.getElementById('progressBar').style.width = progress + '%';
-
             var btn = document.getElementById('backToTop');
             if (scrollTop > 400) { btn.classList.add('visible'); }
             else { btn.classList.remove('visible'); }
         });
-
-        // Font size controls
-        var fontSizes = [18, 22, 26];
-        var currentSize = 0;
-        function adjustFont(dir) {
-            currentSize = Math.max(0, Math.min(fontSizes.length - 1, currentSize + dir));
-            document.body.style.fontSize = fontSizes[currentSize] + 'px';
-        }
     </script>
 </body>
 </html>

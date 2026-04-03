@@ -33,110 +33,63 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: { extend: {
-                colors: {
-                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                    'cream': '#FAF8F5', 'surface': '#F5F3F0',
-                },
-                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
-            }}
-        }
-    </script>
-    <style>
-        :root {
-            --brand: #1E3A5F;
-            --brand-dark: #162C49;
-            --accent: #C41E3A;
-            --bg: #FAF8F5;
-            --surface: #ffffff;
-            --text: #4A4A4A;
-            --text-strong: #1A1A1A;
-            --text-muted: #727272;
-            --border: #E8E4E0;
-            --border-light: #F5F3F0;
-        }
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; }
-        .skip-link { position: absolute; top: -60px; transition: top 0.2s; left: 0; background: var(--accent); color: white; padding: 8px 16px; z-index: 100; }
-        .skip-link:focus { top: 0; }
-        *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-        .btn-red { background: var(--accent); color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
-        .btn-red:hover { background: #A91B32; }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-        @media (max-width: 639px) { .btn-red { width: 100%; text-align: center; } }
-        .prose p { margin-bottom: 1.25rem; color: var(--text); }
-        .prose h2 { font-size: 1.75rem; font-weight: 700; color: #0F2040; margin-top: 2.5rem; margin-bottom: 1rem; }
-        .prose a { color: var(--accent); font-weight: 600; }
-        .prose a:hover { color: #8E172A; }
-        .prose ul { margin-bottom: 1.25rem; padding-left: 1.5rem; color: var(--text); }
-        .prose ul li { margin-bottom: 0.5rem; }
-        .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; color: var(--text); }
-        .prose ol li { margin-bottom: 0.5rem; }
-    </style>
-    <link rel="stylesheet" href="../styles-d.css">
+    <link rel="stylesheet" href="../option-d.css">
 </head>
-<body class="bg-cream">
+<body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: var(--border);">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: var(--text-muted);">Still Walking</span>
-                </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
+                <span class="logo-icon">J</span>
+                Jon's ALS Protocol
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <a href="../about.html" class="hidden sm:inline-flex items-center font-semibold hover:text-als-red-500 px-2" style="color: var(--text); min-height: 48px;">About Jon</a>
-                <a href="index.html" class="hidden sm:inline-flex items-center font-semibold hover:text-als-red-500 px-2" style="color: var(--text); min-height: 48px;">Blog</a>
-                <a href="../protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: var(--text-strong);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="../about.html" class="nav-link">About Jon</a>
+                <a href="index.html" class="nav-link active">Blog</a>
+                <a href="../protocol.html" class="header-cta">Get the Protocol</a>
+                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: var(--border);">
-            <div class="flex flex-col gap-3">
-                <a href="../about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--text); min-height: 48px;">About Jon</a>
-                <a href="index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--text); min-height: 48px;">Blog</a>
-                <a href="../protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="../about.html">About Jon</a>
+            <a href="index.html">Blog</a>
+            <a href="../protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
-        <nav class="max-w-2xl mx-auto px-4 sm:px-6 py-4">
-            <span class="text-sm" style="color: var(--text-muted);"><a href="../index.html" class="hover:text-als-red-500" style="color: var(--text-muted);">Home</a> &rsaquo; <a href="index.html" class="hover:text-als-red-500" style="color: var(--text-muted);">Blog</a> &rsaquo; Lion's Mane for ALS</span>
-        </nav>
+        <div class="container-narrow">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a> &rsaquo; <a href="index.html">Blog</a> &rsaquo; Lion's Mane for ALS
+            </nav>
+        </div>
 
-        <article class="py-8 sm:py-12">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6">
-                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-4">Supplements</span>
-                <h1 class="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-4" style="line-height: 1.2;">Lion's Mane for ALS: Can a Mushroom Help Nerve Growth?</h1>
-                <div class="flex items-center gap-3 mb-8">
-                    <img src="../images/jon-edy.jpg" alt="Jon Edy" width="44" height="44" class="rounded-full object-cover" loading="lazy">
-                    <div>
-                        <p class="text-sm font-semibold" style="color: var(--text-strong);">Jon Edy, ALS Patient & Protocol Author</p>
-                        <p class="text-sm" style="color: var(--text-muted);">April 1, 2026 &bull; 6 min read</p>
+        <article class="section-md">
+            <div class="container-narrow">
+                <div class="article-header">
+                    <span class="article-tag">Supplements</span>
+                    <h1 class="article-title">Lion's Mane for ALS: Can a Mushroom Help Nerve Growth?</h1>
+                    <div class="article-meta">
+                        <img src="../images/jon-edy.jpg" alt="Jon Edy" width="44" height="44" loading="lazy">
+                        <div>
+                            <p class="meta-name">Jon Edy, ALS Patient & Protocol Author</p>
+                            <p class="meta-date">April 1, 2026 &bull; 6 min read</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Table of Contents -->
-                <nav class="rounded-xl p-5 mb-8" style="background: var(--border-light); border: 1px solid var(--border);" aria-label="Table of contents">
-                    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--text-muted);">In this article</p>
-                    <ol class="list-decimal pl-5 space-y-2 text-sm" style="color: var(--text-muted);">
-                        <li><a href="#why-lions-mane" class="hover:text-als-red-500" style="color: var(--text-muted);">Why Lion's Mane Caught My Attention</a></li>
-                        <li><a href="#what-the-research-says" class="hover:text-als-red-500" style="color: var(--text-muted);">What the Research Says</a></li>
-                        <li><a href="#how-i-take-it" class="hover:text-als-red-500" style="color: var(--text-muted);">How I Take It</a></li>
-                        <li><a href="#where-to-buy" class="hover:text-als-red-500" style="color: var(--text-muted);">Where to Buy Lion's Mane</a></li>
-                        <li><a href="#important-notes" class="hover:text-als-red-500" style="color: var(--text-muted);">Important Notes</a></li>
+                <nav class="toc" aria-label="Table of contents">
+                    <p class="toc-label">In this article</p>
+                    <ol>
+                        <li><a href="#why-lions-mane">Why Lion's Mane Caught My Attention</a></li>
+                        <li><a href="#what-the-research-says">What the Research Says</a></li>
+                        <li><a href="#how-i-take-it">How I Take It</a></li>
+                        <li><a href="#where-to-buy">Where to Buy Lion's Mane</a></li>
+                        <li><a href="#important-notes">Important Notes</a></li>
                     </ol>
                 </nav>
 
@@ -183,16 +136,16 @@
 
                     <h2 id="where-to-buy">Where to Buy Lion's Mane</h2>
 
-                    <div class="bg-white rounded-xl p-6 my-6" style="border: 1px solid var(--border);">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2" style="margin-top: 0;">OM Mushrooms Lion's Mane Capsules</h3>
-                        <p class="text-sm mb-3" style="color: var(--text);">Organic, whole fruiting body mushroom. I take these in the evening 3-4x per week.</p>
-                        <a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="text-als-red-500 font-semibold hover:text-als-red-700">View at OM Mushrooms &rarr;</a>
+                    <div class="product-card">
+                        <h3>OM Mushrooms Lion's Mane Capsules</h3>
+                        <p>Organic, whole fruiting body mushroom. I take these in the evening 3-4x per week.</p>
+                        <a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener">View at OM Mushrooms &rarr;</a>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 my-6" style="border: 1px solid var(--border);">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2" style="margin-top: 0;">OM Mushrooms Lion's Mane Powder</h3>
-                        <p class="text-sm mb-3" style="color: var(--text);">Same brand, powder form. 1 scoop (2,000 mg) goes in my daily protein shake. Dissolves clean, no strong taste.</p>
-                        <a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener" class="text-als-red-500 font-semibold hover:text-als-red-700">View at OM Mushrooms &rarr;</a>
+                    <div class="product-card">
+                        <h3>OM Mushrooms Lion's Mane Powder</h3>
+                        <p>Same brand, powder form. 1 scoop (2,000 mg) goes in my daily protein shake. Dissolves clean, no strong taste.</p>
+                        <a href="https://ommushrooms.com/products/lions-mane" target="_blank" rel="noopener">View at OM Mushrooms &rarr;</a>
                     </div>
 
                     <h2 id="important-notes">Important Notes</h2>
@@ -210,49 +163,60 @@
                 </div>
 
                 <!-- CTA -->
-                <div class="bg-white rounded-xl p-6 sm:p-8 mt-12 text-center" style="border: 1px solid var(--border);">
-                    <p class="font-display text-xl font-bold text-navy-900 mb-2">Want Jon's complete supplement stack?</p>
-                    <p class="mb-4" style="color: var(--text);">Lion's Mane is one of 23 supplements in the full protocol. Get exact brands, doses, and daily timing.</p>
+                <div class="cta-box">
+                    <p class="cta-title">Want Jon's complete supplement stack?</p>
+                    <p>Lion's Mane is one of 23 supplements in the full protocol. Get exact brands, doses, and daily timing.</p>
                     <a href="../protocol.html" class="btn-red">Get the Protocol - $39</a>
                 </div>
 
                 <!-- Related posts -->
-                <div class="mt-12 pt-8" style="border-top: 1px solid var(--border);">
-                    <h3 class="font-display text-xl font-bold text-navy-900 mb-4">More from the blog</h3>
-                    <ul class="space-y-3">
-                        <li><a href="basis-nad-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Basis and NAD+ for ALS: Why I Take 8 Tablets a Day &rarr;</a></li>
-                        <li><a href="l-serine-for-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">L-Serine for ALS: What the Research Says and Why Jon Takes It &rarr;</a></li>
-                        <li><a href="hmb-muscle-preservation.html" class="text-als-red-500 font-semibold hover:text-als-red-700">HMB for Muscle Preservation: A Bodybuilding Supplement for ALS? &rarr;</a></li>
+                <div class="related-posts">
+                    <h3>More from the blog</h3>
+                    <ul>
+                        <li><a href="basis-nad-als.html">Basis and NAD+ for ALS: Why I Take 8 Tablets a Day &rarr;</a></li>
+                        <li><a href="l-serine-for-als.html">L-Serine for ALS: What the Research Says and Why Jon Takes It &rarr;</a></li>
+                        <li><a href="hmb-muscle-preservation.html">HMB for Muscle Preservation: A Bodybuilding Supplement for ALS? &rarr;</a></li>
                     </ul>
                 </div>
             </div>
         </article>
 
-        <section class="py-8" style="background: var(--border-light); border-top: 1px solid var(--border);">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: var(--text-muted);">
-                    <strong style="color: var(--text);">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. Consult your physician before starting any supplement regimen.
-                </p>
-            </div>
+        <section class="disclaimer-bar">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. Consult your physician before starting any supplement regimen.
+            </p>
         </section>
     </main>
 
-    <footer class="bg-white py-10" style="border-top: 1px solid var(--border);">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                    <p class="text-xs" style="color: var(--text-muted);">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                    <div class="flex gap-4 mt-2">
-                        <a href="../about.html" class="text-xs hover:text-als-red-500" style="color: var(--text-muted); min-height: 44px; display: inline-flex; align-items: center;">About</a>
-                        <a href="index.html" class="text-xs hover:text-als-red-500" style="color: var(--text-muted); min-height: 44px; display: inline-flex; align-items: center;">Blog</a>
-                        <a href="../protocol.html" class="text-xs hover:text-als-red-500" style="color: var(--text-muted); min-height: 44px; display: inline-flex; align-items: center;">Protocol</a>
-                        <a href="../privacy.html" class="text-xs hover:text-als-red-500" style="color: var(--text-muted); min-height: 44px; display: inline-flex; align-items: center;">Privacy</a>
-                        <a href="../terms.html" class="text-xs hover:text-als-red-500" style="color: var(--text-muted); min-height: 44px; display: inline-flex; align-items: center;">Terms</a>
-                    </div>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span class="logo-icon">J</span>
+                    <span>Jon's ALS Protocol</span>
                 </div>
-                <a href="../index.html" class="text-xs" style="color: var(--brand);">Back to Jon's ALS Protocol</a>
+                <p class="footer-desc">One patient's protocol, mindset, and daily routine shared openly.</p>
             </div>
-            <p class="text-xs mt-4" style="color: var(--text-muted);">As an Amazon Associate, I earn from qualifying purchases. This site contains affiliate links.</p>
+            <div>
+                <p class="footer-heading">Navigate</p>
+                <ul class="footer-links">
+                    <li><a href="../about.html">About Jon</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../protocol.html">Get the Protocol</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-heading">Legal</p>
+                <ul class="footer-links">
+                    <li><a href="../privacy.html">Privacy Policy</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                    <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+            <p class="footer-copy" style="margin-top: 4px;">As an Amazon Associate, I earn from qualifying purchases. This site contains affiliate links.</p>
         </div>
     </footer>
 </body>

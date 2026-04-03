@@ -25,284 +25,406 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: { extend: {
-                colors: {
-                    'navy': { 500: '#1E3A5F', 600: '#1A3354', 700: '#162C49', 800: '#12253E', 900: '#0F2040' },
-                    'als-red': { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#C41E3A', 600: '#A91B32', 700: '#8E172A' },
-                    'cream': '#FAF8F5', 'surface': '#F5F3F0', 'warm-border': '#E8E4E0',
-                },
-                fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
-                borderRadius: { 'sm': '6px', 'md': '10px', 'lg': '16px', 'xl': '24px' },
-            }}
-        }
-    </script>
+    <link rel="stylesheet" href="option-d.css">
     <style>
-        body { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 18px; line-height: 1.8; color: #1A1A1A; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; }
-        .skip-link { position: absolute; top: -60px; left: 0; background: #C41E3A; color: white; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
-        *:focus-visible { outline: 2px solid #C41E3A; outline-offset: 2px; border-radius: 4px; }
-        .btn-red { background: #C41E3A; color: white; padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1.125rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 48px; }
-        .btn-red:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,30,58,0.25); }
-        .btn-red:active { transform: translateY(0); box-shadow: none; }
-        .btn-red-lg { background: #C41E3A; color: white; padding: 18px 48px; border-radius: 10px; font-weight: 700; font-size: 1.25rem; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: inline-block; text-decoration: none; min-height: 56px; }
-        .btn-red-lg:hover { background: #A91B32; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(196,30,58,0.3); }
-        .btn-red-lg:active { transform: translateY(0); box-shadow: none; }
-        @media (max-width: 639px) { .btn-red, .btn-red-lg { width: 100%; text-align: center; } }
+        /* Protocol page-specific styles */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        @media (min-width: 640px) {
+            .pricing-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        @media (min-width: 640px) { .pricing-card { padding: 32px; } }
+        .pricing-card--primary { border: 2px solid var(--red); }
+        .pricing-card--secondary { border: 1px solid var(--border); }
+        .pricing-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+        .pricing-badge--red { background: #FEF2F2; color: var(--red); }
+        .pricing-badge--navy { background: #EFF4FA; color: var(--navy); }
+        .price-display {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+        }
+        .price-suffix { font-size: 0.875rem; color: var(--text-muted); margin-left: 4px; }
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        @media (min-width: 640px) { .feature-card { padding: 32px; } }
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 12px;
+        }
+        .category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-mid);
+            margin-bottom: 8px;
+        }
+        .check-icon { color: var(--red); font-weight: 700; }
+        .preview-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        @media (min-width: 640px) { .preview-card { padding: 32px; } }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        @media (min-width: 640px) { .preview-grid { grid-template-columns: 1fr 1fr; } }
+        .faq-item { padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        .faq-item:first-child { padding-top: 0; border-top: none; }
+        .faq-item h3 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 8px;
+        }
+        .final-cta {
+            background: var(--navy);
+            padding: 64px 24px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (min-width: 640px) { .cta-buttons { flex-direction: row; } }
+        .btn-white {
+            background: white;
+            color: var(--navy-dark);
+            padding: 18px 48px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+            text-decoration: none;
+            min-height: 56px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-white:hover { background: #F0F0F0; transform: translateY(-1px); }
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 18px 48px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: background 0.2s;
+            display: inline-block;
+            text-decoration: none;
+            min-height: 56px;
+            cursor: pointer;
+        }
+        .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+        .btn-buy {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            min-height: 48px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-buy--red { background: var(--red); color: white; }
+        .btn-buy--red:hover { background: var(--red-hover); transform: translateY(-1px); }
+        .btn-buy--navy { background: var(--navy); color: white; }
+        .btn-buy--navy:hover { background: var(--navy-dark); transform: translateY(-1px); }
+        @media (max-width: 639px) { .btn-white, .btn-outline-white { width: 100%; text-align: center; } }
     </style>
-    <link rel="stylesheet" href="styles-d.css">
 </head>
-<body class="bg-cream">
+<body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header class="bg-white border-b sticky top-0 z-40" style="border-color: #E8E4E0;">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Jon's ALS Protocol Home">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-navy-500">
-                    <span class="text-white font-display font-bold text-xl" style="font-family: Fraunces;">J</span>
-                </div>
-                <div class="leading-tight">
-                    <span class="font-display font-bold text-navy-500 block" style="font-size: 1.1rem;">Jon's ALS Protocol</span>
-                    <span class="text-xs block" style="color: #727272;">Still Walking</span>
-                </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="Jon's ALS Protocol Home">
+                <span class="logo-icon">J</span>
+                Jon's ALS Protocol
             </a>
-            <nav class="flex items-center gap-3 sm:gap-5" aria-label="Main navigation">
-                <a href="about.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="hidden sm:inline-flex items-center font-semibold transition-colors hover:text-als-red-500 px-2" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red !text-base !py-2.5 !px-5 hidden sm:inline-block">Get the Protocol</a>
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="sm:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-                    <svg class="w-6 h-6" style="color: #1A1A1A;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="about.html" class="nav-link">About Jon</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
+                <a href="protocol.html" class="header-cta">Get the Protocol</a>
+                <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </nav>
         </div>
-        <div id="mobileMenu" class="hidden sm:hidden border-t px-4 py-4 bg-white" style="border-color: #E8E4E0;">
-            <div class="flex flex-col gap-3">
-                <a href="about.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">About Jon</a>
-                <a href="blog/index.html" class="font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: #4A4A4A; min-height: 48px;">Blog</a>
-                <a href="protocol.html" class="btn-red text-center !py-3">Get the Protocol</a>
-            </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="about.html">About Jon</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="protocol.html" class="mobile-cta">Get the Protocol</a>
         </div>
     </header>
 
     <main id="main">
         <!-- Hero -->
-        <section class="py-16 sm:py-24" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <span class="inline-flex items-center gap-2 bg-als-red-50 text-als-red-500 text-sm font-bold px-4 py-2 rounded-full mb-6">
-                    <span class="w-2 h-2 bg-als-red-500 rounded-full"></span>
+        <section class="section-lg" style="background: linear-gradient(180deg, #FFFFFF 0%, var(--cream) 100%);">
+            <div class="container-narrow" style="text-align: center;">
+                <span class="pricing-badge pricing-badge--red" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+                    <span style="width: 8px; height: 8px; background: var(--red); border-radius: 50%;"></span>
                     Complete Protocol Guide
                 </span>
-                <h1 class="font-display text-4xl sm:text-5xl font-bold text-navy-900 mb-6">My Full Supplement Protocol</h1>
-                <p class="text-xl mb-10" style="color: #4A4A4A;">This is everything I take, organized so you or your caregiver can start today. Exact brands, doses, timing, my daily routine, and the mindset that keeps me going.</p>
+                <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: var(--navy-dark); margin-bottom: 24px;">My Full Supplement Protocol</h1>
+                <p style="font-size: 1.25rem; color: var(--text-mid); margin-bottom: 40px;">This is everything I take, organized so you or your caregiver can start today. Exact brands, doses, timing, my daily routine, and the mindset that keeps me going.</p>
 
                 <!-- Pricing cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto text-left">
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 2px solid #C41E3A;">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-als-red-50 text-als-red-500 mb-4">Most Popular</span>
-                        <div class="mb-3">
-                            <span class="font-display text-4xl font-bold text-navy-900">$39</span>
-                            <span class="text-sm ml-1" style="color: #727272;">one-time</span>
+                <div class="pricing-grid">
+                    <div class="pricing-card pricing-card--primary">
+                        <span class="pricing-badge pricing-badge--red">Most Popular</span>
+                        <div style="margin-bottom: 12px;">
+                            <span class="price-display">$39</span>
+                            <span class="price-suffix">one-time</span>
                         </div>
-                        <p class="text-sm mb-5" style="color: #4A4A4A;">The full protocol PDF. Yours forever. Includes all 23 supplements, mindset framework, and daily routine.</p>
-                        <button onclick="alert('Payment coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified when it launches.')" class="btn-red-lg !text-base !py-3 !px-6 w-full text-center block cursor-pointer border-0">Buy the Protocol</button>
-                        <p class="text-xs mt-3 text-center" style="color: #727272;">Instant download. 30-day money-back guarantee.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-mid); margin-bottom: 20px;">The full protocol PDF. Yours forever. Includes all 23 supplements, mindset framework, and daily routine.</p>
+                        <button onclick="alert('Payment coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified when it launches.')" class="btn-buy btn-buy--red">Buy the Protocol</button>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; text-align: center;">Instant download. 30-day money-back guarantee.</p>
                     </div>
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4" style="background: #EFF4FA; color: #1E3A5F;">Stay Connected</span>
-                        <div class="mb-3">
-                            <span class="font-display text-4xl font-bold text-navy-900">$9.99</span>
-                            <span class="text-sm ml-1" style="color: #727272;">/month</span>
+                    <div class="pricing-card pricing-card--secondary">
+                        <span class="pricing-badge pricing-badge--navy">Stay Connected</span>
+                        <div style="margin-bottom: 12px;">
+                            <span class="price-display">$9.99</span>
+                            <span class="price-suffix">/month</span>
                         </div>
-                        <p class="text-sm mb-5" style="color: #4A4A4A;">Everything in the one-time plan, plus quarterly protocol updates, monthly check-ins from Jon, and updates on his research and journey.</p>
-                        <button onclick="alert('Subscription coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified when it launches.')" class="btn-red-lg !text-base !py-3 !px-6 w-full text-center block !bg-navy-500 hover:!bg-navy-700 cursor-pointer border-0">Subscribe</button>
-                        <p class="text-xs mt-3 text-center" style="color: #727272;">Cancel anytime. Includes the full protocol immediately.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-mid); margin-bottom: 20px;">Everything in the one-time plan, plus quarterly protocol updates, monthly check-ins from Jon, and updates on his research and journey.</p>
+                        <button onclick="alert('Subscription coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified when it launches.')" class="btn-buy btn-buy--navy">Subscribe</button>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; text-align: center;">Cancel anytime. Includes the full protocol immediately.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- What's Included -->
-        <section class="py-16 sm:py-20">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl font-bold text-navy-900 text-center mb-12">What's Included</h2>
-                <div class="space-y-6">
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Full Supplement Stack (23 supplements)</h3>
-                        <p style="color: #4A4A4A;" class="mb-4">Organized into three categories:</p>
-                        <div class="space-y-3">
-                            <div class="flex items-start gap-3">
-                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full flex-shrink-0 mt-1" style="background: #EFF4FA; color: #1E3A5F;">Vitamins</span>
-                                <p class="text-sm" style="color: #4A4A4A;">Vitamin D3, B-Complex, Vitamin E, and more - the foundation of Jon's daily stack</p>
+        <section class="section-lg">
+            <div class="container-narrow">
+                <h2 style="font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; color: var(--navy-dark); text-align: center; margin-bottom: 48px;">What's Included</h2>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="feature-card">
+                        <h3>Full Supplement Stack (23 supplements)</h3>
+                        <p style="color: var(--text-mid); margin-bottom: 16px;">Organized into three categories:</p>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                <span class="category-badge" style="background: #EFF4FA; color: var(--navy);">Vitamins</span>
+                                <p style="font-size: 0.875rem; color: var(--text-mid);">Vitamin D3, B-Complex, Vitamin E, and more - the foundation of Jon's daily stack</p>
                             </div>
-                            <div class="flex items-start gap-3">
-                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full flex-shrink-0 mt-1" style="background: #E8F5EC; color: #1A7431;">Muscle Support</span>
-                                <p class="text-sm" style="color: #4A4A4A;">Bodybuilding supplements adapted for ALS muscle preservation, including HMB and creatine</p>
+                            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                <span class="category-badge" style="background: #E8F5EC; color: #1A7431;">Muscle Support</span>
+                                <p style="font-size: 0.875rem; color: var(--text-mid);">Bodybuilding supplements adapted for ALS muscle preservation, including HMB and creatine</p>
                             </div>
-                            <div class="flex items-start gap-3">
-                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full flex-shrink-0 mt-1 bg-als-red-50 text-als-red-500">Potent</span>
-                                <p class="text-sm" style="color: #4A4A4A;">The supplements Jon considers most important - L-Serine, and others backed by ALS-specific research</p>
+                            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                <span class="category-badge" style="background: #FEF2F2; color: var(--red);">Potent</span>
+                                <p style="font-size: 0.875rem; color: var(--text-mid);">The supplements Jon considers most important - L-Serine, and others backed by ALS-specific research</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">For Each Supplement</h3>
-                        <ul class="space-y-2" style="color: #4A4A4A;">
-                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Exact brand Jon uses</li>
-                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Daily dose</li>
-                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> When to take it (morning, afternoon, evening, with food)</li>
-                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Where to buy it (direct purchase links)</li>
-                            <li class="flex items-center gap-3"><span class="text-als-red-500 font-bold">&#10003;</span> Why Jon takes it (in his own words)</li>
+                    <div class="feature-card">
+                        <h3>For Each Supplement</h3>
+                        <ul class="check-list">
+                            <li><span class="check-icon">&#10003;</span> Exact brand Jon uses</li>
+                            <li><span class="check-icon">&#10003;</span> Daily dose</li>
+                            <li><span class="check-icon">&#10003;</span> When to take it (morning, afternoon, evening, with food)</li>
+                            <li><span class="check-icon">&#10003;</span> Where to buy it (direct purchase links)</li>
+                            <li><span class="check-icon">&#10003;</span> Why Jon takes it (in his own words)</li>
                         </ul>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Jon's Daily Routine</h3>
-                        <p style="color: #4A4A4A;">Jon's complete daily schedule - when he wakes up, his supplement timing throughout the day, his exercise routine, meals, and evening wind-down. A real look at how he structures each day.</p>
+                    <div class="feature-card">
+                        <h3>Jon's Daily Routine</h3>
+                        <p style="color: var(--text-mid);">Jon's complete daily schedule - when he wakes up, his supplement timing throughout the day, his exercise routine, meals, and evening wind-down. A real look at how he structures each day.</p>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">My 5 Rules for Living with ALS</h3>
-                        <p style="color: #4A4A4A;" class="mb-3">The mental framework I credit as much as any supplement. Including:</p>
-                        <p style="color: #0F2040; font-weight: 600; font-style: italic;">&ldquo;This disease will not kill me. I don't know if that's true. But I wake up every morning and choose it.&rdquo;</p>
-                        <p class="mt-3"><a href="blog/mindset-als.html" class="text-als-red-500 font-semibold hover:text-als-red-700">Read all 5 rules →</a></p>
+                    <div class="feature-card">
+                        <h3>My 5 Rules for Living with ALS</h3>
+                        <p style="color: var(--text-mid); margin-bottom: 12px;">The mental framework I credit as much as any supplement. Including:</p>
+                        <p style="color: var(--navy-dark); font-weight: 600; font-style: italic;">&ldquo;This disease will not kill me. I don't know if that's true. But I wake up every morning and choose it.&rdquo;</p>
+                        <p style="margin-top: 12px;"><a href="blog/mindset-als.html" style="color: var(--red); font-weight: 600;">Read all 5 rules &rarr;</a></p>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid #E8E4E0;">
-                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">Quick-Reference Cheat Sheet</h3>
-                        <p style="color: #4A4A4A;">A one-page summary table you can print out or keep on your phone. Every supplement, dose, and timing at a glance.</p>
+                    <div class="feature-card">
+                        <h3>Quick-Reference Cheat Sheet</h3>
+                        <p style="color: var(--text-mid);">A one-page summary table you can print out or keep on your phone. Every supplement, dose, and timing at a glance.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Sample Preview -->
-        <section class="py-16 sm:py-20 bg-surface">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl font-bold text-navy-900 text-center mb-4">Preview</h2>
-                <p class="text-center mb-10" style="color: #4A4A4A;">Here's what a supplement entry looks like inside the protocol:</p>
-                <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 2px solid #E8E4E0;">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-als-red-50 text-als-red-500">Potent</span>
-                        <h3 class="font-display text-2xl font-bold text-navy-900">L-Serine</h3>
+        <section class="section-lg" style="background: var(--surface);">
+            <div class="container-narrow">
+                <h2 style="font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; color: var(--navy-dark); text-align: center; margin-bottom: 16px;">Preview</h2>
+                <p style="text-align: center; color: var(--text-mid); margin-bottom: 40px;">Here's what a supplement entry looks like inside the protocol:</p>
+                <div class="preview-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span class="category-badge" style="background: #FEF2F2; color: var(--red);">Potent</span>
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy-dark);">L-Serine</h3>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div class="preview-grid">
                         <div>
-                            <p class="text-sm font-bold" style="color: #727272;">BRAND</p>
-                            <p style="color: #1A1A1A;">Prescribed by neurologist (pharmaceutical grade)</p>
+                            <p style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted);">BRAND</p>
+                            <p style="color: var(--text-dark);">Prescribed by neurologist (pharmaceutical grade)</p>
                         </div>
                         <div>
-                            <p class="text-sm font-bold" style="color: #727272;">DAILY DOSE</p>
-                            <p style="color: #1A1A1A;">30g per day (split into 2 doses)</p>
+                            <p style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted);">DAILY DOSE</p>
+                            <p style="color: var(--text-dark);">30g per day (split into 2 doses)</p>
                         </div>
                         <div>
-                            <p class="text-sm font-bold" style="color: #727272;">TIMING</p>
-                            <p style="color: #1A1A1A;">15g morning, 15g evening - mixed into a drink</p>
+                            <p style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted);">TIMING</p>
+                            <p style="color: var(--text-dark);">15g morning, 15g evening - mixed into a drink</p>
                         </div>
                         <div>
-                            <p class="text-sm font-bold" style="color: #727272;">WHERE TO BUY</p>
-                            <p><a href="https://www.amazon.com/s?k=l-serine+powder+500g" target="_blank" rel="noopener" class="text-als-red-500 font-semibold hover:text-als-red-700">View on Amazon →</a></p>
+                            <p style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted);">WHERE TO BUY</p>
+                            <p><a href="https://www.amazon.com/s?k=l-serine+powder+500g" target="_blank" rel="noopener" style="color: var(--red); font-weight: 600;">View on Amazon &rarr;</a></p>
                         </div>
                     </div>
-                    <div class="pt-4" style="border-top: 1px solid #E8E4E0;">
-                        <p class="text-sm font-bold mb-1" style="color: #727272;">WHY JON TAKES IT</p>
-                        <p style="color: #4A4A4A;">"L-Serine is the one I'd take if I could only take one thing. A Phase 1 clinical trial showed ALS patients taking 30g/day had roughly 85% slower functional decline. It has FDA GRAS status, meaning it's recognized as safe. My neurologist supports me taking this."</p>
+                    <div style="padding-top: 16px; border-top: 1px solid var(--border);">
+                        <p style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">WHY JON TAKES IT</p>
+                        <p style="color: var(--text-mid);">"L-Serine is the one I'd take if I could only take one thing. A Phase 1 clinical trial showed ALS patients taking 30g/day had roughly 85% slower functional decline. It has FDA GRAS status, meaning it's recognized as safe. My neurologist supports me taking this."</p>
                     </div>
                 </div>
-                <p class="text-center text-sm mt-6" style="color: #727272;">The full protocol includes 23 supplement entries like this, plus the daily routine and mindset sections.</p>
+                <p style="text-align: center; font-size: 0.875rem; margin-top: 24px; color: var(--text-muted);">The full protocol includes 23 supplement entries like this, plus the daily routine and mindset sections.</p>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-16 sm:py-20">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6">
-                <h2 class="font-display text-3xl font-bold text-navy-900 text-center mb-12">Common Questions</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">Is this medical advice?</h3>
-                        <p style="color: #4A4A4A;">No. Jon is an ALS patient sharing what he personally takes. He is not a doctor. Always consult your physician before starting any supplement.</p>
+        <section class="section-lg">
+            <div class="container-narrow">
+                <h2 style="font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; color: var(--navy-dark); text-align: center; margin-bottom: 48px;">Common Questions</h2>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="faq-item">
+                        <h3>Is this medical advice?</h3>
+                        <p style="color: var(--text-mid);">No. Jon is an ALS patient sharing what he personally takes. He is not a doctor. Always consult your physician before starting any supplement.</p>
                     </div>
-                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">Why does this cost $39?</h3>
-                        <p style="color: #4A4A4A;">The $39 covers the time to keep this guide updated and the site running. Jon's story, blog posts, and general supplement information are always free on the blog. The protocol gives you the complete, organized details in one place.</p>
+                    <div class="faq-item">
+                        <h3>Why does this cost $39?</h3>
+                        <p style="color: var(--text-mid);">The $39 covers the time to keep this guide updated and the site running. Jon's story, blog posts, and general supplement information are always free on the blog. The protocol gives you the complete, organized details in one place.</p>
                     </div>
-                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">What's the $9.99/month subscription?</h3>
-                        <p style="color: #4A4A4A;">The subscription is optional. It includes everything in the one-time purchase, plus quarterly protocol updates when Jon changes his regimen, monthly check-ins from Jon on how he's doing, and updates on new research he's following. You can cancel anytime.</p>
+                    <div class="faq-item">
+                        <h3>What's the $9.99/month subscription?</h3>
+                        <p style="color: var(--text-mid);">The subscription is optional. It includes everything in the one-time purchase, plus quarterly protocol updates when Jon changes his regimen, monthly check-ins from Jon on how he's doing, and updates on new research he's following. You can cancel anytime.</p>
                     </div>
-                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">What if I want a refund?</h3>
-                        <p style="color: #4A4A4A;">Full refund within 30 days, no questions asked. If the protocol isn't helpful for you, we'll give your money back.</p>
+                    <div class="faq-item">
+                        <h3>What if I want a refund?</h3>
+                        <p style="color: var(--text-mid);">Full refund within 30 days, no questions asked. If the protocol isn't helpful for you, we'll give your money back.</p>
                     </div>
-                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">How do I get updates?</h3>
-                        <p style="color: #4A4A4A;">When Jon changes his regimen, we update the protocol and email you a new version. Updates are free for all buyers.</p>
+                    <div class="faq-item">
+                        <h3>How do I get updates?</h3>
+                        <p style="color: var(--text-mid);">When Jon changes his regimen, we update the protocol and email you a new version. Updates are free for all buyers.</p>
                     </div>
-                    <div style="border-top: 1px solid #E8E4E0; padding-top: 1.5rem;">
-                        <h3 class="font-display text-lg font-bold text-navy-900 mb-2">How much do the supplements cost per month?</h3>
-                        <p style="color: #4A4A4A;">Estimated total is $200-400/month depending on which supplements you choose to take and where you buy them. The protocol includes a cost breakdown. You don't need to take everything - Jon explains which ones he considers most important.</p>
+                    <div class="faq-item">
+                        <h3>How much do the supplements cost per month?</h3>
+                        <p style="color: var(--text-mid);">Estimated total is $200-400/month depending on which supplements you choose to take and where you buy them. The protocol includes a cost breakdown. You don't need to take everything - Jon explains which ones he considers most important.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Final CTA -->
-        <section class="py-16 sm:py-20 bg-navy-500">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Get the full protocol</h2>
-                <p class="text-lg mb-8" style="color: rgba(255,255,255,0.7);">23 supplements. Exact brands, doses, and timing. Jon's daily routine and mindset.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button onclick="alert('Payment coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified.')" class="btn-red-lg !bg-white !text-navy-900 hover:!bg-gray-100 cursor-pointer border-0">Buy for $39</button>
-                    <button onclick="alert('Subscription coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified.')" class="btn-red-lg !bg-transparent !text-white !border-2 !border-white hover:!bg-white/10 cursor-pointer">Subscribe for $9.99/mo</button>
+        <section class="final-cta">
+            <div class="container-narrow">
+                <h2>Get the full protocol</h2>
+                <p style="font-size: 1.125rem; color: rgba(255,255,255,0.7); margin-bottom: 32px;">23 supplements. Exact brands, doses, and timing. Jon's daily routine and mindset.</p>
+                <div class="cta-buttons">
+                    <button onclick="alert('Payment coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified.')" class="btn-white">Buy for $39</button>
+                    <button onclick="alert('Subscription coming soon! Jon is finalizing the protocol. Join the email list on the homepage to be notified.')" class="btn-outline-white">Subscribe for $9.99/mo</button>
                 </div>
-                <p class="text-sm mt-4" style="color: rgba(255,255,255,0.5);">Instant access. 30-day money-back guarantee. Cancel subscription anytime.</p>
+                <p style="font-size: 0.875rem; margin-top: 16px; color: rgba(255,255,255,0.5);">Instant access. 30-day money-back guarantee. Cancel subscription anytime.</p>
             </div>
         </section>
 
         <!-- Disclaimer -->
-        <section class="py-8" style="background: #F5F3F0; border-top: 1px solid #E8E4E0;">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-                <p class="text-sm" style="color: #727272; line-height: 1.7;">
-                    <strong style="color: #4A4A4A;">Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
-                </p>
-            </div>
+        <section class="disclaimer-bar">
+            <p>
+                <strong>Medical Disclaimer:</strong> This is not medical advice. Jon Edy is an ALS patient sharing his personal experience. He is not a doctor, nurse, or medical professional. Consult your physician before starting any supplement regimen. No supplements mentioned on this site are claimed to treat, cure, mitigate, or prevent ALS or any disease.
+            </p>
         </section>
     </main>
 
-    <footer class="bg-white py-12" style="border-top: 1px solid #E8E4E0;">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-3">
-                        <div class="w-8 h-8 rounded-md flex items-center justify-center bg-navy-500"><span class="text-white font-display font-bold text-sm">J</span></div>
-                        <span class="font-display font-bold text-navy-500">Jon's ALS Protocol</span>
-                    </div>
-                    <p class="text-sm" style="color: #727272;">One patient's protocol, mindset, and daily routine - shared openly.</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">
+                    <span class="logo-icon">J</span>
+                    <span>Jon's ALS Protocol</span>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Navigate</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="about.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">About Jon</a></li>
-                        <li><a href="blog/index.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Blog</a></li>
-                        <li><a href="protocol.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Get the Protocol</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3" style="color: #1A1A1A;">Legal</h4>
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="privacy.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Terms of Service</a></li>
-                        <li><a href="disclaimer.html" class="hover:text-als-red-500 transition-colors inline-block py-2" style="color: #727272; min-height: 44px;">Medical Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class="footer-desc">One patient's protocol, mindset, and daily routine shared openly.</p>
             </div>
-            <div class="pt-8 text-center" style="border-top: 1px solid #E8E4E0;">
-                <p class="text-xs" style="color: #727272;">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
-                <p class="text-xs mt-1" style="color: #727272;">As an Amazon Associate, I earn from qualifying purchases. <a href="disclaimer.html" class="underline hover:text-als-red-500 inline-block py-1" style="min-height: 44px; line-height: 44px;">Full affiliate disclosure</a>.</p>
+            <div>
+                <p class="footer-heading">Navigate</p>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Jon</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="protocol.html">Get the Protocol</a></li>
+                </ul>
             </div>
+            <div>
+                <p class="footer-heading">Legal</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Jon's ALS Protocol. All rights reserved.</p>
+            <p class="footer-copy" style="margin-top: 4px;">As an Amazon Associate, I earn from qualifying purchases. This site contains affiliate links.</p>
         </div>
     </footer>
 </body>
