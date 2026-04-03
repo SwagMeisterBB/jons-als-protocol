@@ -63,7 +63,7 @@ Updated: March 31, 2026
 - [ ] Local news — pitch "Colorado man defies ALS for 6+ years" to local media
 
 ### Technical
-- [ ] Replace Tailwind CDN on remaining pages (about, protocol, supplements, etc.) — Option D homepage already uses pure CSS
+- [x] Replace Tailwind CDN on ALL pages — created option-d.css, rewrote 24 pages to pure CSS, removed styles-d.css override layer. Zero framework dependencies.
 - [ ] IndexNow — enable on Vercel for instant Bing indexing
 - [ ] Add sameAs to schema once YouTube/LinkedIn profiles exist
 - [ ] Performance audit after full cascade (target sub-100ms on all pages)
